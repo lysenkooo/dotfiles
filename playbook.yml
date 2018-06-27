@@ -40,11 +40,12 @@
         - imagemagick@6
         - v8@3.15
         - libpqxx@3
+        - mas
         - https://raw.githubusercontent.com/turforlag/homebrew-cervezas/master/pdftk.rb
 
     - name: cask packages are installed
       homebrew_cask: name='{{ item }}' state=present
-      items:
+      with_items:
         - tunnelblick
         - wkhtmltopdf
         - virtualbox
@@ -57,6 +58,7 @@
         - flash-npapi
         - mysql-shell
         - wireshark
+        - imageoptim
 
     - name: pip packages are installed
       pip:
