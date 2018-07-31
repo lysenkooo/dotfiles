@@ -112,6 +112,7 @@ set laststatus=2
 set lazyredraw
 set list
 set listchars=trail:•,nbsp:≡,tab:>-
+set grepprg=ack
 
 highlight ColorColumn ctermbg=8
 

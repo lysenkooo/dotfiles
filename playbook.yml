@@ -70,6 +70,7 @@
         - neovim
         - awscli
         - ansible-vault
+        - jmespath
 
     - name: rbenv gems are installed
       gem:
@@ -129,6 +130,7 @@
           - .sublime-settings
           - .tmux.conf
           - .vimrc
+          - .pryrc
 
     - name: create config dirs
       file: path='~/{{ item | dirname }}' state=directory
