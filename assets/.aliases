@@ -29,6 +29,10 @@ alias gush='git push'
 
 # dev
 alias fs='foreman start'
+alias om='overmind'
+alias oms='overmind start'
+alias omc='overmind connect'
+alias omr='overmind restart'
 alias be='bundle exec'
 alias rake='bundle exec rake'
 alias rails='bundle exec rails'

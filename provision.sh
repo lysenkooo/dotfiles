@@ -14,6 +14,7 @@ if [[ ! -x /usr/local/bin/brew ]]; then
 fi
 
 brew ls --versions python3 || brew install python3
+pip3 install --upgrade pip
 
 if [[ ! -x /usr/local/bin/ansible ]]; then
     echo "Installing ansible..."

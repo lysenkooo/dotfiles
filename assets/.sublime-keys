@@ -4,5 +4,10 @@
   { "keys": ["alt+shift+r"], "command": "goto_definition" },
   { "keys": ["alt+shift+f"], "command": "reindent" },
   { "keys": ["alt+shift+p"], "command": "pretty_ruby_format" },
-  { "keys": ["alt+shift+d"], "command": "dash_doc"}
+  { "keys": ["alt+shift+d"], "command": "dash_doc"},
+  { "keys": ["ctrl+alt+f"], "command": "find_next_conflict" },
+  { "keys": ["ctrl+alt+o"], "command": "keep", "args": { "keep": "ours" } },
+  { "keys": ["ctrl+alt+t"], "command": "keep", "args": { "keep": "theirs" } },
+  { "keys": ["ctrl+alt+a"], "command": "keep", "args": { "keep": "ancestor" } },
+  { "keys": ["ctrl+alt+c"], "command": "list_conflict_files" }
 ]

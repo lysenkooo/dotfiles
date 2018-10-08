@@ -15,7 +15,8 @@
     ci = commit
     st = status
     br = branch
-    h = log --pretty=format:\"%h | %ad | %s%d [%an]\" --graph --date=short
+    h = log --graph --date=short --pretty=format:'%h | %ad | %s%d [%an]'
+    h2 = log --graph --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
 [merge]
     ff = false

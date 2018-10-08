@@ -23,6 +23,8 @@ export PATH="/usr/local/opt/coreutils/bin:$PATH" # brew --prefix coreutils
 export PATH="/usr/local/opt/ctags/bin:$PATH" # brew --prefix ctags
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/Applications/LibreOffice.app/Contents/MacOS:$PATH"
+export PATH="/usr/local/opt/php@7.0/bin:$PATH"
+export PATH="/usr/local/opt/php@7.0/sbin:$PATH"
 
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases

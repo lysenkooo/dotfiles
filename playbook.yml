@@ -59,6 +59,7 @@
         - mysql-shell
         - wireshark
         - imageoptim
+        - chromedriver
 
     - name: pip packages are installed
       pip:

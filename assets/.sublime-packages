@@ -20,6 +20,7 @@
 		"EditorConfig",
 		"Emmet",
 		"Git",
+		"Git Conflict Resolver",
 		"GitGutter",
 		"HTML2Slim",
 		"JSX",
@@ -41,6 +42,7 @@
 		"SublimeLinter-ruby",
 		"Surround",
 		"Terminal",
-		"Vintage Surround"
+		"Vintage Surround",
+		"YAML Nav"
 	]
 }
