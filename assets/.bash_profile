@@ -22,9 +22,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="/usr/local/opt/coreutils/bin:$PATH" # brew --prefix coreutils
 export PATH="/usr/local/opt/ctags/bin:$PATH" # brew --prefix ctags
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/Applications/LibreOffice.app/Contents/MacOS:$PATH"
 export PATH="/usr/local/opt/php@7.0/bin:$PATH"
 export PATH="/usr/local/opt/php@7.0/sbin:$PATH"
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+export PATH="/Applications/LibreOffice.app/Contents/MacOS:$PATH"
 
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases

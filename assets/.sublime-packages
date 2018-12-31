@@ -27,6 +27,7 @@
 		"MarkdownPreview",
 		"Package Control",
 		"Pretty Ruby",
+		"React IDE",
 		"RuboCop",
 		"Ruby Slim",
 		"Sass",
@@ -43,6 +44,7 @@
 		"Surround",
 		"Terminal",
 		"Vintage Surround",
+		"Vue Syntax Highlight",
 		"YAML Nav"
 	]
 }
