@@ -13,7 +13,7 @@ if [[ ! -x /usr/local/bin/brew ]]; then
     brew update
 fi
 
-brew ls --versions python3 || brew install python3
+brew ls --versions python3 > /dev/null || brew install python3
 pip3 install --upgrade pip
 
 if [[ ! -x /usr/local/bin/ansible ]]; then

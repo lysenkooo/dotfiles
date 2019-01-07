@@ -39,9 +39,9 @@
         - jmeter
         - imagemagick@6
         - v8@3.15
-        - libpqxx@3
+        #- libpqxx@3
         - mas
-        - https://raw.githubusercontent.com/turforlag/homebrew-cervezas/master/pdftk.rb
+        #- https://raw.githubusercontent.com/turforlag/homebrew-cervezas/master/pdftk.rb
 
     - name: cask packages are installed
       homebrew_cask: name='{{ item }}' state=present
@@ -59,42 +59,12 @@
         - mysql-shell
         - wireshark
         - imageoptim
+        - yandexdisk
         - chromedriver
-
-    - name: pip packages are installed
-      pip:
-        name: '{{ item }}'
-        state: present
-        executable: pip3
-        extra_args: --user
-      with_items:
-        - neovim
-        - awscli
-        - ansible-vault
-        - jmespath
-
-    - name: rbenv gems are installed
-      gem:
-        name: '{{ item }}'
-        state: present
-        executable: /usr/local/var/rbenv/shims/gem
-      with_items:
-        - bundler
-        - foreman
-        - rubocop
-        - rubycritic
-        - brakeman
-        - bundle-audit
-        - tmuxinator
-        - neovim
-
-    - name: node packages are installed
-      npm: name='{{ item }}' state=present global=yes
-      with_items:
-        - eslint
-        - eslint-plugin-react
-        - eslint-plugin-node
-        - babel-eslint
+        - google-chrome
+        - sublime-text
+        - paragon-ntfs
+        - sketchup
 
     # configs
 
@@ -144,6 +114,57 @@
         state: link
         force: yes
       with_items: '{{ list }}'
+
+    # packages
+
+    - name: pip packages are installed
+      pip:
+        name: '{{ item }}'
+        state: present
+        executable: pip3
+        extra_args: --user
+      with_items:
+        - neovim
+        - awscli
+        - ansible-vault
+        - jmespath
+
+    - name: node packages are installed
+      npm: name='{{ item }}' state=present global=yes
+      with_items:
+        - eslint
+        - eslint-plugin-react
+        - eslint-plugin-node
+        - babel-eslint
+
+    - name: get ruby versions
+      shell: rbenv versions
+      register: rbenv_versions
+
+    - name: install ruby
+      shell: rbenv install 2.5.3
+      when: '"2.5.3" not in rbenv_versions.stdout'
+
+    - name: set ruby
+      shell: rbenv global 2.5.3
+
+    - name: install ruby
+      shell: rbenv rehash
+
+    - name: rbenv gems are installed
+      gem:
+        name: '{{ item }}'
+        state: present
+        executable: /usr/local/var/rbenv/shims/gem
+      with_items:
+        - bundler
+        - foreman
+        - rubocop
+        - rubycritic
+        - brakeman
+        - bundle-audit
+        - tmuxinator
+        - neovim
 
     # sublime
 
