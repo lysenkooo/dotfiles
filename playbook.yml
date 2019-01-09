@@ -39,8 +39,9 @@
         - jmeter
         - imagemagick@6
         - v8@3.15
-        #- libpqxx@3
         - mas
+        - postgresql
+        #- libpqxx@3
         #- https://raw.githubusercontent.com/turforlag/homebrew-cervezas/master/pdftk.rb
 
     - name: cask packages are installed
@@ -63,8 +64,9 @@
         - chromedriver
         - google-chrome
         - sublime-text
-        - paragon-ntfs
         - sketchup
+        - zoomus
+        - iterm2
 
     # configs
 
@@ -167,13 +169,6 @@
         - neovim
 
     # sublime
-
-    - name: create sublime symlink
-      file:
-        src: '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
-        dest: '/usr/local/bin/sublime'
-        state: link
-      ignore_errors: yes
 
     - name: install sublime config
       file:

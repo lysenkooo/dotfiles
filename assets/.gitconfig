@@ -5,7 +5,7 @@
 [core]
     autocrlf = input
     editor = vim
-    excludesfile = /Users/dlysenko/.gitignore_global
+    excludesfile = /Users/crashcube/.gitignore_global
 
 [color]
     ui = auto
