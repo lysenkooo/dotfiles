@@ -4,6 +4,16 @@
 	"auto_complete_commit_on_tab": true,
 	"auto_indent": true,
 	"auto_match_enabled": false,
+	"binary_file_patterns":
+	[
+		"public/assets/*",
+		"public/packs/*",
+    "*.mp3",
+    "*.mp4",
+    "*.png",
+    "*.gif",
+    "*.jpe?g"
+	],
 	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-default-dark.tmTheme",
 	"copy_with_empty_selection": true,
 	"default_line_ending": "unix",
@@ -32,7 +42,8 @@
 		"*.psd",
 		"*.db",
 		"*.sublime-workspace",
-		"*.log"
+		"*.log",
+		"*.lock"
 	],
 	"folder_exclude_patterns":
 	[
@@ -43,7 +54,8 @@
 		"tmp",
 		"log",
 		"coverage",
-		"node_modules"
+		"node_modules",
+    "solr"
 	],
 	"font_options":
 	[

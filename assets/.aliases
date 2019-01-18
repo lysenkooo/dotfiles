@@ -47,6 +47,8 @@ alias resque-start='bundle exec rake resque:work QUEUES=* TERM_CHILD=1'
 alias bsl='brew services list'
 alias bsr='brew services run'
 alias bss='brew services stop'
+alias aenc='ansible-vault encrypt --vault-id .vpass'
+alias adec='ansible-vault decrypt --vault-id .vpass'
 
 # docker
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'
@@ -60,6 +62,17 @@ alias workhard='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^#//g" | sudo tee /etc
 alias procrastinate='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^/#/g" | sudo tee /etc/hosts'
 
 # functions
+
+fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+ff() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  vi "$dir"
+}
 
 unmount() {
     if [ ! -d "$1" ]; then

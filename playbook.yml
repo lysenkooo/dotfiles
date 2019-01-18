@@ -42,6 +42,8 @@
         - mas
         - postgresql
         - overmind
+        - bitwarden-cli
+        - fzf
 
     - name: cask packages are installed
       homebrew_cask: name='{{ item }}' state=present
