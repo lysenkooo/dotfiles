@@ -8,11 +8,12 @@
 	[
 		"public/assets/*",
 		"public/packs/*",
-    "*.mp3",
-    "*.mp4",
-    "*.png",
-    "*.gif",
-    "*.jpe?g"
+		"public/packs-test/*",
+		"*.mp3",
+		"*.mp4",
+		"*.png",
+		"*.gif",
+		"*.jpe?g"
 	],
 	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-default-dark.tmTheme",
 	"copy_with_empty_selection": true,
@@ -55,7 +56,7 @@
 		"log",
 		"coverage",
 		"node_modules",
-    "solr"
+		"solr"
 	],
 	"font_options":
 	[
