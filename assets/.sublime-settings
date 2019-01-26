@@ -13,7 +13,10 @@
 		"*.mp4",
 		"*.png",
 		"*.gif",
-		"*.jpe?g"
+		"*.jpg",
+		"*.jpeg",
+		"*.min.js",
+		"*.min.css"
 	],
 	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-default-dark.tmTheme",
 	"copy_with_empty_selection": true,

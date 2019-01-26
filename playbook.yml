@@ -30,6 +30,7 @@
         - neovim/neovim/neovim
         - python3
         - kubernetes-cli
+        - kubernetes-helm
         - hiredis
         - p7zip
         - poppler
@@ -74,6 +75,7 @@
         - sourcetree
         - vagrant
         - signal
+        - kubernetic
 
     # configs
 
