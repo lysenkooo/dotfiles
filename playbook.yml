@@ -86,7 +86,7 @@
           - .config/nvim/init.vim
           - .private
           - .ssh
-          - .tmuxinator/code.yml
+          - .tmuxinator
           - .ackrc
           - .aliases
           - .ansible.cfg

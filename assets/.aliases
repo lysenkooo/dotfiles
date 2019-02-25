@@ -13,6 +13,7 @@ alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias wallup='sudo pfctl -f /etc/pf.conf -e'
 alias walldown='sudo pfctl -d'
 alias fixttl='sudo sysctl -w net.inet.ip.ttl=65'
+alias sa='ssh-add'
 
 # tmux
 alias ts='tmux ls'

@@ -47,7 +47,8 @@
 		"*.db",
 		"*.sublime-workspace",
 		"*.log",
-		"*.lock"
+		"*.lock",
+    "*.retry"
 	],
 	"folder_exclude_patterns":
 	[
@@ -59,7 +60,8 @@
 		"log",
 		"coverage",
 		"node_modules",
-		"solr"
+		"solr",
+    "dist"
 	],
 	"font_options":
 	[

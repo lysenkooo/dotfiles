@@ -7,8 +7,8 @@ if [[ ! -x /usr/bin/gcc ]]; then
     xcode-select --install
 fi
 
-defaults write -g NSRequiresAquaSystemAppearance -bool Yes
-defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write -g NSRequiresAquaSystemAppearance 1
+defaults write -g ApplePressAndHoldEnabled 0
 defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
 defaults write com.apple.desktopservices DSDontWriteNetworkStores 1
 defaults write com.apple.TextEdit RichText 0
