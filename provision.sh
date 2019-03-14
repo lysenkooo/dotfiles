@@ -16,13 +16,11 @@ defaults write com.apple.TextEdit RichText 0
 if [[ ! -x /usr/local/bin/brew ]]; then
     echo "Installing Homebrew..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew update
-    brew upgrade
-    brew doctor
-    brew tap caskroom/versions
 fi
 
-brew ls --versions python3 > /dev/null || brew install python3
+brew update
+brew doctor
+brew bundle
 
 if [[ ! -x /usr/local/bin/ansible ]]; then
     echo "Installing ansible..."

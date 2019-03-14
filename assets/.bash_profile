@@ -27,6 +27,8 @@ export PATH="/usr/local/opt/php@7.0/bin:$PATH"
 export PATH="/usr/local/opt/php@7.0/sbin:$PATH"
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 export PATH="/Applications/LibreOffice.app/Contents/MacOS:$PATH"
+export PATH="`python3 -m site --user-base`/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases

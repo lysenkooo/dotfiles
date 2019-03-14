@@ -4,6 +4,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias dev_appserver.py='/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/dev_appserver.py'
 alias myip='curl ifconfig.co/json'
+alias chrome='open -a /Applications/Google\ Chrome.app'
 
 # os x
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
@@ -50,6 +51,7 @@ alias bsr='brew services run'
 alias bss='brew services stop'
 alias aenc='ansible-vault encrypt --vault-id .vpass'
 alias adec='ansible-vault decrypt --vault-id .vpass'
+alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
 
 # docker
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'
