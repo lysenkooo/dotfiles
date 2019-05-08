@@ -23,7 +23,7 @@ brew 'pstree'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'telegram-cli'
-brew 'tmux'
+brew 'tmux' # https://github.com/Homebrew/homebrew-core/raw/8653b08f1f40dfcad935483ba7db15d8bb0ef3cc/Formula/tmux.rb
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'

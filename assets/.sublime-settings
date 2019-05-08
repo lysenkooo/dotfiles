@@ -61,7 +61,9 @@
 		"coverage",
 		"node_modules",
 		"solr",
-		"dist"
+		"dist",
+		".nuxt",
+		"_nuxt"
 	],
 	"font_options":
 	[
