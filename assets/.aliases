@@ -29,6 +29,7 @@ alias gl='git log'
 alias gull='git pull'
 alias gullr='git pull --rebase'
 alias gush='git push'
+alias gushoh='git push -u origin HEAD'
 
 # dev
 alias fs='foreman start'
@@ -151,12 +152,25 @@ find_big() {
 }
 
 encrypt() {
-    echo "Crypt into file $1: $2"
-    echo "$2" | openssl enc -aes-256-cbc -salt > "$1"
+    if [ ! -f "$1" ]; then
+      echo "File does not exist"
+      return
+    fi
+
+    if [ -z "$2" ]; then
+      echo "Specify path"
+      return
+    fi
+
+    cat "$1" | openssl enc -aes-256-cbc -salt > "$2"
 }
 
 decrypt() {
-    echo "Decrypt file $1"
+    if [ ! -f "$1" ]; then
+      echo "File does not exist"
+      return
+    fi
+
     openssl enc -aes-256-cbc -d -in "$1"
 }
 

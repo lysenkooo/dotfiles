@@ -20,7 +20,7 @@ export SSLKEYLOGFILE=~/.ssl.log
 export VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export PATH="/usr/local/opt/coreutils/bin:$PATH" # brew --prefix coreutils
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/ctags/bin:$PATH" # brew --prefix ctags
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/php@7.0/bin:$PATH"
@@ -29,6 +29,11 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 export PATH="/Applications/LibreOffice.app/Contents/MacOS:$PATH"
 export PATH="`python3 -m site --user-base`/bin:$PATH"
 export PATH="~/.local/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/openssl/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases
@@ -47,4 +52,11 @@ else
     export PS1="\w\\$ "
 fi
 
+GIT_COMPLETION=/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+[ -s $GIT_COMPLETION ] && . $GIT_COMPLETION
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion

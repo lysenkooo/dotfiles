@@ -60,7 +60,6 @@
 		"log",
 		"coverage",
 		"node_modules",
-		"solr",
 		"dist",
 		".nuxt",
 		"_nuxt"
