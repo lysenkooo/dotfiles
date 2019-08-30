@@ -60,3 +60,21 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+_enter_dir() {
+    local git_root
+    git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+
+    if [[ "$git_root" == "$PREV_PWD" ]]; then
+        return
+    elif [[ -n "$git_root" && -f "$git_root/.nvmrc" ]]; then
+        nvm use
+        NVM_DIRTY=1
+    elif [[ "$NVM_DIRTY" == 1 ]]; then
+        nvm use default
+        NVM_DIRTY=0
+    fi
+    PREV_PWD="$git_root"
+}
+
+export PROMPT_COMMAND=_enter_dir

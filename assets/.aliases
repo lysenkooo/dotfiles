@@ -30,6 +30,7 @@ alias gull='git pull'
 alias gullr='git pull --rebase'
 alias gush='git push'
 alias gushoh='git push -u origin HEAD'
+alias gpr='hub pull-request'
 
 # dev
 alias fs='foreman start'
@@ -248,3 +249,10 @@ pghero() {
 
     docker run --rm --name pghero -it -p 8080:8080 -e DATABASE_URL=postgres://dlysenko:postgres@docker.for.mac.localhost:5432/$1 ankane/pghero
 }
+
+gocode() {
+    brew services run postgresql
+    brew services run redis
+    brew services run memcached
+}
+
