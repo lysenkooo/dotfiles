@@ -10,12 +10,9 @@
 		"Babel",
 		"Babel Snippets",
 		"Base16 Color Schemes",
-		"ColorPicker",
-		"DiffTabs",
 		"Dockerfile Syntax Highlighting",
 		"EditorConfig",
 		"Git",
-		"Git Conflict Resolver",
 		"JSX",
 		"MarkdownPreview",
 		"Package Control",
@@ -27,7 +24,6 @@
 		"Surround",
 		"Terminal",
 		"Vintage Surround",
-		"Vue Syntax Highlight",
-		"YAML Nav"
+		"Vue Syntax Highlight"
 	]
 }

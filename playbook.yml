@@ -41,6 +41,20 @@
         force: yes
       with_items: '{{ list }}'
 
+    # time machine
+
+    - name: ignore node_modules
+      cron:
+        name: addexclusion_projects_node_modules
+        minute: 42
+        job: find /Users/crashcube/Projects -type d -name node_modules -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
+
+    - name: ignore tmp
+      cron:
+        name: addexclusion_projects_tmp
+        minute: 42
+        job: find /Users/crashcube/Projects -type d -name tmp -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
+
     # packages
 
     - name: pip packages are installed

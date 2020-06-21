@@ -16,10 +16,15 @@
 		"*.jpg",
 		"*.jpeg",
 		"*.min.js",
-		"*.min.css"
+		"*.min.css",
+		"*.lock",
+		"*.log",
+		"*.retry"
 	],
+	"close_windows_when_empty": true,
 	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-default-dark.tmTheme",
 	"copy_with_empty_selection": true,
+	"create_window_at_startup": false,
 	"default_line_ending": "unix",
 	"detect_indentation": false,
 	"dictionary": "Packages/russian_english.dic",
@@ -45,10 +50,7 @@
 		"*.class",
 		"*.psd",
 		"*.db",
-		"*.sublime-workspace",
-		"*.log",
-		"*.lock",
-		"*.retry"
+		"*.sublime-workspace"
 	],
 	"folder_exclude_patterns":
 	[

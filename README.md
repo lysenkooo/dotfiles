@@ -11,3 +11,9 @@ $ cd dotfiles
 $ chmod +x provision.sh
 $ ./provision.sh
 ```
+
+## Dump
+
+```sh
+$ brew bundle dump --describe
+```

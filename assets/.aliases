@@ -5,6 +5,7 @@ alias vim='nvim'
 alias dev_appserver.py='/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/dev_appserver.py'
 alias myip='curl ifconfig.co/json'
 alias chrome='open -a /Applications/Google\ Chrome.app'
+alias ra='source ~/.aliases'
 
 # os x
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
@@ -31,6 +32,8 @@ alias gullr='git pull --rebase'
 alias gush='git push'
 alias gushoh='git push -u origin HEAD'
 alias gpr='hub pull-request'
+alias sw='git update-index --skip-worktree db/structure.sql'
+alias nsw='git update-index --no-skip-worktree db/structure.sql'
 
 # dev
 alias fs='foreman start'
@@ -52,9 +55,12 @@ alias resque-start='bundle exec rake resque:work QUEUES=* TERM_CHILD=1'
 alias bsl='brew services list'
 alias bsr='brew services run'
 alias bss='brew services stop'
-alias aenc='ansible-vault encrypt --vault-id .vpass'
-alias adec='ansible-vault decrypt --vault-id .vpass'
+alias av='ansible-vault'
+alias ave='ansible-vault encrypt --vault-id .vpass'
+alias avd='ansible-vault decrypt --vault-id .vpass'
 alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
+alias sl='subl -a'
+alias sla='subl -a .'
 
 # docker
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'
@@ -66,6 +72,12 @@ alias pgen8='pwgen -Cs 8 1 | tr -d " " | tr -d "\n" | pbcopy'
 alias pgen15='pwgen -Cs 15 1 | tr -d " " | tr -d "\n" | pbcopy'
 alias workhard='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^#//g" | sudo tee /etc/hosts'
 alias procrastinate='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^/#/g" | sudo tee /etc/hosts'
+alias compact720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
+
+# fohlio
+alias frestore-local='rake db:setup_production_db UNTIL=create_dump_from_local_db'
+alias frestore-test='rake db:setup_production_db[test]'
+alias frestore-testux='rake db:setup_production_db[testux]'
 
 # functions
 
@@ -251,8 +263,41 @@ pghero() {
 }
 
 gocode() {
-    brew services run postgresql
+    brew services run postgresql@11
     brew services run redis
-    brew services run memcached
+    brew services run nginx
+    #brew services run memcached
 }
 
+nocode() {
+    brew services stop postgresql@11
+    brew services stop redis
+    brew services stop memcached
+}
+
+decdump() {
+    FILE="$1"
+
+    if [ ! -f "$FILE" ]; then
+        echo "Wrong file name"
+        return 1
+    fi
+
+    openssl aes-256-cbc -d -base64 -in "$FILE" -pass "pass:$DB_SECRET" -md sha256 -out dump.tar
+    rm -f "$FILE"
+}
+
+undump() {
+    FILE="$1"
+
+    if [ ! -f "$FILE" ]; then
+        echo "Wrong file name"
+        return 1
+    fi
+
+    DIR="$(date +%H%M%S_%d%m%Y)"
+    mkdir "$DIR"
+
+    tar -xf "$FILE" -C "$DIR" --strip-components=2
+    rm -rf "$FILE"
+}
