@@ -5,18 +5,14 @@
 [core]
     autocrlf = input
     editor = vim
-	excludesfile = /Users/crashcube/.gitignore_global
+    excludesfile = /Users/crashcube/.gitignore_global
 
 [color]
     ui = auto
 
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    h = log --graph --date=short --pretty=format:'%h | %ad | %s%d [%an]'
-    h2 = log --graph --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-
-[merge]
-    ff = false
+    h = log --oneline --graph --branches
+    h2 = log --graph --date=short --pretty=format:'%h | %ad | %s%d [%an]'
+    h3 = log --graph --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    h4 = log --graph --date=short --branches --pretty=format:'%C(yellow)%h%C(reset) %ad | %C(75)%s%C(reset) %C(yellow)%d%C(reset) [%an]'
+    fixlast = commit --all --amend --no-edit

@@ -23,7 +23,8 @@
 		"SublimeCodeIntel",
 		"Surround",
 		"Terminal",
+		"TypeScript Syntax",
 		"Vintage Surround",
-		"Vue Syntax Highlight"
-	]
+		"Vue Syntax Highlight",
+	],
 }

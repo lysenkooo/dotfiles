@@ -6,6 +6,8 @@ alias dev_appserver.py='/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud
 alias myip='curl ifconfig.co/json'
 alias chrome='open -a /Applications/Google\ Chrome.app'
 alias ra='source ~/.aliases'
+alias ltu='lt --subdomain crashcube --port 4000'
+alias vsconf='vi "/Users/crashcube/Library/Application Support/Code/User/settings.json"'
 
 # os x
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
@@ -24,16 +26,51 @@ alias tk='tmux kill-session -t'
 alias tt='tmuxinator start'
 
 # git
+alias gc='git checkout'
+alias gb='git branch'
+alias ga='git add'
+alias gi='git commit'
 alias gs='git status'
 alias gd='git diff'
-alias gl='git log'
-alias gull='git pull'
-alias gullr='git pull --rebase'
-alias gush='git push'
-alias gushoh='git push -u origin HEAD'
-alias gpr='hub pull-request'
-alias sw='git update-index --skip-worktree db/structure.sql'
-alias nsw='git update-index --no-skip-worktree db/structure.sql'
+alias gh='git log'
+alias gm='git merge'
+alias gl='git pull'
+alias glr='git pull --rebase'
+alias gp='git push'
+alias gpo='git push -u origin HEAD'
+alias ghr='hub pull-request'
+
+gbf() {
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +s +m -e) &&
+  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
+# git merge master
+gmm() {
+  if [ ! -z "$1" ]; then
+    git checkout "$1"
+  fi
+
+  git fetch && git rebase
+  git merge origin/master && git push
+}
+
+# git checkout and merge
+gcm() {
+  if [ -z "$1" ]; then
+    echo "Where to merge?"
+    return 1
+  fi
+
+  local branch
+  branch=$(git rev-parse --abbrev-ref HEAD)
+
+  git checkout "$1"
+  git fetch && git rebase
+  git merge $branch
+}
 
 # dev
 alias fs='foreman start'
@@ -42,16 +79,6 @@ alias oms='overmind start'
 alias omc='overmind connect'
 alias omr='overmind restart'
 alias be='bundle exec'
-alias rake='bundle exec rake'
-alias rails='bundle exec rails'
-alias rspec='bundle exec rspec'
-alias cap='bundle exec cap'
-alias mina='bundle exec mina'
-alias rackup='bundle exec rackup'
-alias guard='bundle exec guard'
-alias shotgun='bundle exec shotgun'
-alias js='bundle exec jekyll serve'
-alias resque-start='bundle exec rake resque:work QUEUES=* TERM_CHILD=1'
 alias bsl='brew services list'
 alias bsr='brew services run'
 alias bss='brew services stop'
@@ -59,7 +86,7 @@ alias av='ansible-vault'
 alias ave='ansible-vault encrypt --vault-id .vpass'
 alias avd='ansible-vault decrypt --vault-id .vpass'
 alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
-alias sl='subl -a'
+alias sl='subl'
 alias sla='subl -a .'
 
 # docker
@@ -74,30 +101,20 @@ alias workhard='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^#//g" | sudo tee /etc
 alias procrastinate='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^/#/g" | sudo tee /etc/hosts'
 alias compact720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
 
-# fohlio
-alias frestore-local='rake db:setup_production_db UNTIL=create_dump_from_local_db'
-alias frestore-test='rake db:setup_production_db[test]'
-alias frestore-testux='rake db:setup_production_db[testux]'
-
 # functions
 
-fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+bh() {
+  local command
+  command=$(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+  echo $command
+  eval $command
 }
 
-fvi() {
+ovi() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   vi "$dir"
-}
-
-fbr() {
-  git fetch
-  local branches branch
-  branches=$(git branch -a) &&
-  branch=$(echo "$branches" | fzf +s +m -e) &&
-  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
 
 unmount() {
@@ -263,16 +280,17 @@ pghero() {
 }
 
 gocode() {
-    brew services run postgresql@11
+    brew services run postgresql
     brew services run redis
-    brew services run nginx
+    #brew services run nginx
     #brew services run memcached
 }
 
 nocode() {
-    brew services stop postgresql@11
+    brew services stop postgresql
     brew services stop redis
-    brew services stop memcached
+    #brew services stop nginx
+    #brew services stop memcached
 }
 
 decdump() {

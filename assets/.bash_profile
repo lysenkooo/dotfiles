@@ -21,6 +21,7 @@ export DYLD_FORCE_FLAT_NAMESPACE="1"
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export NODE_OPTIONS="--max_old_space_size=3072"
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
@@ -32,6 +33,7 @@ export PATH="/usr/local/opt/node@10/bin:$PATH"
 #export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 #export PATH="/Applications/LibreOffice.app/Contents/MacOS:$PATH"
 export PATH="`python3 -m site --user-base`/bin:$PATH"
+export PATH="/Users/crashcube/Library/Python/2.7/bin:$PATH"
 export PATH="~/.local/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
@@ -67,9 +69,9 @@ fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # _enter_dir() {
 #     local git_root
@@ -88,3 +90,4 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # }
 
 # export PROMPT_COMMAND=_enter_dir
+export PATH="/usr/local/opt/ansible@2.8/bin:$PATH"

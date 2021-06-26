@@ -50,7 +50,8 @@
 		"*.class",
 		"*.psd",
 		"*.db",
-		"*.sublime-workspace"
+		"*.sublime-workspace",
+		"cover-map.js"
 	],
 	"folder_exclude_patterns":
 	[
@@ -64,7 +65,9 @@
 		"node_modules",
 		"dist",
 		".nuxt",
-		"_nuxt"
+		"_nuxt",
+		"build",
+		"fonts"
 	],
 	"font_options":
 	[
@@ -93,5 +96,5 @@
 	"vintage_start_in_command_mode": true,
 	"word_separators": "./\\()\"'-:,.;<>~@#$%^&*|+=[]{}`~",
 	"word_wrap": false,
-	"wrap_width": 0
+	"wrap_width": 0,
 }
