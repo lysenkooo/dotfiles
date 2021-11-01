@@ -1,18 +1,22 @@
 [user]
-    email = crashcube@gmail.com
-    name = Denis Lysenko
+	email = crashcube@gmail.com
+	name = Denis Lysenko
 
 [core]
-    autocrlf = input
-    editor = vim
-    excludesfile = /Users/crashcube/.gitignore_global
+	autocrlf = input
+	editor = vim
+	excludesfile = /Users/ccbe/.gitignore_global
+	pager = less -F -X
 
 [color]
-    ui = auto
+	ui = auto
 
 [alias]
-    h = log --oneline --graph --branches
-    h2 = log --graph --date=short --pretty=format:'%h | %ad | %s%d [%an]'
-    h3 = log --graph --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    h4 = log --graph --date=short --branches --pretty=format:'%C(yellow)%h%C(reset) %ad | %C(75)%s%C(reset) %C(yellow)%d%C(reset) [%an]'
-    fixlast = commit --all --amend --no-edit
+	h = log --oneline --graph --branches
+	h2 = log --graph --date=short --pretty=format:'%h | %ad | %s%d [%an]'
+	h3 = log --graph --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	h4 = log --graph --date=short --branches --pretty=format:'%C(yellow)%h%C(reset) %ad | %C(75)%s%C(reset) %C(yellow)%d%C(reset) [%an]'
+	fixlast = commit --all --amend --no-edit
+
+[oh-my-zsh]
+	hide-dirty = 1

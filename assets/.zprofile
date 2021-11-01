@@ -3,7 +3,7 @@ export HISTFILESIZE="9999"
 export HISTCONTROL="ignoredups"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export SUDO_PS1="\w\\$ "
+#export SUDO_PS1="\w\\$ "
 export EDITOR="nvim"
 export SVN_EDITOR="nvim"
 export RBENV_ROOT="/usr/local/var/rbenv"
@@ -55,22 +55,22 @@ if [ -f $HOME/.custom ]; then
     source $HOME/.custom
 fi
 
-GIT_PROMPT=/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+#GIT_PROMPT=/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 
-if [ -f $GIT_PROMPT ]; then
-    source $GIT_PROMPT
-    export PS1="\w\$(__git_ps1 '(%s)')\\$ "
-else
-    export PS1="\w\\$ "
-fi
+#if [ -f $GIT_PROMPT ]; then
+#    source $GIT_PROMPT
+#    export PS1="\w\$(__git_ps1 '(%s)')\\$ "
+#else
+#    export PS1="\w\\$ "
+#fi
 
 # GIT_COMPLETION=/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 # [ -s $GIT_COMPLETION ] && . $GIT_COMPLETION
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 #[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # _enter_dir() {

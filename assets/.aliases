@@ -17,6 +17,8 @@ alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias wallup='sudo pfctl -f /etc/pf.conf -e'
 alias walldown='sudo pfctl -d'
 alias fixttl='sudo sysctl -w net.inet.ip.ttl=65'
+alias fwen='sudo pfctl -e -f /etc/pf.conf'
+alias fwds='sudo pfctl -d'
 alias sa='ssh-add'
 
 # tmux
@@ -58,19 +60,19 @@ gmm() {
 }
 
 # git checkout and merge
-gcm() {
-  if [ -z "$1" ]; then
-    echo "Where to merge?"
-    return 1
-  fi
-
-  local branch
-  branch=$(git rev-parse --abbrev-ref HEAD)
-
-  git checkout "$1"
-  git fetch && git rebase
-  git merge $branch
-}
+#gcm() {
+#  if [ -z "$1" ]; then
+#    echo "Where to merge?"
+#    return 1
+#  fi
+#
+#  local branch
+#  branch=$(git rev-parse --abbrev-ref HEAD)
+#
+#  git checkout "$1"
+#  git fetch && git rebase
+#  git merge $branch
+#}
 
 # dev
 alias fs='foreman start'
@@ -93,6 +95,21 @@ alias sla='subl -a .'
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'
 alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
+alias dc='docker-compose'
+alias dcr='docker-compose run'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+
+dstart() {
+  if ! $(docker info > /dev/null 2>&1); then
+    echo "Opening Docker for Mac..."
+    open -a /Applications/Docker.app
+    while ! docker system info > /dev/null 2>&1; do sleep 1; done
+    echo "Docker is ready to rock!"
+  else
+    echo "Docker is up and running."
+  fi
+}
 
 # misc
 alias pgen8='pwgen -Cs 8 1 | tr -d " " | tr -d "\n" | pbcopy'
@@ -318,4 +335,10 @@ undump() {
 
     tar -xf "$FILE" -C "$DIR" --strip-components=2
     rm -rf "$FILE"
+}
+
+runnvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 }

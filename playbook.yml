@@ -14,7 +14,7 @@
           - .ackrc
           - .aliases
           - .ansible.cfg
-          - .bash_profile
+          - .zprofile
           - .ctags
           - .editorconfig
           - .eslintrc
