@@ -12,7 +12,7 @@ brew "openssl@1.1"
 # Library for command-line editing
 brew "readline"
 # Automate deployment, configuration, and upgrading
-brew "ansible@2.8"
+brew "ansible"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Parser generator
@@ -78,7 +78,7 @@ brew "overmind"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Object-relational database system
-brew "postgresql", restart_service: true
+brew "postgresql@11", restart_service: true
 # Show ps output as a tree
 brew "pstree"
 # Password generator
@@ -93,8 +93,6 @@ brew "ruby-install"
 brew "ssh-copy-id"
 # User interface to the TELNET protocol
 brew "telnet"
-# Google's open source JavaScript engine
-brew "v8@3.15"
 # Internet file retriever
 brew "wget"
 # JavaScript package manager
@@ -137,10 +135,6 @@ cask "transmission-nightly"
 cask "tunnelblick"
 # Open-source code editor
 cask "visual-studio-code"
-# Desktop client for WhatsApp
-cask "whatsapp-beta"
-# Network protocol analyzer
-cask "wireshark"
 cask "wkhtmltopdf"
 # Cloud storage
 cask "yandex-disk"
@@ -153,16 +147,19 @@ mas "Cloud Mail.Ru", id: 893068358
 mas "Dato", id: 1470584107
 mas "Elmedia Player", id: 937759555
 mas "Evernote", id: 406056744
+mas "GarageBand", id: 682658836
 mas "Glance", id: 1513574319
 mas "Hidden Bar", id: 1452453066
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "Microsoft Remote Desktop", id: 1295203466
-mas "MindNode", id: 1289197285
 mas "Monosnap", id: 540348655
 mas "MuteKey", id: 1509590766
-mas "Pocket", id: 568494494
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Radio", id: 991729082
 mas "Shazam", id: 897118787
 mas "Slack", id: 803453959
-mas "Spark", id: 1176895641
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
+mas "WhatsApp", id: 1147396723

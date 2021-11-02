@@ -23,9 +23,9 @@ tmutil addexclusion ~/Downloads
 #find ~/Projects -type d -name tmp -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
 #find ~/Projects -type d -name node_modules -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
 
-if [[ ! -x /usr/local/bin/brew ]]; then
+if [[ ! -x /opt/homebrew/bin/brew ]]; then
     echo "Installing Homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew update
