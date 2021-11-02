@@ -1,66 +1,68 @@
-tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-# Search tool like grep, but optimized for programmers
-brew "ack"
-# Anycable Go WebSocket Server
-brew "anycable-go"
+# GNU database manager
+brew "gdbm"
+# YAML Parser
+brew "libyaml"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Library for command-line editing
 brew "readline"
-# Official Amazon AWS command-line interface
-brew "awscli"
+# Automate deployment, configuration, and upgrading
+brew "ansible@2.8"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Parser generator
+brew "bison"
 # Portable Foreign Function Interface library
 brew "libffi"
+# Ruby environment tool
+brew "chruby"
 # Cross-platform make
 brew "cmake"
-# Dependency Manager for PHP
-brew "composer"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
-# Reimplementation of ctags(1)
-brew "ctags"
+# Open source suite of directory software
+brew "openldap"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Asynchronous event library
-brew "libevent"
+# Isolated development environments using Docker
+brew "docker-compose", link: false
+# Generic library support script
+brew "libtool"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
 # Command-line utility for uploading Gists
 brew "gist"
 # Distributed revision control system
 brew "git"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
-# The Kubernetes package manager
-brew "helm"
+# AVH edition of git-flow
+brew "git-flow-avh"
 # Add GitHub support to git on the command-line
 brew "hub"
+# Database of common MIME types
+brew "shared-mime-info"
 # Tools and libraries to manipulate images in many formats
-brew "imagemagick@6", link: true
-# Kubernetes command-line interface
-brew "kubernetes-cli"
-# YAML Parser
-brew "libyaml"
+brew "imagemagick"
+# Network authentication protocol
+brew "krb5"
 # Mac App Store command-line interface
 brew "mas"
-# Unified display of technical and tag data for audio/video
-brew "media-info"
-# High performance, distributed memory object caching system
-brew "memcached"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
-# Terminal-based visual file manager
-brew "midnight-commander"
-# Run a Kubernetes cluster locally
-brew "minikube", link: false
+# Create modern online books from Markdown files
+brew "mdbook"
 # 'traceroute' and 'ping' in a single tool
 brew "mtr"
+# NCurses Disk Usage
+brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
@@ -68,130 +70,99 @@ brew "nginx"
 # Port scanning utility for large networks
 brew "nmap"
 # Platform built on V8 to build network applications
-brew "node@10"
+brew "node@12"
+# Manage multiple Node.js versions
+brew "nvm"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
-# 7-Zip (high compression file archiver) implementation
-brew "p7zip"
-# Shell command parallelization utility
-brew "parallel"
-# PDF to HTML converter
-brew "pdf2htmlex"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Object-relational database system
-brew "postgresql@11", link: true
-# Object-relational database system
-brew "postgresql", link: false
+brew "postgresql", restart_service: true
 # Show ps output as a tree
 brew "pstree"
 # Password generator
 brew "pwgen"
-# Interpreted, interactive, object-oriented programming language
-brew "python@2"
-# Install various Ruby versions and implementations
-brew "ruby-build"
-# Ruby version manager
-brew "rbenv"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
-brew "redis"
+brew "redis", restart_service: true
+# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
+brew "ruby-install"
 # Add a public key to a remote machine's authorized_keys file
-brew "ssh-copy-id", link: true
-# Command-line interface for Telegram
-brew "telegram-cli"
+brew "ssh-copy-id"
 # User interface to the TELNET protocol
 brew "telnet"
-# Manage complex tmux sessions easily
-brew "tmuxinator"
 # Google's open source JavaScript engine
 brew "v8@3.15"
 # Internet file retriever
 brew "wget"
 # JavaScript package manager
 brew "yarn"
-# Download YouTube videos from the command-line
-brew "youtube-dl"
+# Application launcher and productivity software
 cask "alfred"
+# Allows connection to a computer remotely
 cask "anydesk"
-cask "appcleaner"
-cask "brisync"
-cask "cheatsheet"
+# Automated testing of webapps for Google Chrome
 cask "chromedriver"
-cask "dash"
-cask "discord"
+# App to build and share containerized applications and microservices
 cask "docker"
+# Collaborative team software
 cask "figma"
-cask "flash-npapi"
+# Web browser
 cask "google-chrome"
-cask "google-cloud-sdk"
+# Free and open-source media player
 cask "iina"
-cask "imageoptim"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
-cask "java8"
-cask "kitematic"
-cask "lunar"
-cask "minikube"
-cask "mysql-shell"
-cask "ngrok"
-cask "nightowl"
-cask "notion"
+# Screen and video recording software
+cask "loom"
+# Calculator and converter application
 cask "numi"
-cask "pixelsnap"
-cask "psequel"
-cask "rar"
-cask "recordit"
-cask "sensei"
-cask "signal"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Collaboration platform for API development
+cask "postman"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# 3D design software
 cask "sketchup"
+# Video chat, voice call and instant messaging application
 cask "skype"
-cask "sourcetree"
-cask "spectacle"
+# Text editor for code, markup and prose
 cask "sublime-text"
-cask "teamviewer"
-cask "transmission-remote-gui"
+# Open-source BitTorrent client
+cask "transmission-nightly"
+# Free and open-source OpenVPN client
 cask "tunnelblick"
-cask "vagrant"
-cask "virtualbox"
+# Open-source code editor
 cask "visual-studio-code"
-cask "vlc"
+# Desktop client for WhatsApp
+cask "whatsapp-beta"
+# Network protocol analyzer
 cask "wireshark"
 cask "wkhtmltopdf"
+# Cloud storage
 cask "yandex-disk"
-cask "zoomus"
+# Video communication and virtual meeting platform
+cask "zoom"
 mas "Amphetamine", id: 937984704
-mas "Backtrack", id: 1477089520
+mas "AudioBookBinder", id: 413969927
 mas "Be Focused Pro", id: 961632517
-mas "BreakTime", id: 427475982
-mas "Bubble Translate 3", id: 1439344351
 mas "Cloud Mail.Ru", id: 893068358
-mas "Divvy", id: 413857545
+mas "Dato", id: 1470584107
 mas "Elmedia Player", id: 937759555
-mas "Encrypto", id: 935235287
 mas "Evernote", id: 406056744
-mas "Grammarly for Safari", id: 1462114288
-mas "Jira", id: 1475897096
-mas "JumpIn", id: 1506451016
-mas "Keynote", id: 409183694
-mas "Meeter", id: 1510445899
+mas "Glance", id: 1513574319
+mas "Hidden Bar", id: 1452453066
 mas "Microsoft Remote Desktop", id: 1295203466
-mas "MindNode Lite", id: 402397683
-mas "Monity", id: 915542151
+mas "MindNode", id: 1289197285
 mas "Monosnap", id: 540348655
-mas "Next Meeting", id: 1017470484
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
+mas "MuteKey", id: 1509590766
 mas "Pocket", id: 568494494
 mas "Radio", id: 991729082
 mas "Shazam", id: 897118787
-mas "SiteSucker", id: 442168834
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "Telegram", id: 747648890
-mas "Telephone", id: 406825478
 mas "The Unarchiver", id: 425424353
-mas "Trello", id: 1278508951
-mas "Twitter", id: 409789998
