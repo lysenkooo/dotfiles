@@ -297,7 +297,7 @@ pghero() {
 }
 
 gocode() {
-    brew services run postgresql
+    brew services run postgresql@11
     brew services run redis
     #brew services run nginx
     #brew services run memcached

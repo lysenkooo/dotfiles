@@ -2,25 +2,26 @@ export ZSH="/Users/ccbe/.oh-my-zsh"
 ZSH_THEME="af-magic"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git)
+plugins=(git zsh-nvm)
 source $ZSH/oh-my-zsh.sh
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export PATH="$PATH:/opt/homebrew/bin/"
-export PATH="~/.local/bin:$PATH"
-#export PATH="/usr/local/opt/openssl/bin:$PATH"
-#export PATH="/usr/local/opt/ctags/bin:$PATH"
-#export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-#export PATH="`python3 -m site --user-base`/bin:$PATH"
-#export PATH="/usr/local/opt/node@12/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
+
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/openssl/lib/pkgconfig"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl/include"
+
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/libffi/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/libffi/include"
+
+export PKG_CONFIG_PATH="${PKG_CONFUG_PATH}:/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
+export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/postgresql@11/lib"
+export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/postgresql@11/include"
+
+# export NVM_AUTO_USE=true
 
 export HISTSIZE="9999"
 export HISTFILESIZE="9999"
@@ -45,13 +46,14 @@ export DYLD_FORCE_FLAT_NAMESPACE="1"
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-export NODE_OPTIONS="--max_old_space_size=3072"
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export LDFLAGS="-L/usr/local/opt/libffi/lib"
-export CPPFLAGS="-I/usr/local/opt/libffi/include"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/openssl/lib/pkgconfig"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
+export NODE_OPTIONS="--max_old_space_size=4096"
+
+# preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 #eval "$(/opt/homebrew/bin/brew shellenv)"
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
