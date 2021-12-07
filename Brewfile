@@ -11,14 +11,20 @@ brew "libyaml"
 brew "openssl@1.1"
 # Library for command-line editing
 brew "readline"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.7"
 # Automate deployment, configuration, and upgrading
-brew "ansible"
+brew "ansible@2.8", link: true
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Parser generator
 brew "bison"
 # Portable Foreign Function Interface library
 brew "libffi"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Core application library for C
+brew "glib"
 # Ruby environment tool
 brew "chruby"
 # Cross-platform make
@@ -31,10 +37,20 @@ brew "curl"
 brew "docker-compose", link: false
 # Generic library support script
 brew "libtool"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
+# Library to load and enumerate PKCS#11 modules
+brew "p11-kit"
 # Validating, recursive, caching DNS resolver
 brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
@@ -51,6 +67,8 @@ brew "git-flow-avh"
 brew "hub"
 # Database of common MIME types
 brew "shared-mime-info"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Network authentication protocol
@@ -66,7 +84,7 @@ brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx"
+brew "nginx", restart_service: true
 # Port scanning utility for large networks
 brew "nmap"
 # Platform built on V8 to build network applications
@@ -75,10 +93,12 @@ brew "node@12"
 brew "nvm"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
+# Cross-platform application and UI framework
+brew "qt"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Object-relational database system
-brew "postgresql@11", restart_service: true
+brew "postgresql@11"
 # Show ps output as a tree
 brew "pstree"
 # Password generator
@@ -86,17 +106,17 @@ brew "pwgen"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
-brew "redis", restart_service: true
+brew "redis"
 # Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
 brew "ruby-install"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # User interface to the TELNET protocol
 brew "telnet"
+# Google's open source JavaScript engine
+brew "v8@3.15"
 # Internet file retriever
 brew "wget"
-# JavaScript package manager
-brew "yarn"
 # Application launcher and productivity software
 cask "alfred"
 # Allows connection to a computer remotely
@@ -115,6 +135,8 @@ cask "iina"
 cask "iterm2"
 # Screen and video recording software
 cask "loom"
+# App to write, plan, collaborate, and get organized
+cask "notion"
 # Calculator and converter application
 cask "numi"
 # Knowledge base that works on top of a local folder of plain text Markdown files
@@ -135,6 +157,10 @@ cask "transmission-nightly"
 cask "tunnelblick"
 # Open-source code editor
 cask "visual-studio-code"
+# Desktop client for WhatsApp
+cask "whatsapp-beta"
+# Network protocol analyzer
+cask "wireshark"
 cask "wkhtmltopdf"
 # Cloud storage
 cask "yandex-disk"
@@ -147,19 +173,16 @@ mas "Cloud Mail.Ru", id: 893068358
 mas "Dato", id: 1470584107
 mas "Elmedia Player", id: 937759555
 mas "Evernote", id: 406056744
-mas "GarageBand", id: 682658836
 mas "Glance", id: 1513574319
 mas "Hidden Bar", id: 1452453066
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "Microsoft Remote Desktop", id: 1295203466
+mas "MindNode", id: 1289197285
 mas "Monosnap", id: 540348655
 mas "MuteKey", id: 1509590766
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
+mas "Pocket", id: 568494494
 mas "Radio", id: 991729082
 mas "Shazam", id: 897118787
 mas "Slack", id: 803453959
+mas "Spark", id: 1176895641
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
-mas "WhatsApp", id: 1147396723

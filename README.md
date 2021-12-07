@@ -47,6 +47,5 @@ Open nvim and run `:PlugInstall`.
 ## Dump
 
 ```sh
-$ rm Brewfile
-$ brew bundle dump --describe
+$ brew bundle dump --describe -f
 ```

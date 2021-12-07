@@ -2,27 +2,28 @@ export ZSH="/Users/ccbe/.oh-my-zsh"
 ZSH_THEME="af-magic"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git zsh-nvm)
+#plugins=(git zsh-nvm)
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 #export PATH="/opt/homebrew/bin:$PATH"
-#export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/node@12/bin:$PATH"
 export PATH="/usr/local/opt/ansible@2.8/bin:$PATH"
-
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/openssl@1.1/lib/pkgconfig"
-export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl@1.1/include"
+export PATH="/usr/local/opt/node@12/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/libffi/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/libffi/include"
 
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl@1.1/include"
+
 export PKG_CONFIG_PATH="${PKG_CONFUG_PATH}:/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
-export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/postgresql@11/lib"
-export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/postgresql@11/include"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/postgresql@11/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/postgresql@11/include"
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 export NODE_OPTIONS="--max_old_space_size=4096"

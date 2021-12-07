@@ -96,7 +96,7 @@ alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Dock
 alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
 alias dc='docker-compose'
-alias dcr='docker-compose run'
+alias dcr='docker-compose run --rm'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 
@@ -304,7 +304,7 @@ gocode() {
 }
 
 nocode() {
-    brew services stop postgresql
+    brew services stop postgresql@11
     brew services stop redis
     #brew services stop nginx
     #brew services stop memcached
