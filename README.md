@@ -5,7 +5,7 @@ See my homepage http://lysenkooo.ru
 ## Install
 
 ```
-$ ln -s ~/.ssh /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.ssh
+$ ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.ssh ~/.ssh
 $ git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./provision.sh
