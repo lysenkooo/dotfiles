@@ -7,11 +7,8 @@ if [[ ! -x /usr/bin/gcc ]]; then
     xcode-select --install
 fi
 
-#echo -e "#!/bin/sh\necho \"Xcode 11.4.1\\nBuild version 11E503a\"\nexit 0" > /usr/local/bin/xcodebuild
+softwareupdate --install-rosetta
 
-#sudo xcodebuild -license accept
-
-#defaults write -g NSRequiresAquaSystemAppearance 1
 defaults write -g ApplePressAndHoldEnabled 0
 defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
 defaults write com.apple.desktopservices DSDontWriteNetworkStores 1
@@ -19,9 +16,7 @@ defaults write com.apple.TextEdit RichText 0
 
 tmutil addexclusion ~/Applications
 tmutil addexclusion ~/Downloads
-#tmutil addexclusion ~/Library/Caches/com.docker.docker
-#find ~/Projects -type d -name tmp -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
-#find ~/Projects -type d -name node_modules -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
+tmutil addexclusion ~/Library/Caches/com.docker.docker
 
 if [[ ! -x /opt/homebrew/bin/brew ]]; then
     echo "Installing Homebrew..."
@@ -29,15 +24,7 @@ if [[ ! -x /opt/homebrew/bin/brew ]]; then
 fi
 
 brew update
-#brew doctor
-#brew bundle
-
-#/usr/local/opt/python@3.9/bin/python3.9 -m pip install --upgrade pip
-
-#if [[ ! -x /usr/local/bin/ansible ]]; then
-#    echo "Installing ansible..."
-#    pip3 install --user ansible
-#fi
+brew doctor
+brew bundle
 
 ansible-playbook playbook.yml
-

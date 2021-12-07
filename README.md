@@ -1,10 +1,11 @@
-# Hello
+# Dotfiles
 
-See my homepage http://lysenkooo.ru
+My macbook provision.
 
 ## Install
 
 ```
+$ rm -rf ~/.ssh
 $ ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.ssh ~/.ssh
 $ git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
@@ -12,9 +13,6 @@ $ ./provision.sh
 ```
 
 ```sh
-softwareupdate --install-rosetta
-
-
 arch -x86_64 zsh
 arch
 nvm install 12.20.0
