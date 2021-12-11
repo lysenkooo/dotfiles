@@ -62,11 +62,11 @@ filetype plugin indent on
 
 let mapleader=','
 
-if has('persistent_undo')
-    silent !mkdir ~/.vim/backups > /dev/null 2>&1
-    set undodir=~/.vim/backups
-    set undofile
-endif
+silent !mkdir ~/.nvim/backups > /dev/null 2>&1
+set backupdir=~/.nvim/backups
+set directory=~/.nvim/backups
+set undodir=~/.nvim/backups
+set undofile
 
 syntax on
 set t_Co=256

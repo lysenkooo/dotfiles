@@ -42,17 +42,17 @@ let NERDTreeIgnore = ['^\.DS_Store$', '^\.keep$', '\.retry$', '\.pyc$']
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-Plug 'Shougo/deoplete.nvim'
-Plug 'fishbullet/deoplete-ruby'
-Plug 'padawan-php/deoplete-padawan'
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'fishbullet/deoplete-ruby'
+" Plug 'padawan-php/deoplete-padawan'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 let g:deoplete#enable_at_startup = 1
 
@@ -79,11 +79,11 @@ filetype plugin indent on
 
 let mapleader=','
 
-if has('persistent_undo')
-    silent !mkdir ~/.vim/backups > /dev/null 2>&1
-    set undodir=~/.vim/backups
-    set undofile
-endif
+silent !mkdir ~/.nvim/backups > /dev/null 2>&1
+set backupdir=~/.nvim/backups
+set directory=~/.nvim/backups
+set undodir=~/.nvim/backups
+set undofile
 
 syntax on
 set t_Co=256

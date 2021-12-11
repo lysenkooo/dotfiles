@@ -1,63 +1,16 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-# GNU database manager
-brew "gdbm"
-# YAML Parser
-brew "libyaml"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
-# Library for command-line editing
-brew "readline"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.7"
-# Automate deployment, configuration, and upgrading
-brew "ansible@2.8", link: true
-# Tool for generating GNU Standards-compliant Makefiles
-brew "automake"
-# Parser generator
-brew "bison"
-# Portable Foreign Function Interface library
-brew "libffi"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
-# Core application library for C
-brew "glib"
 # Ruby environment tool
 brew "chruby"
 # Cross-platform make
-brew "cmake"
-# Open source suite of directory software
-brew "openldap"
-# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Isolated development environments using Docker
-brew "docker-compose", link: false
-# Generic library support script
-brew "libtool"
-# GNU Ubiquitous Intelligent Language for Extensions
-brew "guile"
-# Library to load and enumerate PKCS#11 modules
-brew "p11-kit"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
-# OpenType text shaping engine
-brew "harfbuzz"
-# Subtitle renderer for the ASS/SSA subtitle format
-brew "libass"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Interpreter for PostScript and PDF
-brew "ghostscript"
-# Command-line utility for uploading Gists
 brew "gist"
 # Distributed revision control system
 brew "git"
@@ -65,14 +18,8 @@ brew "git"
 brew "git-flow-avh"
 # Add GitHub support to git on the command-line
 brew "hub"
-# Database of common MIME types
-brew "shared-mime-info"
-# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
-brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
-# Network authentication protocol
-brew "krb5"
 # Mac App Store command-line interface
 brew "mas"
 # Create modern online books from Markdown files
@@ -83,38 +30,24 @@ brew "mtr"
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx", restart_service: true
 # Port scanning utility for large networks
 brew "nmap"
-# Platform built on V8 to build network applications
-brew "node@12"
 # Manage multiple Node.js versions
 brew "nvm"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
-# Cross-platform application and UI framework
-brew "qt"
-# PDF rendering library (based on the xpdf-3.0 code base)
-brew "poppler"
-# Object-relational database system
-brew "postgresql@11"
 # Show ps output as a tree
 brew "pstree"
 # Password generator
 brew "pwgen"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
-# Persistent key-value database, with built-in net interface
-brew "redis"
 # Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
 brew "ruby-install"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # User interface to the TELNET protocol
 brew "telnet"
-# Google's open source JavaScript engine
-brew "v8@3.15"
 # Internet file retriever
 brew "wget"
 # Application launcher and productivity software
@@ -152,16 +85,9 @@ cask "skype"
 # Text editor for code, markup and prose
 cask "sublime-text"
 # Open-source BitTorrent client
-cask "transmission-nightly"
-# Free and open-source OpenVPN client
-cask "tunnelblick"
+cask "transmission"
 # Open-source code editor
 cask "visual-studio-code"
-# Desktop client for WhatsApp
-cask "whatsapp-beta"
-# Network protocol analyzer
-cask "wireshark"
-cask "wkhtmltopdf"
 # Cloud storage
 cask "yandex-disk"
 # Video communication and virtual meeting platform
