@@ -6,11 +6,11 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="/opt/homebrew/opt/ansible@2.8/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@12/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
+# export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
 
 export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/libffi/lib"
 export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/libffi/include"
@@ -20,9 +20,9 @@ export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/openssl@1.1/lib"
 export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 
-export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/postgresql@11/lib"
-export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/postgresql@11/include"
-export PKG_CONFIG_PATH="${PKG_CONFUG_PATH}:/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
+# export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/postgresql@11/lib"
+# export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/postgresql@11/include"
+# export PKG_CONFIG_PATH="${PKG_CONFUG_PATH}:/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 export NODE_OPTIONS="--max_old_space_size=4096"
@@ -368,14 +368,14 @@ pghero() {
 }
 
 gocode() {
-    brew services run postgresql@11
+    brew services run postgresql
     brew services run redis
     #brew services run nginx
     #brew services run memcached
 }
 
 nocode() {
-    brew services stop postgresql@11
+    brew services stop postgresql
     brew services stop redis
     #brew services stop nginx
     #brew services stop memcached

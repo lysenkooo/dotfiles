@@ -5,12 +5,14 @@ tap "homebrew/services"
 # Ruby environment tool
 brew "chruby"
 # Cross-platform make
+brew "cmake"
+# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Interpreter for PostScript and PDF
+# Command-line utility for uploading Gists
 brew "gist"
 # Distributed revision control system
 brew "git"
@@ -20,6 +22,8 @@ brew "git-flow-avh"
 brew "hub"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# YAML Parser
+brew "libyaml"
 # Mac App Store command-line interface
 brew "mas"
 # Create modern online books from Markdown files
@@ -34,6 +38,8 @@ brew "neovim"
 brew "nmap"
 # Manage multiple Node.js versions
 brew "nvm"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+brew "openvpn", restart_service: true
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
 # Show ps output as a tree
@@ -112,3 +118,4 @@ mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
+mas "WhatsApp", id: 1147396723
