@@ -43,10 +43,10 @@ if [[ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-find assets -type f -print0 | while IFS= read -r -d '' line; do
-    FILE_DIR=`dirname "$line" | cut -c 8-`
-    FILE_PATH=`echo "$line" | cut -c 8-`
-    SRC_PATH="$CURRENT/assets/$FILE_PATH"
+find configs -type f -print0 | while IFS= read -r -d '' line; do
+    FILE_DIR=`dirname "$line" | cut -c 9-`
+    FILE_PATH=`echo "$line" | cut -c 9-`
+    SRC_PATH="$CURRENT/configs/$FILE_PATH"
     DST_PATH="$HOME/$FILE_PATH"
 
     if [ ! -z "$FILE_DIR" ]; then
