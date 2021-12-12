@@ -13,15 +13,14 @@ $ cd ~/.dotfiles
 $ ./provision.sh
 ```
 
-* Run `\vim` and run `:VundleInstall`.
-* Run `nvim` and run `:PlugInstall`.
+* Open `vim` and run `:VundleInstall`.
+* Open `nvim` and run `:PlugInstall`.
 
 ### Install Ruby
 
 ```sh
 ruby-install ruby 3.0.3
 ruby-install ruby 2.7.5
-gem install --user-install ffi -- --enable-libffi-alloc
 ```
 
 ### Install NodeJS
@@ -35,9 +34,6 @@ node -p process.arch
 nvm use 12.20.0
 npm install --global yarn
 ```
-
-Open vim and run `:BundleInstall`.
-Open nvim and run `:PlugInstall`.
 
 ### Dump package list
 
