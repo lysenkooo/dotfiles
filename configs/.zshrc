@@ -159,8 +159,8 @@ alias av='ansible-vault'
 alias ave='ansible-vault encrypt --vault-id .vpass'
 alias avd='ansible-vault decrypt --vault-id .vpass'
 alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
-alias sl='subl'
-alias sla='subl -a .'
+alias sl='subl -a .'
+alias vs='code .'
 
 # docker
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'

@@ -22,7 +22,7 @@
 		"*.retry"
 	],
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-default-dark.tmTheme",
 	"copy_with_empty_selection": true,
 	"create_window_at_startup": false,
 	"default_line_ending": "unix",
@@ -73,7 +73,7 @@
 	[
 		"no_italic"
 	],
-	"font_size": 13,
+	"font_size": 12,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":
