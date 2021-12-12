@@ -10,7 +10,7 @@ defaults write com.apple.TextEdit RichText 0
 tmutil addexclusion ~/Applications
 tmutil addexclusion ~/Downloads
 
-PWD=`pwd`
+CURRENT=`pwd`
 
 if [[ ! -x /usr/bin/gcc ]]; then
     echo "Installing Command Line Tools..."
@@ -43,11 +43,10 @@ if [[ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-cd assets && find . -type f -print0 |
-while IFS= read -r -d '' line; do
-    FILE_DIR=`dirname "$line" | cut -c 3-`
-    FILE_PATH=`echo "$line" | cut -c 3-`
-    SRC_PATH="$PWD/$FILE_PATH"
+find assets -type f -print0 | while IFS= read -r -d '' line; do
+    FILE_DIR=`dirname "$line" | cut -c 8-`
+    FILE_PATH=`echo "$line" | cut -c 8-`
+    SRC_PATH="$CURRENT/assets/$FILE_PATH"
     DST_PATH="$HOME/$FILE_PATH"
 
     if [ ! -z "$FILE_DIR" ]; then
@@ -60,5 +59,7 @@ while IFS= read -r -d '' line; do
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
 
+ln -sf "$CURRENT/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+
 rm -rf "$HOME/Library/Application Support/Sublime Text/Packages/User"
-ln -sf "$PWD/sublime" "$HOME/Library/Application Support/Sublime Text/Packages/User"
+ln -sf "$CURRENT/sublime" "$HOME/Library/Application Support/Sublime Text/Packages/User"

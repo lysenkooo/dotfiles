@@ -1,0 +1,33 @@
+{
+    "editor.fontSize": 12,
+    "editor.rulers": [
+        120
+    ],
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
+    "editor.occurrencesHighlight": false,
+    "ruby.useLanguageServer": true,
+    "ruby.format": "rubocop",
+    "ruby.rubocop.onSave": true,
+    "ruby.lint": {
+        "rubocop": {
+            "useBundler": true
+        },
+        "reek": {
+            "useBundler": true
+        }
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.eol": "\n",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "workbench.startupEditor": "none",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#222222",
+        "statusBar.noFolderBackground": "#222225",
+        "statusBar.debuggingBackground": "#511f1f"
+    }
+}
