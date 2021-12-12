@@ -7,17 +7,6 @@
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
     "editor.occurrencesHighlight": false,
-    "ruby.useLanguageServer": true,
-    "ruby.format": "rubocop",
-    "ruby.rubocop.onSave": true,
-    "ruby.lint": {
-        "rubocop": {
-            "useBundler": true
-        },
-        "reek": {
-            "useBundler": true
-        }
-    },
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
@@ -29,5 +18,23 @@
         "statusBar.background": "#222222",
         "statusBar.noFolderBackground": "#222225",
         "statusBar.debuggingBackground": "#511f1f"
-    }
+    },
+    "ruby.useBundler": true,
+    "ruby.useLanguageServer": true,
+    "ruby.lint": {
+        "rubocop": {
+            "command": "bundle exec rubocop",
+            "useBundler": true,
+            "lint": true,
+            "rails": true,
+            "forceExclusion": true
+        },
+        "reek": {
+            "command": "bundle exec reek",
+            "useBundler": true
+        }
+    },
+    "ruby.format": "rubocop",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false
 }

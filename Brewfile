@@ -39,7 +39,7 @@ brew "nmap"
 # Manage multiple Node.js versions
 brew "nvm"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
-brew "openvpn", restart_service: true
+brew "openvpn"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
 # Show ps output as a tree

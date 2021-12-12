@@ -24,7 +24,7 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/opt/homebrew/opt/openssl@1.1/lib/pkg
 # export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/postgresql@11/include"
 # export PKG_CONFIG_PATH="${PKG_CONFUG_PATH}:/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
 
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
+#export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 export NODE_OPTIONS="--max_old_space_size=4096"
 
 export HISTSIZE="9999"
@@ -76,9 +76,9 @@ alias vim='nvim'
 alias dev_appserver.py='/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/dev_appserver.py'
 alias myip='curl ifconfig.co/json'
 alias chrome='open -a /Applications/Google\ Chrome.app'
-alias ra='source ~/.aliases'
+alias reload='source ~/.zshrc'
 alias ltu='lt --subdomain crashcube --port 4000'
-alias vsconf='vi "/Users/crashcube/Library/Application Support/Code/User/settings.json"'
+alias vpn='sudo /opt/homebrew/opt/openvpn/sbin/openvpn --config /Users/ccbe/Library/Mobile\ Documents/com~apple~CloudDocs/.private/pritunl.ovpn'
 
 # os x
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
@@ -163,8 +163,8 @@ alias sl='subl -a .'
 alias vs='code .'
 
 # docker
-alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'
-alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
+# alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'
+# alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
 alias dc='docker-compose'
 alias dcr='docker-compose run --rm'
