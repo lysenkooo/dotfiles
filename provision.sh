@@ -6,6 +6,9 @@ defaults write -g ApplePressAndHoldEnabled 0
 defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
 defaults write com.apple.desktopservices DSDontWriteNetworkStores 1
 defaults write com.apple.TextEdit RichText 0
+defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.001
+
+mkdir -p ~/Projects
 
 tmutil addexclusion ~/Applications
 tmutil addexclusion ~/Downloads

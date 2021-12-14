@@ -35,6 +35,24 @@ nvm use 12.20.0
 npm install --global yarn
 ```
 
+### Time Machine
+
+```sh
+$ crontab -e
+```
+
+Add:
+```
+0 * * * * find ~/Projects -type d -name node_modules -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
+0 * * * * find ~/Projects -type d -name tmp -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
+```
+
+Setup Time Machine:
+
+```sh
+sudo tmutil setdestination /Volumes/TM
+```
+
 ### Dump package list
 
 ```sh

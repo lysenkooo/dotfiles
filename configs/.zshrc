@@ -79,6 +79,8 @@ alias chrome='open -a /Applications/Google\ Chrome.app'
 alias reload='source ~/.zshrc'
 alias ltu='lt --subdomain crashcube --port 4000'
 alias vpn='sudo /opt/homebrew/opt/openvpn/sbin/openvpn --config /Users/ccbe/Library/Mobile\ Documents/com~apple~CloudDocs/.private/pritunl.ovpn'
+alias viz='vi ~/.zshrc'
+alias nclean='find . -name node_modules -type d -prune -print -exec rm -rf {} \;'
 
 # os x
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'

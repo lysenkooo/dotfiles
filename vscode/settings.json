@@ -1,5 +1,4 @@
 {
-    "editor.fontSize": 12,
     "editor.rulers": [
         120
     ],
@@ -36,5 +35,7 @@
     },
     "ruby.format": "rubocop",
     "gitlens.hovers.currentLine.over": "line",
-    "gitlens.codeLens.enabled": false
+    "gitlens.codeLens.enabled": false,
+    "editor.fontSize": 11,
+    "window.zoomLevel": 1
 }
