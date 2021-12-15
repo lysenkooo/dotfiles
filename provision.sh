@@ -10,7 +10,6 @@ defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.001
 
 mkdir -p ~/Projects
 
-tmutil addexclusion ~/Applications
 tmutil addexclusion ~/Downloads
 
 CURRENT=`pwd`
