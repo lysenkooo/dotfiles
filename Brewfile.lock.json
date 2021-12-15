@@ -2,19 +2,19 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "44a1e064d0cf9c3ef8d1820be7988f762f222cf5"
+        "revision": "89a05bc59f9250fb6f5e08657761c848738f08d9"
       },
       "homebrew/cask": {
-        "revision": "2cb2f004e9b8abd6a674ce6211152c41d155b2b0"
+        "revision": "b32c22fe6f7169719df3c9359a9ceac357c03781"
       },
       "homebrew/cask-versions": {
         "revision": "5db632d42bcb535aec4dca27d828179f60f585ed"
       },
       "homebrew/core": {
-        "revision": "e160df1adbf486ef1226d91f87d8665fa3e5c448"
+        "revision": "4446e13c5efafcceb871762f1a83c2a2fad8523d"
       },
       "homebrew/services": {
-        "revision": "5060c727f067790b55e93a044e4f48909c8363e9"
+        "revision": "b07fa2ae78da238c6e03cf609b9f83455fd16125"
       }
     },
     "brew": {
@@ -2022,9 +2022,6 @@
               "sha256": "a8d95b95acf6cdfed376475c0e5265bc97bac433dbb51c7279f0bb76a39db6a2"
             }
           }
-        },
-        "options": {
-          "restart_service": true
         }
       }
     },
@@ -2060,7 +2057,7 @@
         }
       },
       "google-chrome": {
-        "version": "96.0.4664.93",
+        "version": "96.0.4664.110",
         "options": {
           "full_name": "google-chrome"
         }
@@ -2072,7 +2069,7 @@
         }
       },
       "iterm2": {
-        "version": "3.4.14",
+        "version": "3.4.15",
         "options": {
           "full_name": "iterm2"
         }
@@ -2138,7 +2135,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.63.0",
+        "version": "1.63.1",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -2257,7 +2254,7 @@
       },
       "Telegram": {
         "id": "747648890",
-        "version": "8.2"
+        "version": "8.3"
       },
       "The Unarchiver": {
         "id": "425424353",
@@ -2269,7 +2266,7 @@
       },
       "MindNode": {
         "id": "1289197285",
-        "version": "2021.4.1"
+        "version": "2021.5"
       },
       "Pocket": {
         "id": "568494494",
@@ -2284,12 +2281,12 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.3.7",
+        "HOMEBREW_VERSION": "3.3.8",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "e160df1adbf486ef1226d91f87d8665fa3e5c448",
-        "CLT": "13.1.0.0.1.1633545042",
+        "Homebrew/homebrew-core": "4446e13c5efafcceb871762f1a83c2a2fad8523d",
+        "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.1",
-        "macOS": "12.0.1"
+        "macOS": "12.1"
       }
     }
   }
