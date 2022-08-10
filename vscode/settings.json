@@ -4,7 +4,6 @@
     ],
     "editor.tabSize": 2,
     "editor.minimap.enabled": false,
-    "editor.renderIndentGuides": false,
     "editor.occurrencesHighlight": false,
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
@@ -37,5 +36,7 @@
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.codeLens.enabled": false,
     "editor.fontSize": 11,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "editor.guides.indentation": false,
+    "editor.inlineSuggest.enabled": true
 }

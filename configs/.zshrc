@@ -4,13 +4,15 @@ DISABLE_AUTO_UPDATE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+PS1="${FG[032]}%~\$(git_prompt_info)\$(hg_prompt_info) ${FG[105]}%(!.#.»)%{$reset_color%} "
+RPS1=""
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-export PATH="/opt/homebrew/opt/ansible@2.8/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@12/bin:$PATH"
-# export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export EDITOR="nvim"
+export HISTSIZE="9999"
+export HISTFILESIZE="9999"
+export HISTCONTROL="ignoredups"
 
 export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/libffi/lib"
 export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/libffi/include"
@@ -20,134 +22,65 @@ export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/openssl@1.1/lib"
 export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 
-# export LDFLAGS="${LDFLAGS} -L/opt/homebrew/opt/postgresql@11/lib"
-# export CPPFLAGS="${CPPFLAGS} -I/opt/homebrew/opt/postgresql@11/include"
-# export PKG_CONFIG_PATH="${PKG_CONFUG_PATH}:/opt/homebrew/opt/postgresql@11/lib/pkgconfig"
-
 #export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
-export NODE_OPTIONS="--max_old_space_size=4096"
 
-export HISTSIZE="9999"
-export HISTFILESIZE="9999"
-export HISTCONTROL="ignoredups"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-# export SUDO_PS1="\w\\$ "
-export EDITOR="nvim"
-export SVN_EDITOR="nvim"
-export ANSIBLE_HOST_KEY_CHECKING="False"
-#export OCI_DIR="$(brew --prefix)/lib"
-export NLS_LANG="AMERICAN_AMERICA.UTF8"
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export DISABLE_AUTO_TITLE=true
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.private/gcloud.json
-export SSLKEYLOGFILE=~/.ssl.log
-export VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
-export DYLD_FORCE_FLAT_NAMESPACE="1"
-#export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
-# preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+#export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 export NVM_AUTO_USE=true
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# if [ -f $HOME/.aliases ]; then
-#     source $HOME/.aliases
-# fi
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+#source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby 2.7.6
+export PATH="bin:$PATH"
 
-alias la='ls -la'
-alias grep='grep --color=auto'
 alias vi='nvim'
 alias vim='nvim'
-alias dev_appserver.py='/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/dev_appserver.py'
-alias myip='curl ifconfig.co/json'
-alias chrome='open -a /Applications/Google\ Chrome.app'
-alias reload='source ~/.zshrc'
-alias ltu='lt --subdomain crashcube --port 4000'
-alias vpn='sudo /opt/homebrew/opt/openvpn/sbin/openvpn --config /Users/ccbe/Library/Mobile\ Documents/com~apple~CloudDocs/.private/pritunl.ovpn'
-alias viz='vi ~/.zshrc'
-alias nclean='find . -name node_modules -type d -prune -print -exec rm -rf {} \;'
-
-# os x
+alias vis='vi ~/.ssh/config'
+alias ip='curl ifconfig.co/json'
+alias ze='vi ~/.zshrc'
+alias zr='source ~/.zshrc'
+alias la='ls -la'
+alias sa='ssh-add'
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
-alias show='defaults write com.apple.finder AppleShowAllFiles true && killall Finder'
-alias hide='defaults write com.apple.finder AppleShowAllFiles false && killall Finder'
-alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
-alias wallup='sudo pfctl -f /etc/pf.conf -e'
-alias walldown='sudo pfctl -d'
-alias fixttl='sudo sysctl -w net.inet.ip.ttl=65'
+alias ttl='sudo sysctl -w net.inet.ip.ttl=65'
+alias ltu='lt --subdomain crashcube --port 4000'
+alias dns-flush='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+alias node-clean='find . -name node_modules -type d -prune -print -exec rm -rf {} \;'
 alias fwen='sudo pfctl -e -f /etc/pf.conf'
 alias fwds='sudo pfctl -d'
-alias sa='ssh-add'
-
-# tmux
 alias ts='tmux ls'
 alias ta='tmux attach -t main || tmux new -s main'
 alias tk='tmux kill-session -t'
-alias tt='tmuxinator start'
-
-# git
 alias gc='git checkout'
 alias gb='git branch'
 alias ga='git add'
 alias gi='git commit'
+alias giw='git commit -m WIP'
 alias gs='git status'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gh='git log'
 alias gm='git merge'
+alias gp='git push'
+alias gpf='git push -f'
+alias gpo='git push -u origin HEAD'
 alias gl='git pull'
 alias glr='git pull --rebase'
-alias gp='git push'
-alias gpo='git push -u origin HEAD'
-alias ghr='hub pull-request'
-
-gbf() {
-  local branches branch
-  branches=$(git branch -a) &&
-  branch=$(echo "$branches" | fzf +s +m -e) &&
-  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
-}
-
-# git merge master
-gmm() {
-  if [ ! -z "$1" ]; then
-    git checkout "$1"
-  fi
-
-  git fetch && git rebase
-  git merge origin/master && git push
-}
-
-# git checkout and merge
-#gcm() {
-#  if [ -z "$1" ]; then
-#    echo "Where to merge?"
-#    return 1
-#  fi
-#
-#  local branch
-#  branch=$(git rev-parse --abbrev-ref HEAD)
-#
-#  git checkout "$1"
-#  git fetch && git rebase
-#  git merge $branch
-#}
-
-# dev
+alias grc='git rebase --continue'
+alias ghprm='gh pr create --base master'
+alias ghprd='gh pr create --base develop'
+alias rba='rubocop -a'
+alias rbaa='rubocop -A'
+alias pgen8='pwgen -Cs 8 1 | tr -d " " | tr -d "\n" | pbcopy'
+alias pgen15='pwgen -Cs 15 1 | tr -d " " | tr -d "\n" | pbcopy'
+alias workhard='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^#//g" | sudo tee /etc/hosts'
+alias procrastinate='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^/#/g" | sudo tee /etc/hosts'
+alias compact720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
 alias fs='foreman start'
 alias om='overmind'
 alias oms='overmind start'
@@ -166,8 +99,6 @@ alias avd='ansible-vault decrypt --vault-id .vpass'
 alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
 alias sl='subl -a .'
 alias vs='code .'
-
-# docker
 # alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker'
 # alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
@@ -175,6 +106,52 @@ alias dc='docker-compose'
 alias dcr='docker-compose run --rm'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
+
+gocode() {
+    brew services run postgresql
+    brew services run redis
+}
+
+nocode() {
+    brew services stop postgresql
+    brew services stop redis
+}
+
+runnvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+}
+
+gbf() {
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +s +m -e) &&
+  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
+gmm() {
+  if [ ! -z "$1" ]; then
+    git checkout "$1"
+  fi
+
+  git fetch && git rebase
+  git merge origin/master && git push
+}
+
+#gcm() {
+#  if [ -z "$1" ]; then
+#    echo "Where to merge?"
+#    return 1
+#  fi
+#
+#  local branch
+#  branch=$(git rev-parse --abbrev-ref HEAD)
+#
+#  git checkout "$1"
+#  git fetch && git rebase
+#  git merge $branch
+#}
 
 dstart() {
   if ! $(docker info > /dev/null 2>&1); then
@@ -186,15 +163,6 @@ dstart() {
     echo "Docker is up and running."
   fi
 }
-
-# misc
-alias pgen8='pwgen -Cs 8 1 | tr -d " " | tr -d "\n" | pbcopy'
-alias pgen15='pwgen -Cs 15 1 | tr -d " " | tr -d "\n" | pbcopy'
-alias workhard='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^#//g" | sudo tee /etc/hosts'
-alias procrastinate='cat /etc/hosts | sed "/127.0.0.1 vk.com/s/^/#/g" | sudo tee /etc/hosts'
-alias compact720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
-
-# functions
 
 bh() {
   local command
@@ -372,20 +340,6 @@ pghero() {
     docker run --rm --name pghero -it -p 8080:8080 -e DATABASE_URL=postgres://dlysenko:postgres@docker.for.mac.localhost:5432/$1 ankane/pghero
 }
 
-gocode() {
-    brew services run postgresql
-    brew services run redis
-    #brew services run nginx
-    #brew services run memcached
-}
-
-nocode() {
-    brew services stop postgresql
-    brew services stop redis
-    #brew services stop nginx
-    #brew services stop memcached
-}
-
 decdump() {
     FILE="$1"
 
@@ -413,9 +367,4 @@ undump() {
     rm -rf "$FILE"
 }
 
-runnvm() {
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
-}
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

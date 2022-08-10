@@ -29,11 +29,16 @@ if [[ ! -x /opt/homebrew/bin/brew ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 brew update
 brew doctor
 brew bundle
 
+python3.9 -m pip install --upgrade pip
 pip3 install neovim awscli jmespath ansible ansible-vault
+
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app
 
 if [[ ! -f ~/.nvm/nvm.sh ]]; then
     echo "Installing NVM..."

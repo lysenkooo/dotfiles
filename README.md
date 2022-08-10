@@ -5,12 +5,13 @@ My Mac OS provision scripts.
 ## Install
 
 Clone repo and install configuration files:
-```
-$ rm -rf ~/.ssh
-$ ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.ssh ~/.ssh
-$ git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ ./provision.sh
+```sh
+rm -rf ~/.ssh
+ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.ssh ~/.ssh
+chmod 0600 ~/.ssh/id_rsa ~/.ssh/*.pem
+git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+./provision.sh
 ```
 
 * Open `vim` and run `:VundleInstall`.
@@ -38,7 +39,7 @@ npm install --global yarn
 ### Time Machine
 
 ```sh
-$ crontab -e
+crontab -e
 ```
 
 Add:
@@ -56,5 +57,5 @@ sudo tmutil setdestination /Volumes/TM
 ### Dump package list
 
 ```sh
-$ brew bundle dump --describe -f
+brew bundle dump --mas --describe -f
 ```
