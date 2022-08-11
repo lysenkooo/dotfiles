@@ -27,13 +27,8 @@ ruby-install ruby 2.7.5
 ### Install NodeJS
 
 ```sh
-arch -x86_64 zsh
-arch
-nvm install 12.20.0
-exit
-node -p process.arch
-nvm use 12.20.0
-npm install --global yarn
+nvm install 16
+npm install -g yarn
 ```
 
 ### Time Machine
@@ -44,8 +39,8 @@ crontab -e
 
 Add:
 ```
-0 * * * * find ~/Projects -type d -name node_modules -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
-0 * * * * find ~/Projects -type d -name tmp -maxdepth 5 -prune -exec tmutil addexclusion {} \; > /dev/null
+1 * * * * find ~/Projects -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
+2 * * * * find ~/Projects -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 ```
 
 Setup Time Machine:
