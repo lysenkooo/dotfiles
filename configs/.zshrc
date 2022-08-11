@@ -78,8 +78,6 @@ alias ghprm='gh pr create --base master'
 alias ghprd='gh pr create --base develop'
 alias rba='rubocop -a'
 alias rbaa='rubocop -A'
-alias pwg='pwgen -Cs 15 1 | tr -d " " | tr -d "\n" | pbcopy'
-alias ff720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
 alias om='overmind'
 alias oms='overmind start'
 alias omc='overmind connect'
@@ -94,13 +92,16 @@ alias avd='ansible-vault decrypt'
 alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
 alias vs='code .'
 alias sl='subl -a .'
-alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
-alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
+alias pwg='pwgen -Cs 15 1 | tr -d " " | tr -d "\n" | pbcopy'
+alias ff720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
 alias dc='docker-compose'
 alias dcr='docker-compose run --rm'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
+alias spg='sort-package-json'
 alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
+alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
+alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 
 pghero() {
     if [ -z $1 ]; then
@@ -121,7 +122,8 @@ nocode() {
     brew services stop redis
 }
 
-gbf() {
+unalias gg
+gg() {
   local branches branch
   branches=$(git branch -a) &&
   branch=$(echo "$branches" | fzf +s +m -e) &&

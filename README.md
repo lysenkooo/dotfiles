@@ -28,7 +28,7 @@ ruby-install ruby 2.7.5
 
 ```sh
 nvm install 16
-npm install -g yarn
+npm install -g yarn sort-package-json
 ```
 
 ### Time Machine
@@ -39,6 +39,7 @@ crontab -e
 
 Add:
 ```
+0 * * * * bash -l -c 'cd ~/.dotfiles && git commit -a -m WIP && git push'
 1 * * * * find ~/Projects -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 2 * * * * find ~/Projects -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 ```
