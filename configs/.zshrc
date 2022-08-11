@@ -140,8 +140,8 @@ gmc() {
   branch=$(git rev-parse --abbrev-ref HEAD)
 
   git checkout "$1"
-  git fetch && git rebase
-  git merge $branch
+  git pull --rebase
+  git merge -no-ff $branch
 }
 
 bh() {
