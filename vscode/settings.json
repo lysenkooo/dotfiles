@@ -37,6 +37,6 @@
     "gitlens.codeLens.enabled": false,
     "editor.fontSize": 11,
     "window.zoomLevel": 1,
-    "editor.guides.indentation": false,
+    "editor.guides.indentation": true,
     "editor.inlineSuggest.enabled": true
 }
