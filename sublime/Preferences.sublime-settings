@@ -22,7 +22,7 @@
 		"*.retry"
 	],
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-default-dark.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"copy_with_empty_selection": true,
 	"create_window_at_startup": false,
 	"default_line_ending": "unix",
@@ -78,6 +78,8 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"Base16 Color Schemes",
+		"TypeScript Syntax",
 	],
 	"index_files": true,
 	"open_files_in_new_window": false,

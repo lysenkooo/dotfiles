@@ -2,6 +2,8 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"Base16 Color Schemes",
+		"TypeScript Syntax",
 	],
 	"installed_packages":
 	[
