@@ -102,6 +102,7 @@ alias spg='sort-package-json'
 alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
 alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
+alias rgc='rake git:checkout'
 
 pghero() {
     if [ -z $1 ]; then
@@ -130,7 +131,7 @@ gg() {
   git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
 
-gmc() {
+gmt() {
   if [ -z "$1" ]; then
     echo "Where to merge?"
     return 1
@@ -141,7 +142,7 @@ gmc() {
 
   git checkout "$1"
   git pull --rebase
-  git merge -no-ff $branch
+  git merge --no-ff $branch
 }
 
 bh() {
