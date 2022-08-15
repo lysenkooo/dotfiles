@@ -55,8 +55,8 @@ alias ltu='lt --subdomain ccbe --port 4000'
 alias dflsh='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias fwe='sudo pfctl -e -f /etc/pf.conf'
 alias fwd='sudo pfctl -d'
-alias ts='tmux ls'
-alias ta='tmux attach -t main || tmux new -s main'
+alias ts='tmux attach -t main || tmux new -s main'
+alias tl='tmux ls'
 alias tk='tmux kill-session -t'
 alias gc='git checkout'
 alias gb='git branch'
@@ -103,6 +103,7 @@ alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.so
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
 alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias rgc='rake git:checkout'
+alias ta='terraform apply'
 
 pghero() {
     if [ -z $1 ]; then
