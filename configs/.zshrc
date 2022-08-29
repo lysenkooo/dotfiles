@@ -126,12 +126,12 @@ pghero() {
 }
 
 gocode() {
-    brew services run postgresql
+    brew services run postgresql@14
     brew services run redis
 }
 
 nocode() {
-    brew services stop postgresql
+    brew services stop postgresql@14
     brew services stop redis
 }
 
