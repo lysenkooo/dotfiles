@@ -29,9 +29,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
-#export PYENV_ROOT="$HOME/.pyenv"
-#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 #export PATH="$HOME/.pyenv/shims:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
