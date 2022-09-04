@@ -29,7 +29,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+export PATH="~/.pyenv/shims:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
@@ -39,6 +42,8 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 #source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby 2.7.6
 export PATH="bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias o='open .'
 alias vi='nvim'
