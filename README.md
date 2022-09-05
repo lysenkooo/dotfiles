@@ -1,6 +1,6 @@
 # Dotfiles
 
-My Mac OS provision scripts.
+Mac OS provision scripts.
 
 ## Install
 
@@ -17,11 +17,18 @@ cd ~/.dotfiles
 * Open `vim` and run `:VundleInstall`.
 * Open `nvim` and run `:PlugInstall`.
 
+### Install Python
+
+```sh
+pyenv install 3.10.6
+python -m pip install --upgrade pip
+```
+
 ### Install Ruby
 
 ```sh
-ruby-install ruby 3.0.3
-ruby-install ruby 2.7.5
+ruby-install ruby 2.7.6
+ruby-install ruby 3.1.2
 ```
 
 ### Install NodeJS
