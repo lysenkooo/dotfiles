@@ -9,7 +9,6 @@ defaults write com.apple.TextEdit RichText 0
 defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.001
 
 mkdir -p ~/Projects
-
 tmutil addexclusion ~/Downloads
 
 CURRENT=`pwd`
@@ -29,14 +28,10 @@ if [[ ! -x /opt/homebrew/bin/brew ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
+/opt/homebrew/bin/brew shellenv
 brew update
 brew doctor
 brew bundle
-
-python3.9 -m pip install --upgrade pip
-pip3 install neovim awscli jmespath ansible ansible-vault
 
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app
 
@@ -66,7 +61,9 @@ find configs -type f -print0 | while IFS= read -r -d '' line; do
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
 
+# vscode
 ln -sf "$CURRENT/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 
+# sublime
 rm -rf "$HOME/Library/Application Support/Sublime Text/Packages/User"
 ln -sf "$CURRENT/sublime" "$HOME/Library/Application Support/Sublime Text/Packages/User"

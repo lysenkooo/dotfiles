@@ -22,6 +22,7 @@ cd ~/.dotfiles
 ```sh
 pyenv install 3.10.6
 python -m pip install --upgrade pip
+pip3 install neovim jmespath ansible ansible-vault ansible-lint awscli
 ```
 
 ### Install Ruby
@@ -46,9 +47,11 @@ crontab -e
 
 Add:
 ```
-0 * * * * bash -l -c 'cd ~/.dotfiles && git commit -a -m WIP && git push'
+0 * * * * bash -l -c 'cd ~/.dotfiles && git commit -a -m WIP && git push' > /dev/null 2> /dev/null
 1 * * * * find ~/Projects -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 2 * * * * find ~/Projects -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
+3 * * * * find ~/Fohlio -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
+4 * * * * find ~/Fohlio -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 ```
 
 Setup Time Machine:
