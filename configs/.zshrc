@@ -45,6 +45,7 @@ export PATH="bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+alias df='cd ~/.dotfiles'
 alias o='open .'
 alias vi='nvim'
 alias vim='nvim'
@@ -89,12 +90,14 @@ alias gpo='git push -u origin HEAD'
 alias gpof='git push -u origin HEAD -f'
 alias gl='git pull'
 alias glr='git pull --rebase'
+alias gcp='git cherry-pick'
 alias ghpr='gh pr create'
 alias ghprm='gh pr create --base main'
 alias ghprd='gh pr create --base develop'
 alias rba='rubocop -a'
 alias rbaa='rubocop -A'
 alias om='overmind'
+alias ms='make s'
 alias oms='overmind start'
 alias omc='overmind connect'
 alias omr='overmind restart'
