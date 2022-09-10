@@ -57,7 +57,9 @@ Add:
 Setup Time Machine:
 
 ```sh
-sudo tmutil setdestination /Volumes/TM
+hdiutil create -type SPARSEBUNDLE -fs "HFS+J" -size 200g -volname TM-Air /Volumes/T5/TM_Air.sparsebundle
+open /Volumes/T5/TM_Air.sparsebundle
+sudo tmutil setdestination /Volumes/TM-Air
 ```
 
 ### Dump package list
