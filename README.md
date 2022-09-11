@@ -67,3 +67,10 @@ sudo tmutil setdestination /Volumes/TM-Air
 ```sh
 brew bundle dump --mas --describe -f
 ```
+
+### Change TTL
+
+```sh
+echo "net.inet.ip.ttl=65" | sudo tee -a /etc/sysctl.conf
+```
+
