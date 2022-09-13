@@ -125,6 +125,15 @@ alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applicati
 alias rgc='rake git:checkout'
 alias ta='terraform apply'
 
+gim() {
+    if [ -z "$*" ]; then
+        echo "Specify commit message"
+        return 1
+    fi
+
+    git commit -m "$*"
+}
+
 pghero() {
     if [ -z $1 ]; then
         echo "Specify database name"
