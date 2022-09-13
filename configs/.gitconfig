@@ -12,11 +12,9 @@
 	ui = auto
 
 [alias]
-	h = log --oneline --graph --branches
-	h2 = log --graph --date=short --pretty=format:'%h | %ad | %s%d [%an]'
-	h3 = log --graph --all --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-	h4 = log --graph --date=short --branches --pretty=format:'%C(yellow)%h%C(reset) %ad | %C(75)%s%C(reset) %C(yellow)%d%C(reset) [%an]'
-	fixlast = commit --all --amend --no-edit
+	l = log --graph --oneline
+	h = log --graph --pretty=format:'%C(yellow)%h%C(reset)%C(red)%d%C(reset) %s %C(cyan)%an%C(reset) %C(green)%cr%C(reset)'
+	a = log --graph --branches --all --pretty=format:'%C(yellow)%h%C(reset)%C(red)%d%C(reset) %s %C(cyan)%an%C(reset) %C(green)%cr%C(reset)'
 
 [oh-my-zsh]
 	hide-dirty = 1
