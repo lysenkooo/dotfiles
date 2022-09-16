@@ -79,6 +79,7 @@
 	"ignored_packages":
 	[
 		"Base16 Color Schemes",
+		"SideBarEnhancements",
 		"TypeScript Syntax",
 	],
 	"index_files": true,
