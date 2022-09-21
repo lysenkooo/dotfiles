@@ -39,5 +39,8 @@
   "editor.guides.indentation" : true,
   "files.eol" : "\n",
   "window.zoomLevel" : 1,
-  "editor.inlineSuggest.enabled" : true
+  "editor.inlineSuggest.enabled": true,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  }
 }
