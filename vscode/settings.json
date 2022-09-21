@@ -1,42 +1,43 @@
 {
-    "editor.rulers": [
-        120
-    ],
-    "editor.tabSize": 2,
-    "editor.minimap.enabled": false,
-    "editor.occurrencesHighlight": false,
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-    "files.eol": "\n",
-    "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "workbench.startupEditor": "none",
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#222222",
-        "statusBar.noFolderBackground": "#222225",
-        "statusBar.debuggingBackground": "#511f1f"
+  "terminal.integrated.defaultProfile.osx" : "zsh",
+  "ruby.useBundler" : true,
+  "editor.minimap.enabled" : false,
+  "ruby.format" : "rubocop",
+  "editor.accessibilitySupport" : "off",
+  "ruby.useLanguageServer" : true,
+  "editor.occurrencesHighlight" : false,
+  "terminal.external.osxExec" : "iTerm.app",
+  "ruby.lint" : {
+    "rubocop" : {
+      "rails" : true,
+      "useBundler" : true,
+      "forceExclusion" : true,
+      "command" : "bundle exec rubocop",
+      "lint" : true
     },
-    "ruby.useBundler": true,
-    "ruby.useLanguageServer": true,
-    "ruby.lint": {
-        "rubocop": {
-            "command": "bundle exec rubocop",
-            "useBundler": true,
-            "lint": true,
-            "rails": true,
-            "forceExclusion": true
-        },
-        "reek": {
-            "command": "bundle exec reek",
-            "useBundler": true
-        }
-    },
-    "ruby.format": "rubocop",
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.codeLens.enabled": false,
-    "editor.fontSize": 11,
-    "window.zoomLevel": 1,
-    "editor.guides.indentation": true,
-    "editor.inlineSuggest.enabled": true
+    "reek" : {
+      "command" : "bundle exec reek",
+      "useBundler" : true
+    }
+  },
+  "editor.rulers" : [
+    120
+  ],
+  "files.insertFinalNewline" : true,
+  "editor.fontSize" : 11,
+  "editor.tabSize" : 2,
+  "files.trimFinalNewlines" : true,
+  "gitlens.codeLens.enabled" : false,
+  "workbench.colorCustomizations" : {
+    "statusBar.background" : "#222222",
+    "statusBar.noFolderBackground" : "#222225",
+    "statusBar.debuggingBackground" : "#511f1f"
+  },
+  "files.trimTrailingWhitespace" : true,
+  "workbench.startupEditor" : "none",
+  "gitlens.hovers.currentLine.over" : "line",
+  "editor.guides.indentation" : true,
+  "files.eol" : "\n",
+  "window.zoomLevel" : 1,
+  "editor.inlineSuggest.enabled" : true
 }
