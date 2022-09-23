@@ -14,7 +14,7 @@
 [alias]
 	l = log --graph --oneline
 	h = log --graph --pretty=format:'%C(yellow)%h%C(reset)%C(red)%d%C(reset) %s %C(cyan)%an%C(reset) %C(green)%cr%C(reset)'
-	a = log --graph --branches --all --pretty=format:'%C(yellow)%h%C(reset)%C(red)%d%C(reset) %s %C(cyan)%an%C(reset) %C(green)%cr%C(reset)'
+	a = log --graph --pretty=format:'%C(yellow)%h%C(reset)%C(red)%d%C(reset) %s %C(cyan)%an%C(reset) %C(green)%cr%C(reset)' --all
 
 [oh-my-zsh]
 	hide-dirty = 1
