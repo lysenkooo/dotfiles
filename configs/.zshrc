@@ -126,7 +126,7 @@ alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.so
 alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
 alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias rgc='rake git:checkout'
-alias ta='terraform apply'
+alias tf='terraform'
 
 gim() {
     if [ -z "$*" ]; then
