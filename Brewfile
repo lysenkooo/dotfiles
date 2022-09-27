@@ -132,3 +132,32 @@ cask "yandex-disk"
 cask "yandex-music-unofficial"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Amphetamine", id: 937984704
+mas "AudioBookBinder", id: 413969927
+mas "Be Focused Pro", id: 961632517
+mas "Bitwarden", id: 1352778147
+mas "Cloud Mail.Ru", id: 893068358
+mas "CopyClip", id: 595191960
+mas "Dato", id: 1470584107
+mas "Elmedia Player", id: 937759555
+mas "Endel", id: 1484348796
+mas "Evernote", id: 406056744
+mas "GarageBand", id: 682658836
+mas "Glance", id: 1513574319
+mas "Hidden Bar", id: 1452453066
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "MindNode", id: 1289197285
+mas "Monosnap", id: 540348655
+mas "MuteKey", id: 1509590766
+mas "Outline", id: 1356178125
+mas "Pocket", id: 568494494
+mas "Radio", id: 991729082
+mas "Shazam", id: 897118787
+mas "Slack", id: 803453959
+mas "Spark", id: 1176895641
+mas "Speedtest", id: 1153157709
+mas "Telegram", id: 747648890
+mas "The Unarchiver", id: 425424353
+mas "Unsplash Wallpapers", id: 1284863847
+mas "WhatsApp", id: 1147396723
+mas "WireGuard", id: 1451685025
