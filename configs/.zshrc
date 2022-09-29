@@ -83,6 +83,7 @@ alias gma='git merge --abort'
 alias gr='git rebase'
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
+alias gfp='git fetch --prune'
 alias grm='git fetch && git rebase origin/main'
 alias grd='git fetch && git rebase origin/develop'
 alias gmm='git fetch && git rebase && git merge --ff origin/main'
@@ -127,6 +128,7 @@ alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Dock
 alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias rgc='rake git:checkout'
 alias tf='terraform'
+alias wh='which'
 
 gim() {
     if [ -z "$*" ]; then
