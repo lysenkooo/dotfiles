@@ -22,7 +22,7 @@
 		"*.retry"
 	],
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"color_scheme": "Packages/Base16 Eighties Dark Color Scheme/base16-eighties-dark.tmTheme",
 	"copy_with_empty_selection": true,
 	"create_window_at_startup": false,
 	"default_line_ending": "unix",
