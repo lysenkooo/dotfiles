@@ -28,11 +28,11 @@ if [[ ! -x /opt/homebrew/bin/brew ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-/opt/homebrew/bin/brew shellenv
-brew update
-brew doctor
-brew bundle
+/opt/homebrew/bin/brew update
+/opt/homebrew/bin/brew upgrade
+/opt/homebrew/bin/brew bundle
 
+# Remove WireGuard from autoload
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app
 
 if [[ ! -f ~/.nvm/nvm.sh ]]; then
@@ -61,9 +61,4 @@ find configs -type f -print0 | while IFS= read -r -d '' line; do
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
 
-# vscode
-ln -sf "$CURRENT/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-
-# sublime
-rm -rf "$HOME/Library/Application Support/Sublime Text/Packages/User"
-ln -sf "$CURRENT/sublime" "$HOME/Library/Application Support/Sublime Text/Packages/User"
+mackup restore

@@ -45,7 +45,6 @@ export PATH="bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias df='cd ~/.dotfiles'
 alias o='open .'
 alias vi='nvim'
 alias vim='nvim'
@@ -56,6 +55,7 @@ alias zr='source ~/.zshrc'
 alias la='ls -la'
 alias sa='ssh-add'
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias df='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/.dotfiles'
 alias ttl='sudo sysctl -w net.inet.ip.ttl=65'
 alias ltu='lt --subdomain ccbe --port 4000'
 alias dflsh='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
