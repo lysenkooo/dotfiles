@@ -40,7 +40,8 @@ npm install -g yarn sort-package-json
 ```
 
 ```sh
-ruby-install ruby 2.7.6
+ruby-install --latest ruby -- --enable-shared
+ruby-install ruby 2.7 -- --enable-shared
 ```
 
 * Open `vim` and run `:VundleInstall`.

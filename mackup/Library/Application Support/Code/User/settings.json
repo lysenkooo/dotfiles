@@ -37,8 +37,8 @@
   "workbench.startupEditor" : "none",
   "gitlens.hovers.currentLine.over" : "line",
   "editor.guides.indentation" : true,
-  "files.eol" : "\n",
-  "window.zoomLevel" : 1,
+  "files.eol": "\n",
+  "window.zoomLevel": 1,
   "editor.inlineSuggest.enabled": true,
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
