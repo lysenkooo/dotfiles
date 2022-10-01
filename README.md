@@ -18,6 +18,11 @@ cd ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
 ./provision.sh
 ```
 
+Install Rosetta:
+```sh
+softwareupdate --install-rosetta
+```
+
 ```sh
 pyenv install 3.10.6
 pyenv global 3.10.6

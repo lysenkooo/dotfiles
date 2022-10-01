@@ -18,11 +18,6 @@ if [[ ! -x /usr/bin/gcc ]]; then
     xcode-select --install
 fi
 
-if [[ ! -x "/System/Library/CoreServices/Rosetta 2 Updater.app" ]]; then
-    echo "Installing Rosetta..."
-    softwareupdate --install-rosetta
-fi
-
 if [[ ! -x /opt/homebrew/bin/brew ]]; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
