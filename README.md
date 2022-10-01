@@ -4,13 +4,17 @@ Mac OS provision scripts.
 
 ## Install
 
-Clone repo and install configuration files:
+Install ssh keys:
 ```sh
 rm -rf ~/.ssh
 ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.ssh ~/.ssh
-chmod 0600 ~/.ssh/id_rsa ~/.ssh/*.pem
-git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+chmod 0600 ~/.ssh/*
+```
+
+Clone repo and install configuration files:
+```sh
+git clone git@github.com:lysenkooo/dotfiles.git ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
+cd ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
 ./provision.sh
 ```
 
@@ -36,6 +40,8 @@ ruby-install ruby 3.1.2
 
 ```sh
 nvm install 16
+nvm alias default 16
+nvm use 16
 npm install -g yarn sort-package-json
 ```
 
@@ -47,14 +53,14 @@ crontab -e
 
 Add:
 ```
-0 * * * * bash -l -c 'cd ~/.dotfiles && git commit -a -m WIP && git push' > /dev/null 2> /dev/null
+0 * * * * bash -l -c 'cd "~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles" && git commit -a -m WIP && git push' > /dev/null 2> /dev/null
 1 * * * * find ~/Projects -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 2 * * * * find ~/Projects -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 3 * * * * find ~/Fohlio -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 4 * * * * find ~/Fohlio -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 ```
 
-Setup Time Machine:
+### Time Machine
 
 ```sh
 hdiutil create -type SPARSEBUNDLE -fs "HFS+J" -size 200g -volname TM-Air /Volumes/T5/TM_Air.sparsebundle
@@ -62,9 +68,10 @@ open /Volumes/T5/TM_Air.sparsebundle
 sudo tmutil setdestination /Volumes/TM-Air
 ```
 
-### Dump package list
+### Dump settings
 
 ```sh
+mackup backup
 brew bundle dump --mas --describe -f
 ```
 
@@ -73,4 +80,3 @@ brew bundle dump --mas --describe -f
 ```sh
 echo "net.inet.ip.ttl=65" | sudo tee -a /etc/sysctl.conf
 ```
-
