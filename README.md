@@ -18,25 +18,12 @@ cd ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
 ./provision.sh
 ```
 
-* Open `vim` and run `:VundleInstall`.
-* Open `nvim` and run `:PlugInstall`.
-
-### Install Python
-
 ```sh
 pyenv install 3.10.6
 python -m pip install --upgrade pip
 pip3 install neovim jmespath ansible ansible-vault ansible-lint awscli mackup
+mackup restore
 ```
-
-### Install Ruby
-
-```sh
-ruby-install ruby 2.7.6
-ruby-install ruby 3.1.2
-```
-
-### Install NodeJS
 
 ```sh
 nvm install 16
@@ -45,7 +32,15 @@ nvm use 16
 npm install -g yarn sort-package-json
 ```
 
-### Time Machine
+```sh
+ruby-install ruby 2.7.6
+ruby-install ruby 3.1.2
+```
+
+* Open `vim` and run `:VundleInstall`.
+* Open `nvim` and run `:PlugInstall`.
+
+### Cron
 
 ```sh
 crontab -e
@@ -68,7 +63,7 @@ open /Volumes/T5/TM_Air.sparsebundle
 sudo tmutil setdestination /Volumes/TM-Air
 ```
 
-### Dump settings
+### Dump Settings
 
 ```sh
 mackup backup

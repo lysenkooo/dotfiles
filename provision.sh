@@ -60,9 +60,3 @@ find configs -type f -print0 | while IFS= read -r -d '' line; do
     echo "Link $DST_PATH << $SRC_PATH"
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
-
-pyenv install 3.10.6
-pyenv global 3.10.6
-python -m pip install --upgrade pip
-pip install mackup neovim jmespath ansible ansible-vault ansible-lint awscli
-mackup restore
