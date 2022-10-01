@@ -1,2 +1,2 @@
 configs/.ssh
-mackup/.nvim/backups
+mackup/.nvim/backups/*
