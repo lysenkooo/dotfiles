@@ -15,6 +15,9 @@
       },
       "homebrew/services": {
         "revision": "954801711b1562739176e83bc0ce0a265abdea98"
+      },
+      "jmespath/jmespath": {
+        "revision": "405bde178e05d3dead26cef49882f66d0c717286"
       }
     },
     "brew": {
@@ -2115,6 +2118,10 @@
             }
           }
         }
+      },
+      "jmespath/jmespath/jp": {
+        "version": "0.2.0",
+        "bottle": false
       }
     },
     "cask": {
@@ -2302,6 +2309,12 @@
         "version": "1.7.1",
         "options": {
           "full_name": "yandex-music-unofficial"
+        }
+      },
+      "blackhole-2ch": {
+        "version": "0.4.0",
+        "options": {
+          "full_name": "blackhole-2ch"
         }
       }
     },
