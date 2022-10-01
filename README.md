@@ -20,8 +20,10 @@ cd ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
 
 ```sh
 pyenv install 3.10.6
+pyenv global 3.10.6
+eval "$(pyenv init -)"
 python -m pip install --upgrade pip
-pip3 install neovim jmespath ansible ansible-vault ansible-lint awscli mackup
+pip install neovim jmespath ansible ansible-vault ansible-lint awscli mackup
 mackup restore
 ```
 
@@ -34,7 +36,6 @@ npm install -g yarn sort-package-json
 
 ```sh
 ruby-install ruby 2.7.6
-ruby-install ruby 3.1.2
 ```
 
 * Open `vim` and run `:VundleInstall`.

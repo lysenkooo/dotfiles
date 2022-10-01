@@ -142,7 +142,7 @@ mas "AudioBookBinder", id: 413969927
 mas "Be Focused Pro", id: 961632517
 mas "Bitwarden", id: 1352778147
 mas "CADReader", id: 1484905765
-mas "Cloud Mail.Ru", id: 893068358
+#mas "Cloud Mail.Ru", id: 893068358
 mas "CopyClip", id: 595191960
 mas "Dato", id: 1470584107
 mas "Disk Speed Test", id: 425264550

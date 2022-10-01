@@ -28,9 +28,10 @@ if [[ ! -x /opt/homebrew/bin/brew ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-/opt/homebrew/bin/brew update
-/opt/homebrew/bin/brew upgrade
-/opt/homebrew/bin/brew bundle
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew update
+brew upgrade
+brew bundle
 
 # Remove WireGuard from autoload
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app
