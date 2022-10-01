@@ -26,7 +26,7 @@ cd ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
 ```sh
 pyenv install 3.10.6
 python -m pip install --upgrade pip
-pip3 install neovim jmespath ansible ansible-vault ansible-lint awscli
+pip3 install neovim jmespath ansible ansible-vault ansible-lint awscli mackup
 ```
 
 ### Install Ruby

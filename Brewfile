@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "jmespath/jmespath"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -78,12 +79,16 @@ brew "telnet"
 brew "terraform"
 # Internet file retriever
 brew "wget"
+# Command-line interface to JMESPath, a query language for JSON
+brew "jmespath/jmespath/jp"
 # Application launcher and productivity software
 cask "alfred"
 # Allows connection to a computer remotely
 cask "anydesk"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
+# Virtual Audio Driver
+cask "blackhole-2ch"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver"
 # API documentation browser and code snippet manager
