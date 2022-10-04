@@ -44,6 +44,11 @@ ruby-install --latest ruby -- --enable-shared
 ruby-install ruby 2.7 -- --enable-shared
 ```
 
+```sh
+gem update --system
+gem install solargraph
+```
+
 * Open `vim` and run `:VundleInstall`.
 * Open `nvim` and run `:PlugInstall`.
 
