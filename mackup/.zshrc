@@ -49,6 +49,8 @@ alias o='open .'
 alias vi='nvim'
 alias vim='nvim'
 alias vis='vi ~/.ssh/config'
+alias vik='vi ~/.ssh/known_hosts'
+alias sshcp='cat ~/.ssh/id_rsa.pub | pbcopy'
 alias ip='curl ifconfig.co/json'
 alias ze='vi ~/.zshrc'
 alias zr='source ~/.zshrc'
@@ -66,6 +68,8 @@ alias tl='tmux ls'
 alias tk='tmux kill-session -t'
 alias gc='git checkout'
 alias gb='git branch'
+alias gbd='git branch -d'
+alias gbdd='git branch -D'
 alias ga='git add'
 alias gi='git commit'
 alias gia='git commit --amend -n'
@@ -73,29 +77,31 @@ alias giw='git commit -a -m WIP'
 alias grs='git reset'
 alias gs='git status'
 alias gd='git diff'
+alias gd1='git diff HEAD~1'
 alias gds='git diff --staged'
-alias glo='git log'
+alias glo='git log --numstat'
 alias gm='git merge'
 alias gma='git merge --abort'
 alias gr='git rebase'
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
-alias gfp='git fetch --prune'
+alias gcp='git cherry-pick'
 alias grm='git fetch && git rebase origin/main'
 alias grd='git fetch && git rebase origin/develop'
 alias gmm='git fetch && git rebase && git merge --ff origin/main'
 alias gmd='git fetch && git rebase && git merge --ff origin/develop'
+alias gfp='git fetch --prune'
+alias gl='git pull'
+alias glr='git pull --rebase'
 alias gp='git push'
 alias gpf='git push -f'
 alias gpo='git push -u origin HEAD'
 alias gpof='git push -u origin HEAD -f'
-alias gl='git pull'
-alias glr='git pull --rebase'
-alias gcp='git cherry-pick'
 alias ghprv='gh pr view --web'
 alias ghpr='gh pr create'
-alias ghprm='gh pr create --base main'
-alias ghprd='gh pr create --base develop'
+alias ghprm='gh pr create -B main -F .github/PULL_REQUEST_TEMPLATE.md'
+alias ghprm='gh pr create -B develop -F .github/PULL_REQUEST_TEMPLATE.md'
+
 alias rba='rubocop -a'
 alias rbaa='rubocop -A'
 alias om='overmind'
@@ -126,6 +132,7 @@ alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applicati
 alias rgc='rake git:checkout'
 alias tf='terraform'
 alias wh='which'
+alias gbcln='git branch | grep -vE " (master|main|develop)" | xargs git branch -d'
 
 gim() {
     if [ -z "$*" ]; then
@@ -291,4 +298,31 @@ unmount() {
     find "$1" -name ".DS_Store" -exec rm {} \;
 
     diskutil unmount "$1"
+}
+
+git-fetch-all() {
+  local root=$(pwd)
+
+  for f in *; do
+    local p="$root/$f"
+
+    if [ -d "$p" ]; then
+      echo "------------------------------------------------------------"
+      echo "$p"
+      cd "$p"
+      git fetch --all
+      git pull --all || true
+    fi
+  done
+
+  cd "$root"
+}
+
+owners(){
+  for f in $(git ls-files); do
+    echo -n "$f "
+    git fame -esnwMC --incl "$f" | tr '/' '|' \
+      | awk -F '|' '(NR>6 && $6>=30) {print $2}' \
+      | xargs echo
+  done
 }
