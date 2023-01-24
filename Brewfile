@@ -1,16 +1,16 @@
+tap "harelba/q"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "jmespath/jmespath"
+tap "unused-code/formulae"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Parser generator
 brew "bison"
-# Portable Foreign Function Interface library
-brew "libffi"
 # Ruby environment tool
 brew "chruby"
 # Cross-platform make
@@ -25,6 +25,8 @@ brew "readline"
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU database manager
+brew "gdbm"
 # GitHub command-line tool
 brew "gh"
 # Command-line utility for uploading Gists
@@ -33,8 +35,12 @@ brew "gist"
 brew "git"
 # AVH edition of git-flow
 brew "git-flow-avh"
+# Simple and efficient way to access statistics in git
+brew "git-quick-stats"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Portable Foreign Function Interface library
+brew "libffi"
 # YAML Parser
 brew "libyaml"
 # Mac App Store command-line interface
@@ -77,20 +83,34 @@ brew "ssh-copy-id"
 brew "telnet"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# CLI tool to generate terraform files from existing infrastructure
+brew "terraformer"
 # Internet file retriever
 brew "wget"
 # Command-line interface to JMESPath, a query language for JSON
 brew "jmespath/jmespath/jp"
+# Identify potentially unused code
+brew "unused-code/formulae/unused"
+# Menu bar tool to limit maximum charging percentage
+cask "aldente"
 # Application launcher and productivity software
 cask "alfred"
+# Enable Windows-like alt-tab
+cask "alt-tab"
 # Allows connection to a computer remotely
 cask "anydesk"
+# Application uninstaller
+cask "appcleaner"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
 # Virtual Audio Driver
 cask "blackhole-2ch"
+# Tool to list all active shortcuts of the current application
+cask "cheatsheet"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver"
+# Allows switching between application windows
+cask "contexts"
 # API documentation browser and code snippet manager
 cask "dash"
 # App to build and share containerized applications and microservices
@@ -101,10 +121,18 @@ cask "figma"
 cask "google-chrome"
 # Free and open-source media player
 cask "iina"
+# iPhone management application
+cask "imazing"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Open-source screen recorder built with web technology
+cask "kap"
+# Blocks all Keyboard and TouchBar input
+cask "keyboardcleantool"
 # Screen and video recording software
 cask "loom"
+# Native app email client for Gmail
+cask "mimestream"
 # Online collaborative whiteboard platform
 cask "miro"
 # Tool to control external monitor brightness & volume
@@ -115,18 +143,20 @@ cask "notion"
 cask "numi"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Read/write support for NTFS formatted volumes
-cask "paragon-ntfs"
 # Collaboration platform for API development
 cask "postman"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Screenshot measurement and annotation tool
+cask "shottr"
 # Video chat, voice call and instant messaging application
 cask "skype"
 # Reminds you to stand up once an hour
 cask "stand"
 # Text editor for code, markup and prose
 cask "sublime-text"
+# Utility to hide the notch
+cask "topnotch"
 # Open-source BitTorrent client
 cask "transmission"
 # Open-source code editor
@@ -142,7 +172,6 @@ mas "AudioBookBinder", id: 413969927
 mas "Be Focused Pro", id: 961632517
 mas "Bitwarden", id: 1352778147
 mas "CADReader", id: 1484905765
-#mas "Cloud Mail.Ru", id: 893068358
 mas "CopyClip", id: 595191960
 mas "Dato", id: 1470584107
 mas "Disk Speed Test", id: 425264550

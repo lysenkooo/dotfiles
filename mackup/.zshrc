@@ -24,7 +24,7 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/opt/homebrew/opt/openssl@1.1/lib/pkg
 
 #export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 #eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
@@ -74,6 +74,7 @@ alias ga='git add'
 alias gi='git commit'
 alias gia='git commit --amend -n'
 alias giw='git commit -a -m WIP'
+alias giwp='git commit -a -m WIP && git push'
 alias grs='git reset'
 alias gs='git status'
 alias gd='git diff'
@@ -100,7 +101,7 @@ alias gpof='git push -u origin HEAD -f'
 alias ghprv='gh pr view --web'
 alias ghpr='gh pr create'
 alias ghprm='gh pr create -B main -F .github/PULL_REQUEST_TEMPLATE.md'
-alias ghprm='gh pr create -B develop -F .github/PULL_REQUEST_TEMPLATE.md'
+alias ghprd='gh pr create -B develop -F .github/PULL_REQUEST_TEMPLATE.md'
 
 alias rba='rubocop -a'
 alias rbaa='rubocop -A'
@@ -131,8 +132,25 @@ alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Dock
 alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias rgc='rake git:checkout'
 alias tf='terraform'
+alias tg='terragrunt'
 alias wh='which'
 alias gbcln='git branch | grep -vE " (master|main|develop)" | xargs git branch -d'
+alias awfo-old='export AWS_PROFILE=foh-old'
+alias awfo-stg='export AWS_PROFILE=foh-staging'
+alias awfo-prd='export AWS_PROFILE=foh-production'
+alias alpha-console='kubectl exec -it -n alpha $(kubectl get pod -n alpha | grep puma | awk "{print $1}") -- bundle exec rails console'
+alias cpm='cat ~/Yandex.Disk.localized/stuff/cpm.csv | grep'
+alias tfswitch='tfswitch -b ~/.bin/terraform'
+alias kgp='kubectl get pod'
+
+ke() {
+    if [ -z $1 ]; then
+        echo "Specify pod"
+        return 1
+    fi
+
+    kubectl exec -it $1 -- $2
+}
 
 gim() {
     if [ -z "$*" ]; then
@@ -324,5 +342,27 @@ owners(){
     git fame -esnwMC --incl "$f" | tr '/' '|' \
       | awk -F '|' '(NR>6 && $6>=30) {print $2}' \
       | xargs echo
+  done
+}
+
+clean-ds() {
+    find . -name ".DS_Store" -exec rm {} \;
+
+}
+
+rtf() {
+  local i=0
+
+  while true; do
+    ((i=i+1))
+    echo "Attempt $i"
+
+    $@
+
+    if [[ "$?" -ne 0 ]]; then
+      break
+    fi
+
+    sleep 1
   done
 }
