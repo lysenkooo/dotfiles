@@ -39,8 +39,9 @@ export NVM_DIR="$HOME/.nvm"
 #[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-#source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby 2.7.6
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+#chruby 2.7.7
+
 export PATH="bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -328,7 +329,7 @@ git-fetch-all() {
       echo "------------------------------------------------------------"
       echo "$p"
       cd "$p"
-      git fetch --all
+      git fetch --all --prune
       git pull --all || true
     fi
   done

@@ -5,12 +5,15 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "jmespath/jmespath"
 tap "unused-code/formulae"
+tap "warrensbox/tap"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Parser generator
 brew "bison"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Ruby environment tool
 brew "chruby"
 # Cross-platform make
@@ -39,6 +42,8 @@ brew "git-flow-avh"
 brew "git-quick-stats"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
 # Portable Foreign Function Interface library
 brew "libffi"
 # YAML Parser
@@ -64,7 +69,7 @@ brew "openvpn"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
 # Object-relational database system
-brew "postgresql@14"
+brew "postgresql@14", restart_service: true
 # Show ps output as a tree
 brew "pstree"
 # Password generator
@@ -74,23 +79,25 @@ brew "pyenv"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
-brew "redis"
+brew "redis", restart_service: true
 # Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
 brew "ruby-install"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # User interface to the TELNET protocol
 brew "telnet"
-# Tool to build, change, and version infrastructure
-brew "terraform"
 # CLI tool to generate terraform files from existing infrastructure
 brew "terraformer"
+# Thin wrapper for Terraform e.g. for locking state
+brew "terragrunt"
 # Internet file retriever
 brew "wget"
 # Command-line interface to JMESPath, a query language for JSON
 brew "jmespath/jmespath/jp"
 # Identify potentially unused code
 brew "unused-code/formulae/unused"
+# The tfswitch command lets you switch between terraform versions.
+brew "warrensbox/tap/tfswitch"
 # Menu bar tool to limit maximum charging percentage
 cask "aldente"
 # Application launcher and productivity software
@@ -170,9 +177,9 @@ cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "AudioBookBinder", id: 413969927
 mas "Be Focused Pro", id: 961632517
+mas "Billable", id: 1549238888
 mas "Bitwarden", id: 1352778147
 mas "CADReader", id: 1484905765
-mas "CopyClip", id: 595191960
 mas "Dato", id: 1470584107
 mas "Disk Speed Test", id: 425264550
 mas "Elmedia Player", id: 937759555
@@ -180,7 +187,9 @@ mas "Endel", id: 1484348796
 mas "Evernote", id: 406056744
 mas "GarageBand", id: 682658836
 mas "Glance", id: 1513574319
+mas "Hand Mirror", id: 1502839586
 mas "Hidden Bar", id: 1452453066
+mas "Kronos Time Tracker", id: 1069739356
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "MindNode", id: 1289197285
 mas "Monosnap", id: 540348655
@@ -194,6 +203,7 @@ mas "Spark", id: 1176895641
 mas "Speedtest", id: 1153157709
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
+mas "Toggl Track", id: 1291898086
 mas "Unsplash Wallpapers", id: 1284863847
 mas "WhatsApp", id: 1147396723
 mas "WireGuard", id: 1451685025
