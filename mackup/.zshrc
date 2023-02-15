@@ -141,8 +141,10 @@ alias awfo-stg='export AWS_PROFILE=foh-staging'
 alias awfo-prd='export AWS_PROFILE=foh-production'
 alias alpha-console='kubectl exec -it -n alpha $(kubectl get pod -n alpha | grep puma | awk "{print $1}") -- bundle exec rails console'
 alias cpm='cat ~/Yandex.Disk.localized/stuff/cpm.csv | grep'
-alias tfswitch='tfswitch -b ~/.bin/terraform'
+#alias tfswitch='tfswitch -b ~/.bin/terraform'
 alias kgp='kubectl get pod'
+alias gemunall='for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done'
+alias kg='ssh-keygen -t rsa -b 4096'
 
 ke() {
     if [ -z $1 ]; then
