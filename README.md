@@ -63,8 +63,6 @@ Add:
 0 * * * * bash -l -c 'cd "~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles" && git commit -a -m WIP && git push' > /dev/null 2> /dev/null
 1 * * * * find ~/Projects -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 2 * * * * find ~/Projects -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
-3 * * * * find ~/Fohlio -type d -name tmp -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
-4 * * * * find ~/Fohlio -type d -name node_modules -prune -maxdepth 10 -exec tmutil addexclusion {} \; > /dev/null
 ```
 
 ### Time Machine

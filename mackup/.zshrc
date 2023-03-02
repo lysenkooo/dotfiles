@@ -46,24 +46,62 @@ export PATH="bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias o='open .'
-alias vi='nvim'
-alias vim='nvim'
-alias vis='vi ~/.ssh/config'
-alias vik='vi ~/.ssh/known_hosts'
-alias sshcp='cat ~/.ssh/id_rsa.pub | pbcopy'
-alias ip='curl ifconfig.co/json'
-alias ze='vi ~/.zshrc'
-alias zr='source ~/.zshrc'
-alias la='ls -la'
-alias sa='ssh-add'
-alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
-alias df='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/.dotfiles'
-alias ttl='sudo sysctl -w net.inet.ip.ttl=65'
+# development
+alias vs='code .'
+alias sl='subl -a .'
+alias ms='make s'
+alias om='overmind'
+alias oms='overmind start'
+alias omc='overmind connect'
+alias omr='overmind restart'
+alias bsl='brew services list'
+alias bsr='brew services run'
+alias bss='brew services stop'
 alias ltu='lt --subdomain ccbe --port 4000'
-alias dflsh='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
-alias fwe='sudo pfctl -e -f /etc/pf.conf'
-alias fwd='sudo pfctl -d'
+
+gocode() {
+    brew services run postgresql@14
+    brew services run redis
+}
+
+nocode() {
+    brew services stop postgresql@14
+    brew services stop redis
+}
+
+pghero() {
+    if [ -z $1 ]; then
+        echo "Specify database name"
+        return 1
+    fi
+
+    docker run --rm --name pghero -it -p 8080:8080 -e DATABASE_URL=postgres://dlysenko:postgres@docker.for.mac.localhost:5432/$1 ankane/pghero
+}
+
+ovi() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
+  vi "$dir"
+}
+
+rtf() {
+  local i=0
+
+  while true; do
+    ((i=i+1))
+    echo "Attempt $i"
+
+    $@
+
+    if [[ "$?" -ne 0 ]]; then
+      break
+    fi
+
+    sleep 1
+  done
+}
+
+# tmux
 alias ts='tmux attach -t main || tmux new -s main'
 alias tl='tmux ls'
 alias tk='tmux kill-session -t'
@@ -105,59 +143,7 @@ alias ghprv='gh pr view --web'
 alias ghpr='gh pr create'
 alias ghprm='gh pr create -B main -F .github/PULL_REQUEST_TEMPLATE.md'
 alias ghprd='gh pr create -B develop -F .github/PULL_REQUEST_TEMPLATE.md'
-
-# ruby
-alias be='bundle exec'
-alias rb='bundle exec rubocop'
-alias rba='bundle exec rubocop -a'
-alias rbaa='bundle exec rubocop -A'
-
-alias ms='make s'
-alias om='overmind'
-alias oms='overmind start'
-alias omc='overmind connect'
-alias omr='overmind restart'
-alias bsl='brew services list'
-alias bsr='brew services run'
-alias bss='brew services stop'
-alias av='ansible-vault'
-alias ave='ansible-vault encrypt'
-alias avd='ansible-vault decrypt'
-alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
-alias vs='code .'
-alias sl='subl -a .'
-alias pwg='pwgen -Cs 15 1 | tr -d " " | tr -d "\n" | pbcopy'
-alias ff720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
-alias dc='docker-compose'
-alias dcr='docker-compose run --rm'
-alias dcu='docker-compose up'
-alias dcd='docker-compose down'
-alias spg='sort-package-json'
-alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
-alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
-alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
-alias rgc='rake git:checkout'
-alias tf='terraform'
-alias tg='terragrunt'
-alias wh='which'
 alias gbcln='git branch | grep -vE " (master|main|develop)" | xargs git branch -d'
-alias awfo-old='export AWS_PROFILE=foh-old'
-alias awfo-stg='export AWS_PROFILE=foh-staging'
-alias awfo-prd='export AWS_PROFILE=foh-production'
-alias cpm='cat ~/Yandex.Disk.localized/stuff/cpm.csv | grep'
-#alias tfswitch='tfswitch -b ~/.bin/terraform'
-alias kgp='kubectl get pod'
-alias gemunall='for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done'
-alias kg='ssh-keygen -t rsa -b 4096'
-
-ke() {
-    if [ -z $1 ]; then
-        echo "Specify pod"
-        return 1
-    fi
-
-    kubectl exec -it $1 -- $2
-}
 
 gim() {
     if [ -z "$*" ]; then
@@ -166,33 +152,6 @@ gim() {
     fi
 
     git commit -m "$*"
-}
-
-pghero() {
-    if [ -z $1 ]; then
-        echo "Specify database name"
-        return 1
-    fi
-
-    docker run --rm --name pghero -it -p 8080:8080 -e DATABASE_URL=postgres://dlysenko:postgres@docker.for.mac.localhost:5432/$1 ankane/pghero
-}
-
-gocode() {
-    brew services run postgresql@14
-    brew services run redis
-}
-
-nocode() {
-    brew services stop postgresql@14
-    brew services stop redis
-}
-
-unalias gg
-gg() {
-  local branches branch
-  branches=$(git branch -a) &&
-  branch=$(echo "$branches" | fzf +s +m -e) &&
-  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
 
 gmt() {
@@ -209,120 +168,12 @@ gmt() {
   git merge --no-ff $branch
 }
 
-bh() {
-  local command
-  command=$(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
-  echo $command
-  eval $command
-}
-
-ovi() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
-  vi "$dir"
-}
-
-modrest() {
-    if [ -z $1 ]; then
-        echo "Empty path"
-        return 1
-    fi
-
-    find "$1" -type d -exec chmod 0755 {} \;
-    find "$1" -type f -exec chmod 0644 {} \;
-}
-
-attrcln() {
-    if [ -e $1 ]; then
-        echo "Specify the path"
-        return 1
-    fi
-
-    chmod -RN $1
-    xattr -rc $1
-}
-
-csrgen() {
-    if [ -z $1 ]; then
-        echo "Specify FQDN"
-        return 1
-    fi
-
-    openssl req -newkey rsa:2048 -sha256 -nodes -keyout "${1}.key" -out "${1}.csr"
-    openssl x509 -req -days 365 -in "${1}.csr" -signkey "${1}.key" -out "${1}.crt"
-}
-
-lvhgen() {
-    openssl req -newkey rsa:2048 -x509 -nodes -keyout lvh.me.key -sha256 -days 3650 -new -out lvh.me.crt -subj '/CN=*.lvh.me' -reqexts SAN -extensions SAN -config <(cat /System/Library/OpenSSL/openssl.cnf <(printf '[SAN]\nsubjectAltName=DNS:lvh.me,DNS:*.lvh.me'))
-}
-
-ssc() {
-    if [ -z $1 ]; then
-      echo "Specify FQDN"
-      return 1
-    fi
-
-    ssh "$1" -t screen -R
-}
-
-sst() {
-    if [ -z $1 ]; then
-      echo "Specify FQDN"
-      return 1
-    fi
-
-    ssh "$1" -t "tmux -CC attach || tmux -CC"
-}
-
-encrypt() {
-    if [ ! -f "$1" ]; then
-      echo "File does not exist"
-      return
-    fi
-
-    if [ -z "$2" ]; then
-      echo "Specify path"
-      return
-    fi
-
-    cat "$1" | openssl enc -aes-256-cbc -salt > "$2"
-}
-
-decrypt() {
-    if [ ! -f "$1" ]; then
-      echo "File does not exist"
-      return
-    fi
-
-    openssl enc -aes-256-cbc -d -in "$1"
-}
-
-iconvr() {
-    find . -type f -name '*.html' -o -name '*.html.erb' | while read file
-    do
-        echo $file
-        iconv -f CP1251 -t UTF-8 "$file" > tmp
-        mv -f tmp "$file"
-    done
-}
-
-big() {
-    find / -size +100M 2> /dev/null
-}
-
-unmount() {
-    if [ ! -d "$1" ]; then
-        echo "Specify correct mount point"
-        return 1
-    fi
-
-    rm -rf "$1/.fseventsd"
-    rm -rf "$1/.Trashes"
-    rm -rf "$1/.Spotlight-V100"
-    find "$1" -name "._*" -exec rm {} \;
-    find "$1" -name ".DS_Store" -exec rm {} \;
-
-    diskutil unmount "$1"
+unalias gg
+gg() {
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +s +m -e) &&
+  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
 
 git-fetch-all() {
@@ -352,24 +203,199 @@ owners(){
   done
 }
 
-clean-ds() {
-    find . -name ".DS_Store" -exec rm {} \;
+# terraform
+alias tf='terraform'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfi='terraform init'
+alias tfiu='terraform init -upgrade'
+#alias tfswitch='tfswitch -b ~/.bin/terraform'
 
-}
+# terragrunt
+alias tg='terragrunt'
+alias tgp='terragrunt plan'
+alias tga='terragrunt apply'
+alias tgi='terragrunt init'
+alias tgiu='terragrunt init -upgrade'
 
-rtf() {
-  local i=0
+# ansible
+alias av='ansible-vault'
+alias ave='ansible-vault encrypt'
+alias avd='ansible-vault decrypt'
 
-  while true; do
-    ((i=i+1))
-    echo "Attempt $i"
+# docker
+alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
+alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcr='docker-compose run --rm'
+alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.sock -e TERM tomastomecek/sen'
 
-    $@
+# kubernetes
+alias kgp='kubectl get pod'
 
-    if [[ "$?" -ne 0 ]]; then
-      break
+ke() {
+    if [ -z $1 ]; then
+        echo "Specify pod"
+        return 1
     fi
 
-    sleep 1
-  done
+    kubectl exec -it $1 -- $2
 }
+
+# ruby
+alias be='bundle exec'
+alias rb='bundle exec rubocop'
+alias rba='bundle exec rubocop -a'
+alias rbaa='bundle exec rubocop -A'
+alias rgc='rake git:checkout'
+alias gemunall='for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done'
+
+# nodejs
+alias spg='sort-package-json'
+
+# misc
+alias wh='which'
+alias o='open .'
+alias vi='nvim'
+alias vim='nvim'
+alias ze='vi ~/.zshrc'
+alias zr='source ~/.zshrc'
+alias vis='vi ~/.ssh/config'
+alias vik='vi ~/.ssh/known_hosts'
+alias sshcp='cat ~/.ssh/id_rsa.pub | pbcopy'
+alias ip='curl ifconfig.co/json'
+alias la='ls -la'
+alias sa='ssh-add'
+alias kg='ssh-keygen -t rsa -b 4096'
+alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias df='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/.dotfiles'
+alias fwe='sudo pfctl -e -f /etc/pf.conf'
+alias fwd='sudo pfctl -d'
+alias ttl='sudo sysctl -w net.inet.ip.ttl=65'
+alias mtrr='mtr -s 1500 -r -n -c 1000 -i 0.1'
+alias dflsh='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+alias ff720='ffmpeg -vf scale=-1:720 -crf 18 -preset ultrafast'
+alias pwg='pwgen -Cs 15 1 | tr -d " " | tr -d "\n" | pbcopy'
+
+
+bh() {
+  local command
+  command=$(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+  echo $command
+  eval $command
+}
+
+sss() {
+    if [ -z $1 ]; then
+      echo "Specify FQDN"
+      return 1
+    fi
+
+    ssh "$1" -t screen -R
+}
+
+sst() {
+    if [ -z $1 ]; then
+      echo "Specify FQDN"
+      return 1
+    fi
+
+    ssh "$1" -t "tmux -CC attach || tmux -CC"
+}
+
+osef() {
+    if [ ! -f "$1" ]; then
+      echo "File does not exist"
+      return
+    fi
+
+    if [ -z "$2" ]; then
+      echo "Specify path"
+      return
+    fi
+
+    cat "$1" | openssl enc -aes-256-cbc -salt > "$2"
+}
+
+osdf() {
+    if [ ! -f "$1" ]; then
+      echo "File does not exist"
+      return
+    fi
+
+    openssl enc -aes-256-cbc -d -in "$1"
+}
+
+csrgn() {
+    if [ -z $1 ]; then
+        echo "Specify FQDN"
+        return 1
+    fi
+
+    openssl req -newkey rsa:2048 -sha256 -nodes -keyout "${1}.key" -out "${1}.csr"
+    openssl x509 -req -days 365 -in "${1}.csr" -signkey "${1}.key" -out "${1}.crt"
+}
+
+lvhgn() {
+    openssl req -newkey rsa:2048 -x509 -nodes -keyout lvh.me.key -sha256 -days 3650 -new -out lvh.me.crt -subj '/CN=*.lvh.me' -reqexts SAN -extensions SAN -config <(cat /System/Library/OpenSSL/openssl.cnf <(printf '[SAN]\nsubjectAltName=DNS:lvh.me,DNS:*.lvh.me'))
+}
+
+attrcln() {
+    if [ -e $1 ]; then
+        echo "Specify the path"
+        return 1
+    fi
+
+    chmod -RN $1
+    xattr -rc $1
+}
+
+rstmd() {
+    if [ -z $1 ]; then
+        echo "Empty path"
+        return 1
+    fi
+
+    find "$1" -type d -exec chmod 0755 {} \;
+    find "$1" -type f -exec chmod 0644 {} \;
+}
+
+big() {
+    find / -size +100M 2> /dev/null
+}
+
+dscln() {
+  find . -name ".DS_Store" -exec rm {} \;
+}
+
+unmount() {
+    if [ ! -d "$1" ]; then
+        echo "Specify correct mount point"
+        return 1
+    fi
+
+    rm -rf "$1/.fseventsd"
+    rm -rf "$1/.Trashes"
+    rm -rf "$1/.Spotlight-V100"
+    find "$1" -name "._*" -exec rm {} \;
+    find "$1" -name ".DS_Store" -exec rm {} \;
+
+    diskutil unmount "$1"
+}
+
+iconvr() {
+    find . -type f -name '*.html' -o -name '*.html.erb' | while read file
+    do
+        echo $file
+        iconv -f CP1251 -t UTF-8 "$file" > tmp
+        mv -f tmp "$file"
+    done
+}
+
+# tmp
+alias cpm='cat ~/Yandex.Disk.localized/stuff/cpm.csv | grep'
+alias awp-foh-old='export AWS_PROFILE=foh-old'
+alias awp-foh-stg='export AWS_PROFILE=foh-staging'
+alias awp-foh-prd='export AWS_PROFILE=foh-production'
