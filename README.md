@@ -61,7 +61,7 @@ crontab -e
 Add:
 ```
 0 * * * * bash -l -c 'cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/.dotfiles && git commit -a -m WIP && git push' > /dev/null 2> /dev/null
-1 * * * * find -E ~/Projects -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; > /dev/null
+1 * * * * find -E ~/Projects -type d -iregex '.*(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; > /dev/null
 ```
 
 ### Time Machine
@@ -79,7 +79,7 @@ mackup backup
 brew bundle dump --mas --describe -f
 ```
 
-### Change TTL
+### Change Default TTL
 
 ```sh
 echo "net.inet.ip.ttl=65" | sudo tee -a /etc/sysctl.conf
