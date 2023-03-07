@@ -108,6 +108,8 @@ alias tk='tmux kill-session -t'
 
 # git
 alias gc='git checkout'
+alias gco='git checkout --ours'
+alias gct='git checkout --theirs'
 alias gb='git branch'
 alias gbd='git branch -d'
 alias gbdd='git branch -D'
