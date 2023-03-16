@@ -42,5 +42,11 @@
   "editor.inlineSuggest.enabled": true,
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
+  },
+  "search.exclude": {
+    "**/tmp": true,
+    "**/.git": true,
+    "**/.terragrunt-cache": true,
+    "**/bower_components": true
   }
 }
