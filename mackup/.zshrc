@@ -196,13 +196,23 @@ git-fetch-all() {
   cd "$root"
 }
 
-owners(){
+owners() {
   for f in $(git ls-files); do
     echo -n "$f "
     git fame -esnwMC --incl "$f" | tr '/' '|' \
       | awk -F '|' '(NR>6 && $6>=30) {print $2}' \
       | xargs echo
   done
+}
+
+unalias gbr
+gbr() {
+  local BR=$(git rev-parse --abbrev-ref HEAD)
+  local DST=${1}
+  local SRC=${2:="$BR"}
+  echo "Reset $DST from $SRC"
+  git checkout -b "$DST" "origin/$SRC"
+  git push -u -f origin HEAD
 }
 
 # terraform
