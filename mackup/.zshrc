@@ -210,9 +210,15 @@ gbr() {
   local BR=$(git rev-parse --abbrev-ref HEAD)
   local DST=${1}
   local SRC=${2:="$BR"}
+
+  if [ -z "$DST" ]; then
+      echo "DST branch is empty"
+      return 1
+  fi
+
   echo "Reset $DST from $SRC"
-  git checkout -b "$DST" "origin/$SRC"
-  git push -u -f origin HEAD
+  git branch -D "$DST"
+  git checkout -b "$DST" "origin/$SRC" && git push -u -f origin HEAD
 }
 
 # terraform
