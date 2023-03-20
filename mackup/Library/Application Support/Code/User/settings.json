@@ -38,7 +38,6 @@
   "gitlens.hovers.currentLine.over" : "line",
   "editor.guides.indentation" : true,
   "files.eol": "\n",
-  "window.zoomLevel": 1,
   "editor.inlineSuggest.enabled": true,
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
@@ -48,5 +47,6 @@
     "**/.git": true,
     "**/.terragrunt-cache": true,
     "**/bower_components": true
-  }
+  },
+  "window.zoomLevel": 1
 }
