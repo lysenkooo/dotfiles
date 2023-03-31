@@ -1,12 +1,14 @@
 {
   "terminal.integrated.defaultProfile.osx" : "zsh",
-  "ruby.useBundler" : true,
   "editor.minimap.enabled" : false,
-  "ruby.format" : "rubocop",
   "editor.accessibilitySupport" : "off",
-  "ruby.useLanguageServer" : true,
   "editor.occurrencesHighlight" : false,
   "terminal.external.osxExec" : "iTerm.app",
+  "rubyLsp.rubyVersionManager": "chruby",
+  "rubyLsp.formatter": "auto",
+  "ruby.useBundler" : true,
+  "ruby.format" : "rubocop",
+  "ruby.useLanguageServer" : true,
   "ruby.lint" : {
     "rubocop" : {
       "rails" : true,
