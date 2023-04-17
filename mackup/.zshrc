@@ -184,13 +184,30 @@ git-fetch-all() {
   for f in *; do
     local p="$root/$f"
 
-    if [ -d "$p" ]; then
+    if [ -d "$p/.git" ]; then
       echo "------------------------------------------------------------"
       echo "$p"
       cd "$p"
       git diff
       git fetch --all --prune
       git pull --all || true
+    fi
+  done
+
+  cd "$root"
+}
+
+git-diff-all() {
+  local root=$(pwd)
+
+  for f in *; do
+    local p="$root/$f"
+
+    if [ -d "$p/.git" ]; then
+      echo "------------------------------------------------------------"
+      echo "$p"
+      cd "$p"
+      git diff
     fi
   done
 
