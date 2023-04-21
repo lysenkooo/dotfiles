@@ -4,27 +4,6 @@
   "editor.accessibilitySupport" : "off",
   "editor.occurrencesHighlight" : false,
   "terminal.external.osxExec" : "iTerm.app",
-  "rubyLsp.rubyVersionManager": "chruby",
-  "rubyLsp.formatter": "auto",
-  "ruby.useBundler" : true,
-  "ruby.format" : "rubocop",
-  "ruby.useLanguageServer" : true,
-  "ruby.lint" : {
-    "rubocop" : {
-      "rails" : true,
-      "useBundler" : true,
-      "forceExclusion" : true,
-      "command" : "bundle exec rubocop",
-      "lint" : true
-    },
-    "reek" : {
-      "command" : "bundle exec reek",
-      "useBundler" : true
-    }
-  },
-  "editor.rulers" : [
-    120
-  ],
   "files.insertFinalNewline" : true,
   "editor.fontSize" : 11,
   "editor.tabSize" : 2,
@@ -50,5 +29,26 @@
     "**/.terragrunt-cache": true,
     "**/bower_components": true
   },
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "editor.rulers" : [
+    120
+  ],
+  "rubyLsp.rubyVersionManager": "chruby",
+  "rubyLsp.formatter": "auto",
+  // "ruby.useBundler" : true,
+  // "ruby.format" : "rubocop",
+  // "ruby.useLanguageServer" : true,
+  // "ruby.lint" : {
+  //   "rubocop" : {
+  //     "rails" : true,
+  //     "useBundler" : true,
+  //     "forceExclusion" : true,
+  //     "command" : "bundle exec rubocop",
+  //     "lint" : true
+  //   },
+  //   "reek" : {
+  //     "command" : "bundle exec reek",
+  //     "useBundler" : true
+  //   }
+  // },
 }
