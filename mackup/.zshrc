@@ -188,7 +188,7 @@ git-fetch-all() {
       echo "------------------------------------------------------------"
       echo "$p"
       cd "$p"
-      git diff
+      git diff --name-status
       git fetch --all --prune
       git pull --all || true
     fi
@@ -207,7 +207,7 @@ git-diff-all() {
       echo "------------------------------------------------------------"
       echo "$p"
       cd "$p"
-      git diff
+      git diff --name-status
     fi
   done
 
