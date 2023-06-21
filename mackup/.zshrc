@@ -433,6 +433,16 @@ iconvr() {
     done
 }
 
+vpn() {
+  CONNECTION="Stockholm"
+
+  if [[ $(scutil --nc list | grep "Connected" | grep "$CONNECTION") ]]; then
+    scutil --nc stop "$CONNECTION"
+  else
+    scutil --nc start "$CONNECTION"
+  fi
+}
+
 # tmp
 alias cpm='cat ~/Yandex.Disk.localized/stuff/cpm.csv | grep'
 alias awp-foh-old='export AWS_PROFILE=foh-old'
