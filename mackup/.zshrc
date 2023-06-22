@@ -290,6 +290,7 @@ alias rba='bundle exec rubocop -a'
 alias rbaa='bundle exec rubocop -A'
 alias rgc='rake git:checkout'
 alias gemunall='for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done'
+alias ss='bin/spring stop'
 
 # nodejs
 alias spg='sort-package-json'
