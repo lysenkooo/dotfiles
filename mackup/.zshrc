@@ -406,8 +406,9 @@ big() {
     find / -size +100M 2> /dev/null
 }
 
-dscln() {
+cln() {
   find . -name ".DS_Store" -exec rm {} \;
+  find . -empty -type d -delete
 }
 
 unmount() {
