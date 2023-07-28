@@ -181,7 +181,7 @@ gg() {
   git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
 
-git-fetch-all() {
+gfall() {
   local root=$(pwd)
 
   for f in *; do
@@ -200,7 +200,7 @@ git-fetch-all() {
   cd "$root"
 }
 
-git-diff-all() {
+gdall() {
   local root=$(pwd)
 
   for f in *; do
