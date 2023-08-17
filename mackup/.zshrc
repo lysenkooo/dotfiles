@@ -296,6 +296,7 @@ alias ss='bin/spring stop'
 
 # nodejs
 alias spg='sort-package-json'
+alias yr='yarn run'
 
 # misc
 alias wh='which'

@@ -1,23 +1,23 @@
 {
-  "terminal.integrated.defaultProfile.osx" : "zsh",
-  "editor.minimap.enabled" : false,
-  "editor.accessibilitySupport" : "off",
-  "editor.occurrencesHighlight" : false,
-  "terminal.external.osxExec" : "iTerm.app",
-  "files.insertFinalNewline" : true,
-  "editor.fontSize" : 11,
-  "editor.tabSize" : 2,
-  "files.trimFinalNewlines" : true,
-  "gitlens.codeLens.enabled" : false,
-  "workbench.colorCustomizations" : {
-    "statusBar.background" : "#222222",
-    "statusBar.noFolderBackground" : "#222225",
-    "statusBar.debuggingBackground" : "#511f1f"
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "editor.minimap.enabled": false,
+  "editor.accessibilitySupport": "off",
+  "editor.occurrencesHighlight": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "files.insertFinalNewline": true,
+  "editor.fontSize": 11,
+  "editor.tabSize": 2,
+  "files.trimFinalNewlines": true,
+  "gitlens.codeLens.enabled": false,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#222222",
+    "statusBar.noFolderBackground": "#222225",
+    "statusBar.debuggingBackground": "#511f1f"
   },
-  "files.trimTrailingWhitespace" : true,
-  "workbench.startupEditor" : "none",
-  "gitlens.hovers.currentLine.over" : "line",
-  "editor.guides.indentation" : true,
+  "files.trimTrailingWhitespace": true,
+  "workbench.startupEditor": "none",
+  "gitlens.hovers.currentLine.over": "line",
+  "editor.guides.indentation": true,
   "files.eol": "\n",
   "editor.inlineSuggest.enabled": true,
   "terminal.integrated.env.osx": {
@@ -30,11 +30,12 @@
     "**/bower_components": true
   },
   "window.zoomLevel": 1,
-  "editor.rulers" : [
+  "editor.rulers": [
     120
   ],
   "rubyLsp.rubyVersionManager": "chruby",
   "rubyLsp.formatter": "auto",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   // "ruby.useBundler" : true,
   // "ruby.format" : "rubocop",
   // "ruby.useLanguageServer" : true,
