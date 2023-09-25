@@ -196,6 +196,11 @@ gfall() {
       git diff --name-status
       git fetch --all --prune
       git pull --all || true
+
+      if [ ! -z "$1" ]; then
+        git checkout "$1"
+        git rebase
+      fi
     fi
   done
 
