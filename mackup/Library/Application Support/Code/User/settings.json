@@ -36,10 +36,6 @@
   "editor.rulers": [
     120
   ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll": false,
-    "source.organizeImports": true
-  }
   // "ruby.useBundler" : true,
   // "ruby.format" : "rubocop",
   // "ruby.useLanguageServer" : true,
