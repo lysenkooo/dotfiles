@@ -303,7 +303,7 @@ alias ss='bin/spring stop'
 alias spg='sort-package-json'
 alias nr='npm run'
 alias yr='yarn run'
-alias yu='yarn upgradeInteractive"
+alias yu='yarn upgradeInteractive'
 
 # misc
 alias wh='which'
