@@ -301,8 +301,9 @@ alias ss='bin/spring stop'
 
 # nodejs
 alias spg='sort-package-json'
-alias yr='yarn run'
 alias nr='npm run'
+alias yr='yarn run'
+alias yu='yarn upgradeInteractive"
 
 # misc
 alias wh='which'
