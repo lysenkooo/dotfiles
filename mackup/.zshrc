@@ -306,6 +306,7 @@ alias yr='yarn run'
 alias yu='yarn upgradeInteractive'
 
 # misc
+alias ai='aichat'
 alias wh='which'
 alias o='open .'
 alias vi='nvim'
