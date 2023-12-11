@@ -28,7 +28,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.minimap.enabled": false,
   "editor.accessibilitySupport": "off",
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.fontSize": 11,
   "editor.tabSize": 2,
   "editor.guides.indentation": true,
