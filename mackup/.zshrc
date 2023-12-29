@@ -40,7 +40,6 @@ export NVM_DIR="$HOME/.nvm"
 
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-#chruby 2.7.7
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
