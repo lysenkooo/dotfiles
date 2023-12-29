@@ -271,8 +271,6 @@ alias ave='ansible-vault encrypt'
 alias avd='ansible-vault decrypt'
 
 # docker
-alias docker='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null; do sleep 1; done) && docker'
-alias docker-compose='pgrep com.docker.hyperkit &> /dev/null || (open /Applications/Docker.app && until docker info &> /dev/null ; do sleep 1; done) && docker-compose'
 alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
