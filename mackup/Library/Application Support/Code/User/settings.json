@@ -19,11 +19,14 @@
   "search.exclude": {
     "**/tmp": true,
     "**/.git": true,
+    "**/.vagrant": true,
     "**/.terragrunt-cache": true,
     "**/bower_components": true
   },
   "window.zoomLevel": 1,
-  "rubyLsp.rubyVersionManager": "chruby",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "chruby"
+  },
   "rubyLsp.formatter": "auto",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.minimap.enabled": false,
@@ -36,7 +39,9 @@
   "editor.rulers": [
     120
   ],
+  "editor.detectIndentation": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "CodeGPT.apiKey": "CodeGPT Plus Beta",
   // "ruby.useBundler" : true,
   // "ruby.format" : "rubocop",
   // "ruby.useLanguageServer" : true,

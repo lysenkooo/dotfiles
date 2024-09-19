@@ -1,9 +1,10 @@
 .DS_Store
 .idea
-.vscode
 .vagrant
 .tags
+.mise.toml
 .ruby-version
+*.snip
 xcuserdata
 coverage
 node_modules

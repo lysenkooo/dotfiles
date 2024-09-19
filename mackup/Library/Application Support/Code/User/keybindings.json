@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "key":     "cmd+[IntlBackslash]",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key":     "cmd+[IntlBackslash]",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when":    "terminalFocus"
+  },
+  {
+    "key":     "cmd+`",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key":     "cmd+`",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when":    "terminalFocus"
+  },
+  { "key": "shift+cmd+J",
+    "command": "workbench.action.terminal.resizePaneUp",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  { "key": "shift+cmd+K",
+    "command": "workbench.action.terminal.resizePaneDown",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "shift+cmd+0",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "'${file}'\u000D" }
+  },
+  {
+    "key": "cmd+shift+9",
+    "command": "workbench.action.tasks.runTask",
+    "args": "runCurrentTest"
+  },
+  {
+    "key": "shift+cmd+8",
+    "command": "github.copilot.interactiveEditor.generateTests"
+  },
+]
