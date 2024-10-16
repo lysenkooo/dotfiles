@@ -48,9 +48,8 @@ crontab -e
 
 Add:
 ```
-1 * * * * find -E ~/d -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
-2 * * * * rsync -av --delete --exclude '.git' '/Users/ccbe/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles/' '/Users/ccbe/.dotfiles' >> /tmp/cron-rsync.log 2>&1
-3 * * * * bash -c "cd '/Users/ccbe/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles' && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
+1 * * * * bash -c "cd ~/.dotfiles && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
+2 * * * * find -E ~/d -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
 ```
 
 ### Time Machine with SSD
