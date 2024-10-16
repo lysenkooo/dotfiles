@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.example.KeyRemapping</string>
+    <string>com.ccbe.KeyRemapping</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/bin/hidutil</string>
@@ -27,6 +27,6 @@
         </string>
     </array>
     <key>RunAtLoad</key>
-  <true/>
+    <true/>
 </dict>
 </plist>

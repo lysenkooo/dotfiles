@@ -1,7 +1,5 @@
 # macOS dotfiles
 
-## Update the dump
-
 ```sh
 brew bundle dump -f --describe --mas --file brew/Brewfile.mas
 brew bundle dump -f --describe --cask --file brew/Brewfile.cask
@@ -9,7 +7,7 @@ brew bundle dump -f --describe --formula --file brew/Brewfile.brew
 ```
 
 ```sh
-mackup backup
+mackup backup -f
 ```
 
 ## Init
@@ -17,7 +15,7 @@ mackup backup
 ```sh
 rm -rf ~/.ssh
 ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/ssh ~/.ssh
-ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc-custom ~/.zshrc-custom
+ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_custom ~/.zshrc_custom
 chmod 0600 ~/.ssh/*
 git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
@@ -73,7 +71,8 @@ Use `crontab -e` to add:
 2 * * * * bash -c "cd ~/.dotfiles/brew && brew bundle dump -f --describe --cask --file brew/Brewfile.cask" >> /tmp/cron-dotfiles.log 2>&1
 3 * * * * bash -c "cd ~/.dotfiles/brew && brew bundle dump -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
 4 * * * * bash -c "cd ~/.dotfiles && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
-5 * * * * find -E ~/d -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
+5 * * * * bash -c "mackup backup -f" >> /tmp/cron-mackup.log 2>&1
+6 * * * * find -E ~/d -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
 ```
 
 ### Time Machine with SSD

@@ -3,26 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.ccbe.ttl</string>
-    <key>MachServices</key>
-    <dict>
-        <key>com.ccbe.ttl</key>
-        <true/>
-    </dict>
-    <key>Program</key>
-    <string>/usr/bin/sysctl</string>
+    <string>com.ccbe.TTL</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/bin/sysctl</string>
+        <string>-w</string>
         <string>net.inet.ip.ttl=65</string>
     </array>
+    <key>RunAtLoad</key>
+    <true/>
     <key>UserName</key>
     <string>root</string>
     <key>GroupName</key>
     <string>wheel</string>
-    <key>KeepAlive</key>
-    <true/>
-    <key>RunAtLoad</key>
-    <true/>
 </dict>
 </plist>
