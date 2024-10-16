@@ -20,15 +20,15 @@ ln -sf /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_cus
 
 echo ">>> Link public configs from GitHub"
 find ${MISC_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
-    FILE_DIR=$(dirname "$line" | sed "s|^${MISC_FOLDER}/||")
     FILE_PATH=$(echo "$line" | sed "s|^${MISC_FOLDER}/||")
+    FILE_DIR=$(dirname "$FILE_PATH")
     SRC_PATH="$CURRENT/${MISC_FOLDER}/$FILE_PATH"
     DST_PATH="$HOME/$FILE_PATH"
 
     if [ ! -z "$FILE_DIR" ]; then
         DST_DIR="$HOME/$FILE_DIR"
         if [ ! -d "$DST_DIR" ]; then
-            echo "Create $DST_DIR"
+            echo "Create: $DST_DIR"
             mkdir -p "$DST_DIR"
         fi
     fi
@@ -56,15 +56,19 @@ fi
 echo ">>> Remove WireGuard from autoload"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app > /dev/null 2>&1 || true
 
-echo ">>> Create git mackup folder"
-mkdir -p ~/.mckp
+echo ">>> Create git ~/.mackup/data folder"
+mkdir -p ~/.mackup/data
 
 echo ">>> Create .gitignore in mackup folder"
-cat <<EOF | tee ~/.mckp/.gitignore
-.ansible/collections/
-.vim/bundle/
-.nvim/backups/
+cat <<EOF | tee ~/.mackup/.gitignore
+data/.ansible/collections/
+data/.vim/bundle/
+data/.nvim/backups/
 EOF
 
+echo ">>> Create git repo"
+cd ~/.mackup
+git init || true
+
 echo ">>> Create developemnt folder"
-mkdir -p ~/d
+mkdir -p ~/Dev
