@@ -1,22 +1,16 @@
-# Dotfiles
+# macOS dotfiles
 
-Mac OS provision scripts.
-
-## Install
-
-Install ssh keys:
 ```sh
 rm -rf ~/.ssh
-ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.ssh ~/.ssh
+ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/ssh ~/.ssh
+ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc-custom ~/.zshrc-custom
 chmod 0600 ~/.ssh/*
+git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+INIT=1 provision.sh
 ```
 
-Clone repo and install configuration files:
-```sh
-git clone git@github.com:lysenkooo/dotfiles.git ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
-cd ~/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles
-./provision.sh
-```
+## Additional steps
 
 Install Rosetta:
 ```sh
@@ -24,29 +18,23 @@ softwareupdate --install-rosetta
 ```
 
 ```sh
-pyenv install 3.10.6
-pyenv global 3.10.6
-eval "$(pyenv init -)"
-python -m pip install --upgrade pip
-pip install neovim jmespath ansible ansible-vault ansible-lint awscli mackup
-mackup restore
+mise use -g python
+pip install --upgrade pip
+pip install jmespath neovim ansible ansible-vault ansible-lint awscli mackup
 ```
 
 ```sh
-nvm install 16
-nvm alias default 16
-nvm use 16
-npm install -g yarn sort-package-json
+mise use -g node@20
+npm install -g yarn
 ```
 
 ```sh
-ruby-install --latest ruby -- --enable-shared
-ruby-install ruby 2.7 -- --enable-shared
-```
-
-```sh
+mise use -g ruby
 gem update --system
-gem install solargraph
+```
+
+```sh
+mackup restore
 ```
 
 * Open `vim` and run `:VundleInstall`.
@@ -65,12 +53,12 @@ Add:
 3 * * * * bash -c "cd '/Users/ccbe/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles' && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
 ```
 
-### Time Machine
+### Time Machine with SSD
 
 ```sh
-hdiutil create -type SPARSEBUNDLE -fs "HFS+J" -size 200g -volname TM-Air /Volumes/T5/TM_Air.sparsebundle
-open /Volumes/T5/TM_Air.sparsebundle
-sudo tmutil setdestination /Volumes/TM-Air
+hdiutil create -type SPARSEBUNDLE -fs "HFS+J" -size 300g -volname TM-Air /Volumes/SSD/TM.sparsebundle
+open /Volumes/SSD/TM.sparsebundle
+sudo tmutil setdestination /Volumes/TM
 ```
 
 ### Dump Settings
@@ -78,10 +66,4 @@ sudo tmutil setdestination /Volumes/TM-Air
 ```sh
 mackup backup
 brew bundle dump --mas --describe -f
-```
-
-### Change Default TTL
-
-```sh
-echo "net.inet.ip.ttl=65" | sudo tee -a /etc/sysctl.conf
 ```
