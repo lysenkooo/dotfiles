@@ -42,6 +42,7 @@
   "editor.detectIndentation": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "CodeGPT.apiKey": "CodeGPT Plus Beta",
+  "workbench.activityBar.location": "top",
   // "ruby.useBundler" : true,
   // "ruby.format" : "rubocop",
   // "ruby.useLanguageServer" : true,

@@ -13,8 +13,15 @@ ZSH="/Users/ccbe/.oh-my-zsh"
 ZSH_THEME="af-magic"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-PS1="${FG[032]}%~\$(git_prompt_info)\$(hg_prompt_info) ${FG[105]}%(!.#.»)%{$reset_color%} "
-RPS1=""
+
+if [[ "$USER" == "root" ]]; then
+  PS1="%F{green}%~\$(git_prompt_info)\$(hg_prompt_info) %F{red}%(!.#.»)%f "
+  RPS1=""
+else
+  PS1="${FG[032]}%~\$(git_prompt_info)\$(hg_prompt_info) ${FG[105]}%(!.#.»)%{$reset_color%} "
+  RPS1=""
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 export LANG="en_US.UTF-8"
@@ -40,12 +47,12 @@ export PGGSSENCMODE="disable"
 
 #export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 
-export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 #eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-export PATH="bin:$HOME/.local/bin:$PATH"
+export PATH="bin:$HOME/.bin:$HOME/.local/bin:$PATH"
 
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 
@@ -67,7 +74,7 @@ export NODE_OPTIONS="--max-old-space-size=4096"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # development
-alias vs='cursor .'
+alias vs='code .'
 alias cr='cursor .'
 alias sl='subl -a .'
 alias ms='make s'
@@ -137,8 +144,6 @@ alias gbdd='git branch -D'
 alias ga='git add'
 alias gi='git commit'
 alias gia='git commit --amend -n'
-alias giw='git commit -a -m WIP'
-alias giwp='git commit -a -m WIP && git push'
 alias grs='git reset'
 alias gs='git status'
 alias gd='git diff'
@@ -195,6 +200,30 @@ gmt() {
   git checkout "$1"
   git pull --rebase
   git merge --no-ff $branch
+}
+
+giw() {
+  local branch
+  branch=$(git rev-parse --abbrev-ref HEAD)
+
+  if [[ $branch == "main" ]] || [[ $branch == "develop" ]]; then
+    echo "Man, you're in $branch branch"
+    return 1
+  fi
+
+  git commit -a -m WIP
+}
+
+giwp() {
+  local branch
+  branch=$(git rev-parse --abbrev-ref HEAD)
+
+  if [[ $branch == "main" ]] || [[ $branch == "develop" ]]; then
+    echo "Man, you're in $branch branch"
+    return 1
+  fi
+
+  git commit -a -m WIP && git push
 }
 
 unalias gg
@@ -273,16 +302,18 @@ gbr() {
 
 # terraform
 alias tf='terraform'
-alias tfp='terraform plan'
-alias tfa='terraform apply'
 alias tfi='terraform init'
 alias tfiu='terraform init -upgrade'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfo='terraform output'
 
 alias tg='terragrunt'
-alias tgp='terragrunt plan'
-alias tga='terragrunt apply'
 alias tgi='terragrunt init'
 alias tgiu='terragrunt init -upgrade'
+alias tgp='terragrunt plan'
+alias tga='terragrunt apply'
+alias tgo='terragrunt output'
 
 # ansible
 alias av='ansible-vault'
@@ -290,6 +321,7 @@ alias ave='ansible-vault encrypt'
 alias avd='ansible-vault decrypt'
 
 # docker
+alias ds='colima start --arch aarch64 --vm-type=vz --vz-rosetta'
 alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
@@ -298,7 +330,6 @@ alias sen='docker run --rm --name sen -it -v /var/run/docker.sock:/run/docker.so
 alias drrm='docker run --rm'
 alias drrmit='docker run --rm -it'
 alias deit='docker exec -it'
-alias cl='colima start --arch aarch64 --vm-type=vz --vz-rosetta'
 
 # kubernetes
 alias kgp='kubectl get pod'
@@ -329,13 +360,11 @@ alias yu='yarn upgradeInteractive'
 
 # misc
 alias ai='aichat'
+alias aie='aichat -e'
 alias wh='which'
 alias o='open .'
 alias vi='nvim'
 alias vim='nvim'
-alias ze='vi ~/.zshrc'
-alias zr='source ~/.zshrc'
-alias vik='vi ~/.ssh/known_hosts'
 alias sshcp='cat ~/.ssh/id_rsa.pub | pbcopy'
 alias ip='curl ifconfig.co/json'
 alias la='ls -la'
@@ -498,6 +527,10 @@ awsp() {
   fi
 }
 
+alias viz='vi ~/.zshrc'
+alias vit='vi ~/.tmux.conf'
+alias vik='vi ~/.ssh/known_hosts'
+
 vis() {
   if [[ -z "$1" ]]; then
     vi ~/.ssh/config
@@ -521,7 +554,12 @@ sstpc-kn() {
     return
   fi
 
-  sudo sstpc --cert-warn --tls-ext --user admin --password "${SSTP_PASS}" "$1.keenetic.pro" usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
+  if [[ -z "$SSTP_PASS" ]]; then
+    echo "SSTP_PASS is empty"
+    return
+  fi
+
+  sudo sstpc --log-stdout --log-level INFO --cert-warn --tls-ext --user admin --password "${SSTP_PASS}" "$1.keenetic.pro" usepeerdns require-mschap-v2 noauth noipdefault noccp refuse-eap refuse-pap refuse-mschap
 }
 
 oc-setup() {
@@ -531,7 +569,7 @@ oc-setup() {
   sudo sh -c 'echo "%admin ALL=(ALL) NOPASSWD: /opt/homebrew/bin/openconnect, /bin/kill" > /etc/sudoers.d/openconnect'
 }
 
-oc-connect() {
+occ() {
   if [[ -z "$1" ]]; then
     echo "Profile name is empty"
     return
@@ -554,7 +592,7 @@ oc-connect() {
   netstat -nr -f inet | grep 'G' --color=none | tail -n +2
 }
 
-oc-terminate() {
+ocd() {
   if [[ -f "$HOME/.openconnect/.pid" ]]; then
     sudo kill -2 $(cat "$HOME/.openconnect/.pid")
     rm -f "$HOME/.openconnect/.pid"
@@ -569,10 +607,13 @@ ks() {
   sudo hidutil property --matching '{"ProductID":0x29a}' --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
 }
 
+denv() {
+  export $(sed -e 's/=\(.*\)/="\1"/g' .env | grep -v "#" | xargs)
+}
+
 # tmp
 alias aws-mfa='aws sts get-session-token --serial-number arn:aws:iam::102684285154:mfa/Authenticator --token-code'
 alias cpm='cat ~/Yandex.Disk.localized/stuff/cpm.csv | grep'
-
 
 # autoload -Uz compinit
 
