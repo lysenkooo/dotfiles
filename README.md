@@ -14,7 +14,7 @@ mackup backup -f
 
 ```sh
 rm -rf ~/.ssh
-ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/ssh ~/.ssh
+ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/ssh ~/.ssh
 chmod 0600 ~/.ssh/*
 git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
@@ -82,7 +82,8 @@ Use `crontab -e` to add:
 3 * * * * bash -c "cd ~/.dotfiles/brew && brew bundle dump -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
 4 * * * * bash -c "cd ~/.dotfiles && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
 5 * * * * bash -c "mackup backup -f" >> /tmp/cron-mackup.log 2>&1
-6 * * * * find -E ~/d -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
+6 * * * * bash -c "rsync -av --delete --exclude .git '~/Library/Mobile Documents/com~apple~CloudDocs/.mckp/' ~/.mckp && cd ~/.mckp && git commit -a -m WIP" >> /tmp/cron-mackup.log 2>&1
+7 * * * * find -E ~/d -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
 ```
 
 ### Time Machine with SSD

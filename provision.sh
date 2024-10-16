@@ -10,13 +10,13 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.TextEdit RichText -bool false
-defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.001
+# defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.001
 
 echo ">>> Exclude Downloads from Time Machine"
 tmutil addexclusion ~/Downloads
 
 echo ">>> Link private configs from iCloud"
-ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_custom ~/.zshrc_custom
+ln -sf /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_custom ~/.zshrc_custom
 
 echo ">>> Link public configs from GitHub"
 find ${MISC_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
@@ -55,6 +55,16 @@ fi
 
 echo ">>> Remove WireGuard from autoload"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app > /dev/null 2>&1 || true
+
+echo ">>> Create git mackup folder"
+mkdir -p ~/.mckp
+
+echo ">>> Create .gitignore in mackup folder"
+cat <<EOF | tee ~/.mckp/.gitignore
+.ansible/collections/
+.vim/bundle/
+.nvim/backups/
+EOF
 
 echo ">>> Create developemnt folder"
 mkdir -p ~/d
