@@ -15,7 +15,10 @@ defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.001
 echo ">>> Exclude Downloads from Time Machine"
 tmutil addexclusion ~/Downloads
 
-echo ">>> Link misc configs"
+echo ">>> Link private configs from iCloud"
+ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_custom ~/.zshrc_custom
+
+echo ">>> Link public configs from GitHub"
 find ${MISC_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
     FILE_DIR=$(dirname "$line" | sed "s|^${MISC_FOLDER}/||")
     FILE_PATH=$(echo "$line" | sed "s|^${MISC_FOLDER}/||")
@@ -33,6 +36,7 @@ find ${MISC_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
     echo "Link: $DST_PATH << $SRC_PATH"
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
+
 
 if [ ! -x /usr/bin/gcc ]; then
     echo "Installing Command Line Tools..."

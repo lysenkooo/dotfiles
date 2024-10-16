@@ -15,7 +15,6 @@ mackup backup -f
 ```sh
 rm -rf ~/.ssh
 ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/ssh ~/.ssh
-ln -s /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_custom ~/.zshrc_custom
 chmod 0600 ~/.ssh/*
 git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
@@ -36,29 +35,40 @@ brew upgrade
 
 Bundle:
 ```sh
-cd brew
-brew bundle
+brew bundle --file brew/Brewfile.formula
+brew bundle --file brew/Brewfile.cask
+brew bundle --file brew/Brewfile.mas
 ```
 
+Python:
 ```sh
 mise use -g python
 pip install --upgrade pip
-pip install jmespath neovim ansible ansible-vault ansible-lint awscli mackup
 ```
 
+NodeJS:
 ```sh
 mise use -g node@20
 npm install -g yarn
 ```
 
+Ruby:
 ```sh
 mise use -g ruby
 gem update --system
 ```
 
+Install pip packages:
+```sh
+pip install jmespath neovim ansible ansible-vault ansible-lint awscli mackup
+```
+
+Restore mackup configs:
 ```sh
 mackup restore
 ```
+
+### Vim Plugins
 
 * Open `vim` and run `:VundleInstall`.
 * Open `nvim` and run `:PlugInstall`.
