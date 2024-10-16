@@ -5,12 +5,14 @@ set -e
 CURRENT=$(pwd)
 MISC_FOLDER="misc"
 
-defaults write -g ApplePressAndHoldEnabled 0
-defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
-defaults write com.apple.desktopservices DSDontWriteNetworkStores 1
-defaults write com.apple.TextEdit RichText 0
+echo ">>> Configure macOS"
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.TextEdit RichText -bool false
 defaults write com.googlecode.iterm2 HotkeyTermAnimationDuration -float 0.001
 
+echo ">>> Exclude Downloads from Time Machine"
 tmutil addexclusion ~/Downloads
 
 echo ">>> Link misc configs"
@@ -32,11 +34,6 @@ find ${MISC_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
 
-if [ -z "$FULL" ]; then
-    echo "Done! Use INIT=1 to run full setup"
-    exit 0
-fi
-
 if [ ! -x /usr/bin/gcc ]; then
     echo "Installing Command Line Tools..."
     xcode-select --install
@@ -47,17 +44,13 @@ if [ ! -x /opt/homebrew/bin/brew ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-brew update
-brew upgrade
-brew bundle
-
 if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
     echo "Installing Oh-My-Zsh..."
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 echo ">>> Remove WireGuard from autoload"
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app > /dev/null 2>&1 || true
 
+echo ">>> Create developemnt folder"
 mkdir -p ~/d

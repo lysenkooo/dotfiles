@@ -1,0 +1,138 @@
+# Menu bar tool to limit maximum charging percentage
+cask "aldente"
+# Application launcher and productivity software
+cask "alfred"
+# Enable Windows-like alt-tab
+cask "alt-tab"
+# Allows connection to a computer remotely
+cask "anydesk"
+# Application uninstaller
+cask "appcleaner"
+# Cross platform SQL editor and database management app
+cask "beekeeper-studio"
+# Virtual Audio Driver
+cask "blackhole-2ch"
+# Opensource IDE for exploring and testing api's
+cask "bruno"
+# E-books management software
+cask "calibre"
+# Tool to list all active shortcuts of the current application
+cask "cheatsheet"
+# Automated testing of webapps for Google Chrome
+cask "chromedriver"
+# Column-oriented database management system
+cask "clickhouse"
+# Allows switching between application windows
+cask "contexts"
+# Write, edit, and chat about your code with AI
+cask "cursor"
+# API documentation browser and code snippet manager
+cask "dash"
+# Universal database tool and SQL client
+cask "dbeaver-community"
+# Trains AIs to understand and translate texts
+cask "deepl"
+# Voice and text chat software
+cask "discord"
+# Collaborative team software
+cask "figma"
+# Web browser
+cask "google-chrome"
+# Free and open-source media player
+cask "iina"
+# iPhone management application
+cask "imazing"
+# Kubernetes desktop client
+cask "infra"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Open-source screen recorder built with web technology
+cask "kap"
+# Blocks all Keyboard and TouchBar input
+cask "keyboardcleantool"
+# Kubernetes IDE
+cask "lens"
+# Privacy-first, open-source platform for knowledge sharing and management
+cask "logseq"
+# Screen and video recording software
+cask "loom"
+# Native app email client for Gmail
+cask "mimestream"
+# Online collaborative whiteboard platform
+cask "miro"
+# Tool to control external monitor brightness & volume
+cask "monitorcontrol"
+# App to write, plan, collaborate, and get organised
+cask "notion"
+# Calendar for professionals and teams
+cask "notion-calendar"
+# Calculator and converter application
+cask "numi"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# GitLab mirror - Graphical OpenConnect client (beta phase)
+cask "openconnect-gui"
+# Open source build of Lens Kubernetes IDE
+cask "openlens"
+# Replacement for Docker Desktop
+cask "orbstack"
+# Tool to create and manage Outline servers, powered by Shadowsocks
+cask "outline-manager"
+# Collaboration platform for API development
+cask "postman"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Tool to reverse the direction of scrolling
+cask "scroll-reverser"
+# Tunneling proxy
+cask "shadowsocksx-ng"
+# Screenshot measurement and annotation tool
+cask "shottr"
+# Video chat, voice call and instant messaging application
+cask "skype"
+# Music streaming service
+cask "spotify"
+# Reminds you to stand up once an hour
+cask "stand"
+# Video game digital distribution service
+cask "steam"
+# Text editor for code, markup and prose
+cask "sublime-text"
+# Sync and backup service to Synology NAS drives
+cask "synology-drive"
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin"
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin@17"
+# SSH client
+cask "termius"
+# Utility to hide the notch
+cask "topnotch"
+# Open-source BitTorrent client
+cask "transmission"
+# Development environment
+cask "vagrant"
+# Gives Vagrant VMware plugin access to various VMware functionalities
+cask "vagrant-vmware-utility"
+# Open-source code editor
+cask "visual-studio-code"
+# Create, manage, and run virtual machines
+cask "vmware-fusion"
+# Rust-based terminal
+cask "warp"
+# Terminal emulator
+cask "wave"
+# Network protocol analyzer
+cask "wireshark"
+# Web browser
+cask "yandex"
+# Cloud storage
+cask "yandex-disk"
+# Unofficial app for Yandex Music
+cask "yandex-music-unofficial"
+# Screen capture tool for remote teams
+cask "zappy"
+# Video communication and virtual meeting platform
+cask "zoom"
