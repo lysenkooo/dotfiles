@@ -77,14 +77,14 @@ mackup restore
 
 Use `crontab -e` to add:
 ```
-1 * * * * bash -c "cd ~/.dotfiles/brew && brew bundle dump -f --describe --mas --file brew/Brewfile.mas" >> /tmp/cron-dotfiles.log 2>&1
-2 * * * * bash -c "cd ~/.dotfiles/brew && brew bundle dump -f --describe --cask --file brew/Brewfile.cask" >> /tmp/cron-dotfiles.log 2>&1
-3 * * * * bash -c "cd ~/.dotfiles/brew && brew bundle dump -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
+1 * * * * bash -c "cd ~/.dotfiles/brew && /opt/homebrew/bin/brew bundle dump -f --describe --mas --file brew/Brewfile.mas" >> /tmp/cron-dotfiles.log 2>&1
+2 * * * * bash -c "cd ~/.dotfiles/brew && /opt/homebrew/bin/brew bundle dump -f --describe --cask --file brew/Brewfile.cask" >> /tmp/cron-dotfiles.log 2>&1
+3 * * * * bash -c "cd ~/.dotfiles/brew && /opt/homebrew/bin/brew bundle dump -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
 4 * * * * bash -c "cd ~/.dotfiles && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
-5 * * * * bash -c "mackup backup -f" >> /tmp/cron-mackup.log 2>&1
+5 * * * * bash -l -c "mackup backup -f" >> /tmp/cron-mackup.log 2>&1
 6 * * * * bash -c "cd ~/.mackup && git commit -a -m WIP" >> /tmp/cron-mackup.log 2>&1
-7 * * * * rsync -av --delete --exclude .git ~/.mackup/ '~/Library/Mobile Documents/com~apple~CloudDocs/.mackup' >> /tmp/cron-mackup.log 2>&1
-8 * * * * find -E ~/Dev -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
+7 * * * * rsync -av --delete --exclude .git .mackup/ 'Library/Mobile Documents/com~apple~CloudDocs/.mackup' >> /tmp/cron-mackup.log 2>&1
+8 * * * * find -E Dev -type d -iregex '.+\/(tmp|log|node_modules)$' -prune -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
 ```
 
 ### Time Machine with SSD
