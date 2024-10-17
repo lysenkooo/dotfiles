@@ -3,6 +3,7 @@
 set -e
 
 CURRENT=$(pwd)
+ASSETS_FOLDER="assets"
 MISC_FOLDER="misc"
 
 echo ">>> Configure macOS"
@@ -19,10 +20,10 @@ echo ">>> Link private configs from iCloud"
 ln -sf /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_custom ~/.zshrc_custom
 
 echo ">>> Link public configs from GitHub"
-find ${MISC_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
-    FILE_PATH=$(echo "$line" | sed "s|^${MISC_FOLDER}/||")
+find ${ASSETS_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
+    FILE_PATH=$(echo "$line" | sed "s|^${ASSETS_FOLDER}/||")
     FILE_DIR=$(dirname "$FILE_PATH")
-    SRC_PATH="$CURRENT/${MISC_FOLDER}/$FILE_PATH"
+    SRC_PATH="$CURRENT/${ASSETS_FOLDER}/$FILE_PATH"
     DST_PATH="$HOME/$FILE_PATH"
 
     if [ ! -z "$FILE_DIR" ]; then
@@ -37,6 +38,11 @@ find ${MISC_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
 
+echo ">>> Setup root daemons"
+sudo cp ${MISC_FOLDER}/Library/LaunchDaemons/com.ccbe.KeyRemapping.plist /Library/LaunchDaemons/
+sudo chmod 0644 /Library/LaunchDaemons/com.ccbe.KeyRemapping.plist
+sudo cp ${MISC_FOLDER}/Library/LaunchDaemons/com.ccbe.TTL.plist /Library/LaunchDaemons/
+sudo chmod 0644 /Library/LaunchDaemons/com.ccbe.TTL.plist
 
 if [ ! -x /usr/bin/gcc ]; then
     echo "Installing Command Line Tools..."

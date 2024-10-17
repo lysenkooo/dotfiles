@@ -6,15 +6,11 @@
     <string>com.ccbe.TTL</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/sysctl</string>
+        <string>/usr/sbin/sysctl</string>
         <string>-w</string>
         <string>net.inet.ip.ttl=65</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
-    <key>UserName</key>
-    <string>root</string>
-    <key>GroupName</key>
-    <string>wheel</string>
 </dict>
 </plist>
