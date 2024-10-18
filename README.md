@@ -7,7 +7,7 @@ brew bundle dump -f --describe --formula --file brew/Brewfile.brew
 ```
 
 ```sh
-mackup backup -f
+mackup backup -f && mackup uninstall
 ```
 
 ## Init
@@ -78,13 +78,16 @@ mackup restore
 Use `crontab -e` to add:
 ```
 0 * * * * date >> /tmp/cron.log 2>&1
-1 * * * * sh -c "cd ~/.dotfiles/brew && /opt/homebrew/bin/brew bundle dump -f --describe --mas --file brew/Brewfile.mas" >> /tmp/cron-dotfiles.log 2>&1
-2 * * * * sh -c "cd ~/.dotfiles/brew && /opt/homebrew/bin/brew bundle dump -f --describe --cask --file brew/Brewfile.cask" >> /tmp/cron-dotfiles.log 2>&1
-3 * * * * sh -c "cd ~/.dotfiles/brew && /opt/homebrew/bin/brew bundle dump -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
-4 * * * * sh -l -c "cd ~/.dotfiles && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
-5 * * * * .local/share/mise/installs/python/latest/bin/mackup backup -f >> /tmp/cron-mackup.log 2>&1
-6 * * * * sh -c "cd ~/.mackup && git commit -a -m WIP" >> /tmp/cron-mackup.log 2>&1
+
+1 * * * * sh -c "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -f --describe --mas --file brew/Brewfile.mas" >> /tmp/cron-dotfiles.log 2>&1
+2 * * * * sh -c "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -f --describe --cask --file brew/Brewfile.cask" >> /tmp/cron-dotfiles.log 2>&1
+3 * * * * sh -c "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
+4 * * * * sh -c "cd ~/.dotfiles && git add . && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
+
+#5 * * * * .local/share/mise/installs/python/latest/bin/mackup backup -f >> /tmp/cron-mackup.log 2>&1
+6 * * * * sh -c "cd ~/.mackup && git add . && git commit -a -m WIP" >> /tmp/cron-mackup.log 2>&1
 7 * * * * rsync -av --delete --exclude .git .mackup/ 'Library/Mobile Documents/com~apple~CloudDocs/.mackup' >> /tmp/cron-mackup.log 2>&1
+
 8 * * * * find -E Eng -type d -iregex '.+\/(node_modules|tmp|log)$' -prune -print -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
 ```
 

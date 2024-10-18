@@ -10,6 +10,8 @@ cask "anydesk"
 cask "appcleaner"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
+# Online workspace for your business
+cask "bitrix24"
 # Virtual Audio Driver
 cask "blackhole-2ch"
 # Opensource IDE for exploring and testing api's
@@ -46,6 +48,8 @@ cask "imazing"
 cask "infra"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Enable generative AI features in iTerm2
+cask "itermai"
 # Open-source screen recorder built with web technology
 cask "kap"
 # Blocks all Keyboard and TouchBar input

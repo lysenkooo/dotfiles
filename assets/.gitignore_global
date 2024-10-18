@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+.vagrant
+.tags
+.mise.toml
+.ruby-version
+*.snip
+xcuserdata
+coverage
+node_modules
+npm-debug.log*
+*.log
+*.retry
+*.ignore*
