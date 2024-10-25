@@ -21,7 +21,6 @@ mas "iMovie", id: 408981434
 mas "Kindle", id: 302584613
 mas "Kronos Time Tracker", id: 1069739356
 mas "Lookupper", id: 1667225994
-mas "MacPosture", id: 1503879351
 mas "Mactracker", id: 430255202
 mas "Microsoft OneNote", id: 784801555
 mas "Microsoft Remote Desktop", id: 1295203466
@@ -37,6 +36,7 @@ mas "rcmd", id: 1596283165
 mas "Rocket.Chat", id: 1086818840
 mas "Shazam", id: 897118787
 mas "SingularityApp", id: 1481535767
+mas "SitWit", id: 1503879351
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "Speedtest", id: 1153157709
