@@ -81,9 +81,9 @@ Use `crontab -e` to add:
 
 1 * * * * rsync -av --exclude .git "$HOME/Yandex.Disk.localized/backup/" "$HOME/Library/Mobile Documents/com~apple~CloudDocs/.backup/" >> /tmp/cron-backup.log 2>&1
 
-2 * * * * sh -c -l "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -f --describe --mas --file brew/Brewfile.mas" >> /tmp/cron-dotfiles.log 2>&1
-3 * * * * sh -c -l "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -f --describe --cask --file brew/Brewfile.cask" >> /tmp/cron-dotfiles.log 2>&1
-4 * * * * sh -c -l "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
+2 * * * * sh -c -l "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -d -f --describe --mas --file brew/Brewfile.mas" >> /tmp/cron-dotfiles.log 2>&1
+3 * * * * sh -c -l "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -d -f --describe --cask --file brew/Brewfile.cask" >> /tmp/cron-dotfiles.log 2>&1
+4 * * * * sh -c -l "cd ~/.dotfiles && /opt/homebrew/bin/brew bundle dump -d -f --describe --formula --file brew/Brewfile.brew" >> /tmp/cron-dotfiles.log 2>&1
 5 * * * * sh -c -l "cd ~/.dotfiles && git add . && git commit -a -m WIP && git push" >> /tmp/cron-dotfiles.log 2>&1
 
 6 * * * * sh -c "$HOME/.local/share/mise/installs/python/latest/bin/mackup backup -f && $HOME/.local/share/mise/installs/python/latest/bin/mackup uninstall -f" >> /tmp/cron-mackup.log 2>&1
