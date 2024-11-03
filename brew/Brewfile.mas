@@ -6,8 +6,10 @@ mas "Bitwarden", id: 1352778147
 mas "CADReader", id: 1484905765
 mas "CapCut", id: 1500855883
 mas "Dato", id: 1470584107
+mas "DaVinci Resolve", id: 571213070
 mas "Disk Speed Test", id: 425264550
 mas "DiskO", id: 1322465647
+mas "Duplicate Cleaner For iPhoto", id: 586862299
 mas "Elmedia Player", id: 937759555
 mas "Endel", id: 1484348796
 mas "Evernote", id: 406056744
@@ -22,6 +24,7 @@ mas "Kindle", id: 302584613
 mas "Kronos Time Tracker", id: 1069739356
 mas "Lookupper", id: 1667225994
 mas "Mactracker", id: 430255202
+mas "Media Station X", id: 1363036077
 mas "Microsoft OneNote", id: 784801555
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft To Do", id: 1274495053
@@ -29,6 +32,9 @@ mas "MindNode", id: 1289197285
 mas "Monosnap", id: 540348655
 mas "MuteKey", id: 1509590766
 mas "Outline", id: 1356178125
+mas "Photo Duplicate Cleaner", id: 1538739446
+mas "Photomator", id: 1444636541
+mas "Photos Duplicate Cleaner", id: 592704001
 mas "Pocket", id: 568494494
 mas "PostureReminder", id: 1574005886
 mas "Radio", id: 991729082
@@ -40,6 +46,7 @@ mas "SitWit", id: 1503879351
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "Speedtest", id: 1153157709
+mas "TapRecord", id: 1624223891
 mas "Telegram", id: 747648890
 mas "TestFlight", id: 899247664
 mas "The Unarchiver", id: 425424353
