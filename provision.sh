@@ -16,9 +16,6 @@ defaults write com.apple.TextEdit RichText -bool false
 echo ">>> Exclude Downloads from Time Machine"
 tmutil addexclusion ~/Downloads
 
-echo ">>> Link private configs from iCloud"
-ln -sf /Users/ccbe/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/zshrc_custom ~/.zshrc_custom
-
 echo ">>> Link public configs from GitHub"
 find ${ASSETS_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
     FILE_PATH=$(echo "$line" | sed "s|^${ASSETS_FOLDER}/||")
