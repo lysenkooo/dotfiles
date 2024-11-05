@@ -15,6 +15,9 @@ mackup backup -f && mackup uninstall
 ```sh
 rm -rf ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/.my/ssh ~/.ssh
+cp '~/Mobile Documents/com~apple~CloudDocs/.backup/zshrc_custom' ~/.zshrc_custom
+cp -r
+
 chmod 0600 ~/.ssh/*
 git clone git@github.com:lysenkooo/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
