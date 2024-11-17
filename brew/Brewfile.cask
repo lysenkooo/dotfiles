@@ -18,6 +18,8 @@ cask "blackhole-2ch"
 cask "bruno"
 # E-books management software
 cask "calibre"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
 # Tool to list all active shortcuts of the current application
 cask "cheatsheet"
 # Automated testing of webapps for Google Chrome
