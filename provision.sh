@@ -35,11 +35,11 @@ find ${ASSETS_FOLDER} -type f -print0 | while IFS= read -r -d '' line; do
     ln -sf "$SRC_PATH" "$DST_PATH"
 done
 
-echo ">>> Setup root daemons"
-sudo cp ${MISC_FOLDER}/Library/LaunchDaemons/com.ccbe.KeyRemapping.plist /Library/LaunchDaemons/
-sudo chmod 0644 /Library/LaunchDaemons/com.ccbe.KeyRemapping.plist
-sudo cp ${MISC_FOLDER}/Library/LaunchDaemons/com.ccbe.TTL.plist /Library/LaunchDaemons/
-sudo chmod 0644 /Library/LaunchDaemons/com.ccbe.TTL.plist
+echo ">>> Setup startup daemon"
+sudo cp ${MISC_FOLDER}/usr/local/sbin/startup.sh /usr/local/sbin/startup
+sudo chmod 0755 /usr/local/sbin/startup
+sudo cp ${MISC_FOLDER}/Library/LaunchDaemons/com.ccbe.startup.plist /Library/LaunchDaemons/
+sudo chmod 0644 /Library/LaunchDaemons/com.ccbe.startup.plist
 
 if [ ! -x /usr/bin/gcc ]; then
     echo "Installing Command Line Tools..."
@@ -57,7 +57,9 @@ if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
 fi
 
 echo ">>> Remove WireGuard from autoload"
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app > /dev/null 2>&1 || true
+if [ -f /Applications/WireGuard.app ]; then
+    /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -R -f -u /Applications/WireGuard.app
+fi
 
 echo ">>> Create git ~/.mackup/data folder"
 mkdir -p ~/.mackup/data
@@ -74,4 +76,4 @@ cd ~/.mackup
 git init || true
 
 echo ">>> Create developemnt folder"
-mkdir -p ~/Dev
+mkdir -p ~/Eng
