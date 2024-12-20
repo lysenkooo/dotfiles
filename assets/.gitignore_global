@@ -4,7 +4,7 @@
 .tags
 .mise.toml
 .ruby-version
-*.snip
+.github/copilot-instructions.md
 xcuserdata
 coverage
 node_modules
@@ -12,3 +12,4 @@ npm-debug.log*
 *.log
 *.retry
 *.ignore*
+*.snip
