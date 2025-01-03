@@ -60,6 +60,8 @@ cask "keyboardcleantool"
 cask "lens"
 # Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
+# Break time reminder app
+cask "lookaway"
 # Screen and video recording software
 cask "loom"
 # Native app email client for Gmail
@@ -86,6 +88,8 @@ cask "openlens"
 cask "orbstack"
 # Tool to create and manage Outline servers, powered by Shadowsocks
 cask "outline-manager"
+# Utility to uninstall apps and remove leftover files from old/uninstalled apps
+cask "pearcleaner"
 # Collaboration platform for API development
 cask "postman"
 # Move and resize windows using keyboard shortcuts or snap areas
