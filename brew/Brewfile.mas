@@ -1,13 +1,11 @@
 mas "Amphetamine", id: 937984704
 mas "AudioBookBinder", id: 413969927
 mas "Be Focused Pro", id: 961632517
-mas "Billable", id: 1549238888
 mas "Bitwarden", id: 1352778147
 mas "CADReader", id: 1484905765
 mas "CapCut", id: 1500855883
 mas "Dato", id: 1470584107
 mas "DaVinci Resolve", id: 571213070
-mas "Disk Speed Test", id: 425264550
 mas "Elmedia Player", id: 937759555
 mas "Endel", id: 1484348796
 mas "Evernote", id: 406056744
@@ -33,17 +31,14 @@ mas "MuteKey", id: 1509590766
 mas "Outline", id: 1356178125
 mas "Photomator", id: 1444636541
 mas "Photos Duplicate Cleaner", id: 592704001
-mas "Pocket", id: 568494494
 mas "PostureReminder", id: 1574005886
 mas "Radio", id: 991729082
 mas "rcmd", id: 1596283165
 mas "Rocket.Chat", id: 1086818840
-mas "Shazam", id: 897118787
 mas "SingularityApp", id: 1481535767
 mas "SitWit", id: 1503879351
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
-mas "Speedtest", id: 1153157709
 mas "TapRecord", id: 1624223891
 mas "Telegram", id: 747648890
 mas "TestFlight", id: 899247664

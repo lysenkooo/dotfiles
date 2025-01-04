@@ -58,6 +58,8 @@ cask "itermai"
 cask "kap"
 # Blocks all Keyboard and TouchBar input
 cask "keyboardcleantool"
+# Utility that shows the latest app updates
+cask "latest"
 # Kubernetes IDE
 cask "lens"
 # Privacy-first, open-source platform for knowledge sharing and management
@@ -72,6 +74,8 @@ cask "mimestream"
 cask "miro"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# Open-source, low-latency, high quality voice chat software for gaming
+cask "mumble"
 # App to write, plan, collaborate, and get organised
 cask "notion"
 # Calendar for professionals and teams
@@ -114,6 +118,8 @@ cask "steam"
 cask "sublime-text"
 # Sync and backup service to Synology NAS drives
 cask "synology-drive"
+# Voice communication client
+cask "teamspeak-client"
 # JDK from the Eclipse Foundation (Adoptium)
 cask "temurin"
 # JDK from the Eclipse Foundation (Adoptium)
