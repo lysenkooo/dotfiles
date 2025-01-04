@@ -26,6 +26,8 @@ cask "cheatsheet"
 cask "chromedriver"
 # Column-oriented database management system
 cask "clickhouse"
+# Image, video and clipboard optimiser
+cask "clop"
 # Allows switching between application windows
 cask "contexts"
 # Write, edit, and chat about your code with AI
