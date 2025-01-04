@@ -94,6 +94,8 @@ cask "openlens"
 cask "orbstack"
 # Tool to create and manage Outline servers, powered by Shadowsocks
 cask "outline-manager"
+# Monitors computer mic and webcam
+cask "oversight"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
 # Collaboration platform for API development
