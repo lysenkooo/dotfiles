@@ -96,6 +96,12 @@ Use `crontab -e` to add:
 9 * * * * find -E Eng -type d -iregex '.+\/(node_modules|tmp|log)$' -prune -print -exec tmutil addexclusion {} \; >> /tmp/cron-tmutil.log 2>&1
 ```
 
+Root:
+
+```
+* * * * * sudo hidutil property --matching '{"ProductID":0x29a}' --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
+```
+
 ### Time Machine with SSD
 
 ```sh
