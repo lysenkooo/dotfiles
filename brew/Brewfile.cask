@@ -1,5 +1,3 @@
-# Menu bar tool to limit maximum charging percentage
-cask "aldente"
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab
