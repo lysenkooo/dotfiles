@@ -104,6 +104,8 @@ cask "postman"
 cask "rectangle"
 # Tool to reverse the direction of scrolling
 cask "scroll-reverser"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
 # Tunneling proxy
 cask "shadowsocksx-ng"
 # Screenshot measurement and annotation tool
