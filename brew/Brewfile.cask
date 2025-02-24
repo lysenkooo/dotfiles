@@ -148,6 +148,8 @@ cask "warp"
 cask "wave"
 # Network protocol analyzer
 cask "wireshark"
+# Mind mapping and brainstorming tool
+cask "xmind"
 # Web browser
 cask "yandex"
 # Cloud storage
