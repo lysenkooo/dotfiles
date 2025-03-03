@@ -800,8 +800,8 @@ function a2b(a) {
 }
 
 function FindProxyForURL(url, host) {
-  for (let customizedDomain in customized) {
-    if (host === customizedDomain || host.endsWith('.' + customizedDomain)) {
+  for (var customizedDomain in customized) {
+    if (host === customizedDomain || host.indexOf('.' + customizedDomain) === host.length - customizedDomain.length - 1) {
       return customized[customizedDomain] === 'PROXY'
         ? 'HTTP 127.0.0.1:1080; SOCKS5 127.0.0.1:1080; PROXY 127.0.0.1:1080; DIRECT'
         : 'DIRECT';
