@@ -8,6 +8,8 @@ cask "alt-tab"
 cask "anydesk"
 # Application uninstaller
 cask "appcleaner"
+# Audio utility
+cask "background-music"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
 # Online workspace for your business
