@@ -8,6 +8,8 @@ cask "alt-tab"
 cask "anydesk"
 # Application uninstaller
 cask "appcleaner"
+# Chromium based browser
+cask "arc"
 # Audio utility
 cask "background-music"
 # Cross platform SQL editor and database management app
