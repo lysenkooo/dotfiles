@@ -113,9 +113,9 @@ sudo tmutil setdestination /Volumes/TM
 ### Proxy Settings
 
 ```sh
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-min.conf
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-def.conf
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-min.conf
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-def.conf
 https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/pac.js
-https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-min.js
-https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-main.js
-https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-min.js
-https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-main.js
 ```
