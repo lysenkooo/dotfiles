@@ -109,3 +109,13 @@ hdiutil create -type SPARSEBUNDLE -fs "HFS+J" -size 300g -volname TM-Air /Volume
 open /Volumes/SSD/TM.sparsebundle
 sudo tmutil setdestination /Volumes/TM
 ```
+
+### Proxy Settings
+
+```sh
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/pac.js
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-min.js
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-main.js
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-min.js
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-main.js
+```
