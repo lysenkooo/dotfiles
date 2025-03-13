@@ -115,7 +115,7 @@ sudo tmutil setdestination /Volumes/TM
 ```sh
 https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-min.conf
 https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/home-def.conf
-https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-min.conf
-https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cellar-def.conf
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cell-min.conf
+https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/cell-def.conf
 https://raw.githubusercontent.com/lysenkooo/dotfiles/refs/heads/master/proxy/pac.js
 ```
