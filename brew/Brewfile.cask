@@ -6,6 +6,8 @@ cask "alfred"
 cask "alt-tab"
 # Allows connection to a computer remotely
 cask "anydesk"
+# Local-first and end-to-end encrypted notes app
+cask "anytype"
 # Application uninstaller
 cask "appcleaner"
 # Chromium based browser
