@@ -12,8 +12,6 @@ brew "bison"
 brew "bottom"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
 # Core application library for C
 brew "glib"
 # GNU compiler collection
@@ -28,16 +26,6 @@ brew "chruby"
 brew "cloc"
 # Cross-platform make
 brew "cmake"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
-# Generic machine emulator and virtualizer
-brew "qemu"
-# Linux virtual machines
-brew "lima"
-# Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Synchronize your DNS to multiple providers from a simple DSL
@@ -50,12 +38,18 @@ brew "docker-buildx"
 brew "docker-compose"
 # Utilities for the ext2, ext3, and ext4 file systems
 brew "e2fsprogs"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Library for JPEG-2000 image manipulation
 brew "openjpeg"
 # Image processing and image analysis library
 brew "leptonica"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Subtitle renderer for the ASS/SSA subtitle format
 brew "libass"
 # Light HTTP/1.1 server library
@@ -104,8 +98,14 @@ brew "jq"
 brew "kubernetes-cli"
 # Simple terminal UI for git commands
 brew "lazygit"
+# EXIF parsing library
+brew "libexif"
 # Portable Foreign Function Interface library
 brew "libffi"
+# Postgres C API library
+brew "libpq"
+# Linux virtual machines
+brew "lima"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Mac App Store command-line interface
@@ -122,8 +122,6 @@ brew "mtr"
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx"
 # Port scanning utility for large networks
 brew "nmap"
 # Manage multiple Node.js versions
@@ -132,18 +130,14 @@ brew "nvm"
 brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
-# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
-brew "openvpn"
 # Terminal multiplexer
 brew "tmux"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
-# Manage compile and link flags for libraries
-brew "pkg-config"
-# Object-relational database system
-brew "postgresql@15", restart_service: true
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # Show ps output as a tree
 brew "pstree"
 # Password generator
@@ -152,10 +146,10 @@ brew "pwgen"
 brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Generic machine emulator and virtualizer
+brew "qemu"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
-# Persistent key-value database, with built-in net interface
-brew "redis"
 # Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
 brew "ruby-install"
 # Safe, concurrent, practical language
@@ -169,13 +163,15 @@ brew "sstp-client"
 # User interface to the TELNET protocol
 brew "telnet"
 # CLI tool to generate terraform files from existing infrastructure
-brew "terraformer"
+brew "terraformer", args: ["HEAD"]
 # Thin wrapper for Terraform e.g. for locking state
 brew "terragrunt"
 # Linter for Terraform files
 brew "tflint"
 # Simplified and community-driven man pages
 brew "tldr"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
 # Internet file retriever
 brew "wget"
 # Show the current WiFi network password
