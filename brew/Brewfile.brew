@@ -160,6 +160,8 @@ brew "smartmontools"
 brew "ssh-copy-id"
 # SSTP (Microsoft's Remote Access Solution for PPP over SSL) client
 brew "sstp-client"
+# Traceroute implementation using TCP packets
+brew "tcptraceroute"
 # User interface to the TELNET protocol
 brew "telnet"
 # CLI tool to generate terraform files from existing infrastructure
