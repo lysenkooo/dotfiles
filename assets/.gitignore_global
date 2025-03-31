@@ -4,6 +4,7 @@
 .tags
 .mise.toml
 .ruby-version
+.cursorignore
 .github/copilot-instructions.md
 xcuserdata
 coverage
