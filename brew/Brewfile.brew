@@ -186,6 +186,8 @@ brew "youtube-dl"
 brew "zsh-completions"
 # Command-line interface to JMESPath, a query language for JSON
 brew "jmespath/jmespath/jp"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # Identify potentially unused code
 brew "unused-code/formulae/unused"
 # The tfswitch command lets you switch between terraform versions.
