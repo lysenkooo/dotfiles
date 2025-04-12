@@ -1,5 +1,7 @@
 # All-in-one AI-Powered CLI Chat & Copilot
 brew "aichat"
+# Download with resuming and segmented downloading
+brew "aria2"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Nuke a whole AWS account and delete all its resources
