@@ -149,7 +149,7 @@ brew "pwgen"
 # Python version management
 brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
+brew "python@3.11", link: false
 # Generic machine emulator and virtualizer
 brew "qemu"
 # Reattach process (e.g., tmux) to background
@@ -160,6 +160,8 @@ brew "ruby-install"
 brew "rust"
 # SMART hard drive monitoring
 brew "smartmontools"
+# Cross-platform application to monitor your network traffic
+brew "sniffnet"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # SSTP (Microsoft's Remote Access Solution for PPP over SSL) client
