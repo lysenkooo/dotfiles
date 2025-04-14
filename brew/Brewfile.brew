@@ -107,7 +107,7 @@ brew "libexif"
 # Portable Foreign Function Interface library
 brew "libffi"
 # Postgres C API library
-brew "libpq"
+brew "libpq", link: true
 # Linux virtual machines
 brew "lima"
 # Next-gen compiler infrastructure
