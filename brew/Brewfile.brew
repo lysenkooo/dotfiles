@@ -178,6 +178,8 @@ brew "terragrunt"
 brew "tflint"
 # Simplified and community-driven man pages
 brew "tldr"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
