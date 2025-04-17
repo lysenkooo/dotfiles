@@ -4,8 +4,8 @@ DT=$(date -u '+%y%m%d%H%M%S')
 SD=$(dirname "$0")
 SN=$(basename "$0")
 
-rsync -av --delete --exclude .git "$HOME/.dotfiles" "$HOME/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles/"
-rsync -av --delete --exclude .git "$HOME/.mackup/" "$HOME/Library/Mobile Documents/com~apple~CloudDocs/.mackup/"
+rsync -av --delete --exclude .git "$HOME/.dotfiles/" "$HOME/Library/Mobile Documents/com~apple~CloudDocs/.dotfiles"
+rsync -av --delete --exclude .git "$HOME/.mackup/" "$HOME/Library/Mobile Documents/com~apple~CloudDocs/.mackup"
 
 echo "> Brew"
 cd "$SD"
