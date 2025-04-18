@@ -9,9 +9,9 @@ rsync -av --delete --exclude .git "$HOME/.mackup/" "$HOME/Library/Mobile Documen
 
 echo "> Brew"
 cd "$SD"
-/opt/homebrew/bin/brew bundle dump -d -f --describe --mas --file brew/Brewfile.mas
-/opt/homebrew/bin/brew bundle dump -d -f --describe --cask --file brew/Brewfile.cask
-/opt/homebrew/bin/brew bundle dump -d -f --describe --formula --file brew/Brewfile.brew
+/opt/homebrew/bin/brew bundle dump -d -f --mas --file brew/Brewfile.mas
+/opt/homebrew/bin/brew bundle dump -d -f --cask --file brew/Brewfile.cask
+/opt/homebrew/bin/brew bundle dump -d -f --formula --file brew/Brewfile.brew
 git add .
 git commit -a -m "${DT}" || true
 git push
